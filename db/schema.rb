@@ -15,6 +15,145 @@ ActiveRecord::Schema.define(version: 2020_12_29_204233) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.text "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.text "key", null: false
+    t.text "filename", null: false
+    t.text "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.text "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "blue_areas", force: :cascade do |t|
+    t.text "coordinates"
+    t.bigint "image_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_blue_areas_on_image_id"
+  end
+
+  create_table "green_areas", force: :cascade do |t|
+    t.text "coordinates"
+    t.bigint "image_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_green_areas_on_image_id"
+  end
+
+  create_table "image_sessions", force: :cascade do |t|
+    t.integer "greenRight"
+    t.integer "blueRight"
+    t.integer "greenWrong"
+    t.integer "blueWrong"
+    t.integer "colorlessWrong"
+    t.integer "greenLeft"
+    t.integer "blueLeft"
+    t.bigint "image_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_id"], name: "index_image_sessions_on_image_id"
+    t.index ["user_id"], name: "index_image_sessions_on_user_id"
+  end
+
+  create_table "image_sets", force: :cascade do |t|
+    t.text "cervical_biopsies"
+    t.text "ECC"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.text "img_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "image_set_id"
+    t.index ["image_set_id"], name: "index_images_on_image_set_id"
+  end
+
+  create_table "post_surveys", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "Q1", null: false
+    t.text "Q2", null: false
+    t.text "Q3", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_post_surveys_on_user_id"
+  end
+
+  create_table "pre_surveys", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "Q1", null: false
+    t.text "Q2", null: false
+    t.text "Q3", null: false
+    t.text "Q4", null: false
+    t.text "Q5", null: false
+    t.text "Q6_Lectures"
+    t.text "Q6_Online_modules"
+    t.text "Q6_Hands_on_simulation"
+    t.text "Q6_Web_based_simulation"
+    t.text "Q6_Chalk_talk"
+    t.text "Q6_Case_based_teaching"
+    t.text "Q6_Other"
+    t.text "Q6_Other_value"
+    t.text "Q7", null: false
+    t.text "Q8", null: false
+    t.text "Q9", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_pre_surveys_on_user_id"
+  end
+
+  create_table "test_answers", force: :cascade do |t|
+    t.bigint "test_id"
+    t.text "letter"
+    t.text "answer"
+    t.boolean "correct"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_id"], name: "index_test_answers_on_test_id"
+  end
+
+  create_table "test_options", force: :cascade do |t|
+    t.bigint "test_question_id"
+    t.text "letter"
+    t.text "text"
+    t.text "img_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_question_id"], name: "index_test_options_on_test_question_id"
+  end
+
+  create_table "test_questions", force: :cascade do |t|
+    t.boolean "active"
+    t.text "question"
+    t.text "correct_ans"
+    t.text "img_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.boolean "pre_test"
+    t.integer "questions_correct"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tests_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -28,4 +167,7 @@ ActiveRecord::Schema.define(version: 2020_12_29_204233) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "image_sessions", "images"
+  add_foreign_key "image_sessions", "users"
 end

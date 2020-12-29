@@ -1,0 +1,31 @@
+<%= form_with(model: test, local: true) do |form| %>
+
+<%= form.hidden_field :user_id, value: current_user.id %>
+<%= form.hidden_field :pre_test, value: true %>
+<%= form.hidden_field :questions_correct, value: 1 %>
+
+  Welcome to your Test! Here are directions:
+
+  <ol type="1">
+  <% @test_questions.each do |test_question| %>
+   <!-- question -->
+   <li>
+   <%= render 'test_questions/test_questions', test_question: test_question %>
+
+   <!-- answer choices and options-->
+   <ul style="list-style-type:none;">
+   <%= form.fields_for :test_answer do |answers_form| %>
+      <% test_question.test_options.each do |test_option| %>
+        <li> <%= answers_form.radio_button :letter, test_option.letter%>
+        <%= render 'test_options/test_options', test_option: test_option %> </li>
+     <%end%> <!--end options-->
+  </ul>
+   <% end %> <!--end test answer--->
+  <%end%> <!-- end question-->
+</ol>
+
+
+<div class="actions">
+ <%= form.submit %>
+</div>
+<% end %>
