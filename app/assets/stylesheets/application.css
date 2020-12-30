@@ -72,13 +72,3 @@ p {
   font-size: 1.5vw;
   text-align: center;
 }
-
-
-
-
-/* CSS HSL */
---cadet-grey: hsla(211, 11%, 64%, 1);
---white: hsla(0, 0%, 100%, 1);
---pale-cerulean: hsla(204, 70%, 76%, 1);
---shadow-blue: hsla(207, 26%, 52%, 1);
---charcoal: hsla(208, 26%, 24%, 1);
