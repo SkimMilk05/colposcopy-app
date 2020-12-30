@@ -122,62 +122,62 @@ Q4F = TestOption.create(test_question: Q4, letter: 'F', text: 'High oncogenic HP
 
 #Question 26
 Q26 = TestQuestion.create(active: true, question: 'Choose the photo with ABNORMAL findings (all photos taken after application of acetic acid):', correct_ans: 'C')
-Q26A = TestOption.create(test_question: Q26, letter: 'A', img_url: '26A')
-Q26B = TestOption.create(test_question: Q26, letter: 'B', img_url: '26B')
-Q26C = TestOption.create(test_question: Q26, letter: 'C', img_url: '26C')
-Q26D = TestOption.create(test_question: Q26, letter: 'D', img_url: '26D')
+Q26A = TestOption.create(test_question: Q26, letter: 'A', img_url: '26A.png')
+Q26B = TestOption.create(test_question: Q26, letter: 'B', img_url: '26B.png')
+Q26C = TestOption.create(test_question: Q26, letter: 'C', img_url: '26C.png')
+Q26D = TestOption.create(test_question: Q26, letter: 'D', img_url: '26D.png')
 
 #Question 27
 Q27 = TestQuestion.create(active: true, question: 'Which of the following photos has normal blood vessels?', correct_ans: 'B')
-Q27A = TestOption.create(test_question: Q27, letter: 'A', img_url: '27A')
-Q27B = TestOption.create(test_question: Q27, letter: 'B', img_url: '27B')
-Q27C = TestOption.create(test_question: Q27, letter: 'C', img_url: '27C')
-Q27D = TestOption.create(test_question: Q27, letter: 'D', img_url: '27D')
+Q27A = TestOption.create(test_question: Q27, letter: 'A', img_url: '27A.png')
+Q27B = TestOption.create(test_question: Q27, letter: 'B', img_url: '27B.png')
+Q27C = TestOption.create(test_question: Q27, letter: 'C', img_url: '27C.png')
+Q27D = TestOption.create(test_question: Q27, letter: 'D', img_url: '27D.png')
 
 #Question 28
 Q28 = TestQuestion.create(active: true, question: 'Which of the following photos has findings consistent with HIGH GRADE dysplasia?', correct_ans: 'A')
-Q28A = TestOption.create(test_question: Q28, letter: 'A', img_url: '28A')
-Q28B = TestOption.create(test_question: Q28, letter: 'B', img_url: '28B')
-Q28C = TestOption.create(test_question: Q28, letter: 'C', img_url: '28C')
-Q28D = TestOption.create(test_question: Q28, letter: 'D', img_url: '28D')
+Q28A = TestOption.create(test_question: Q28, letter: 'A', img_url: '28A.png')
+Q28B = TestOption.create(test_question: Q28, letter: 'B', img_url: '28B.png')
+Q28C = TestOption.create(test_question: Q28, letter: 'C', img_url: '28C.png')
+Q28D = TestOption.create(test_question: Q28, letter: 'D', img_url: '28D.png')
 
 #Question 29
 Q29 = TestQuestion.create(active: true, question: 'Which of the following photos has findings consistent with LOW GRADE dysplasia?', correct_ans: 'B')
-Q29A = TestOption.create(test_question: Q29, letter: 'A', img_url: '29A')
-Q29B = TestOption.create(test_question: Q29, letter: 'B', img_url: '29B')
-Q29C = TestOption.create(test_question: Q29, letter: 'C', img_url: '29C')
-Q29D = TestOption.create(test_question: Q29, letter: 'D', img_url: '29D')
+Q29A = TestOption.create(test_question: Q29, letter: 'A', img_url: '29A.png')
+Q29B = TestOption.create(test_question: Q29, letter: 'B', img_url: '29B.png')
+Q29C = TestOption.create(test_question: Q29, letter: 'C', img_url: '29C.png')
+Q29D = TestOption.create(test_question: Q29, letter: 'D', img_url: '29D.png')
 
 #######Q 30-39 ARE OF THE SAME GROUP //MAYBE USE A FOR LOOP?
    #Question 30
-   Q30 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'D', img_url: '30')
+   Q30 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'D', img_url: '30.png')
 
    #Question 31
-   Q31 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'B', img_url: '30')
+   Q31 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'B', img_url: '30.png')
 
    #Question 32
-   Q32 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'C', img_url: '32')
+   Q32 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'C', img_url: '32.png')
 
    #Question 33
-   Q33 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'A', img_url: '32')
+   Q33 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'A', img_url: '32.png')
 
    #Question 34
-   Q34 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'A', img_url: '34')
+   Q34 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'A', img_url: '34.png')
 
    #Question 35
-   Q35 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'A', img_url: '34')
+   Q35 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'A', img_url: '34.png')
 
    #Question 36
-   Q36 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'E', img_url: '36')
+   Q36 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'E', img_url: '36.png')
 
    #Question 37
-   Q37 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'B', img_url: '36')
+   Q37 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'B', img_url: '36.png')
 
    #Question 38
-   Q38 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'B', img_url: '38')
+   Q38 = TestQuestion.create(active: true, question: 'Please identify the following findings in the photo:', correct_ans: 'B', img_url: '38.png')
 
    #Question 39
-   Q39 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'B', img_url: '38')
+   Q39 = TestQuestion.create(active: true, question: 'Label the photo as suggestive of low or high grade findings:', correct_ans: 'B', img_url: '38.png')
 
 
 
