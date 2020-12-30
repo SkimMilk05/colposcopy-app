@@ -13,18 +13,35 @@
  *= require_tree .
  *= require_self
  */
+ /* COLORS */
+ /* CSS HEX */
+ :root {
+ --cadet-grey: #99a3aeff;
+ --white: #ffffffff;
+ --pale-cerulean: #99cbedff;
+ --shadow-blue: #6689a5ff;
+ --charcoal: #2d3e4dff;
+ }
+ /* to use colors:
+ use var(...) function
+ .my-green-component{
+     background-color: var(--english-green-color);
+ }
+ */
 
-.invisible-button {
-  background: transparent;
-  border: none !important;
+
+.navbar-custom {
+    background-color: var(--shawdow-blue);
 }
 
-.hide {
-  display: none;
-}
+
+body {
+    font-family: 'Courier New', monospace;
+ }
 
 h1 {
   font-size: 4.5vw;
+  color: var(--charcoal)
 }
 
 h3 {
@@ -35,11 +52,33 @@ p {
   font-size: 2vw;
 }
 
-body {
-  font-size: 1vw;
+.centered-img {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
 }
+
+.invisible-button {
+  background: transparent;
+  border: none !important;
+}
+
+.hide {
+  display: none;
+}
+
 
 #v-pills-tab {
   font-size: 1.5vw;
   text-align: center;
 }
+
+
+
+
+/* CSS HSL */
+--cadet-grey: hsla(211, 11%, 64%, 1);
+--white: hsla(0, 0%, 100%, 1);
+--pale-cerulean: hsla(204, 70%, 76%, 1);
+--shadow-blue: hsla(207, 26%, 52%, 1);
+--charcoal: hsla(208, 26%, 24%, 1);

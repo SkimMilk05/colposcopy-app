@@ -1,4 +1,23 @@
-<h1>General Landing Page for the Colposcopy Education App</h1>
+<!-- A horizontal navbar that becomes vertical on small screens -->
+<nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-right">
+  <!--logo-->
+  <a class="navbar-brand" href="#">
+   <%= image_tag("ColPractLogo.png", style: "width:10%;") %>
+   </a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li>
+      <%= link_to "Sign in", sign_in_path %>
+    </li>
+  </ul>
+</nav>
+
+<!-- logo banner -->
+<div class="container-fluid">
+  <%= image_tag("ColPractBanner.png", style: 'width:150%')%>
+</div>
+
+<h1>Practice Colposcopy Online</h1>
 <p>Generic landing page</p>
 <p> Information here </p>
-<%= link_to "Sign in", sign_in_path %>
