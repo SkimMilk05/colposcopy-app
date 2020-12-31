@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
  /* COLORS */
  /* CSS HEX */
  :root {
@@ -50,6 +51,7 @@ h3 {
 
 p {
   font-size: 2vw;
+  font-family: 'Courier New', monospace;
 }
 
 .centered-img {
@@ -62,6 +64,7 @@ p {
   background: transparent;
   border: none !important;
 }
+
 
 .hide {
   display: none;
