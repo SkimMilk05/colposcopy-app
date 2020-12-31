@@ -38,35 +38,50 @@
 a {
    font-family: 'Courier New', monospace;
 }
+footer {
+  text-align: center;
+  background-color: grey;
+  color: white;
+}
+
 body {
     font-family: 'Courier New', monospace;
- }
+    padding-top: 70px;
+}
+
 
 h1 {
-  font-size: 4.5vw;
   color: var(--charcoal)
 }
 
-h3 {
-  font-size: 2.5vw;
-}
-
 p {
-  font-size: 2vw;
   font-family: 'Courier New', monospace;
 }
 
-.centered-img {
+
+.centered-image {
    display: block;
    margin-left: auto;
    margin-right: auto;
+}
+
+.center-div {
+   display: flex;
+   justify-content: center;
+}
+
+#landing-image {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 90%;
+   vertical-align: middle;
 }
 
 .invisible-button {
   background: transparent;
   border: none !important;
 }
-
 
 .hide {
   display: none;

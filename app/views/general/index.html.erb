@@ -1,23 +1,26 @@
-<div>
-   <!-- A horizontal navbar that becomes vertical on small screens -->
-<nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-right">
-  <!--logo-->
-  <a class="navbar-brand">
-   <%= image_tag("ColPractLogo.png", style: "width:100px") %>
-   </a>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h1> Col|Pract</h1>
+      <h2>Practice Colposcopy Online</h2>
+      <h4><%= link_to "> Get Started", sign_up_path %></h4>
 
-  <!-- Links -->
-  <ul class="navbar-nav">
-    <li>
-      <%= link_to "Sign in", sign_in_path %>
-    </li>
-  </ul>
-</nav>
-</div>
+    </div>
+    <div class="col-sm">
+      <%= image_tag("ComputerColorful.jpg", id: "landing-image") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <br/><br/><br/><br/><br/><br/><br/>
+  </div>
 
 
-<div>
-<h1>Practice Colposcopy Online</h1>
-<p>Generic landing page</p>
-<p> Information here </p>
+  <div class="row">
+    <div class="col-sm">
+      <h3>What is Col|Pract?</h3>
+      <p>ColPract is a web application developed by a collboration between the Univeristy of Virginia Gynecology and University of Virgina's Dependable Systems and Analytics Lab.</p>
+      <p>It was made for the purpose to help medical students and residents strengthen their skills in Colposcopy.</p>
+    </div>
+  </div>
 </div>
