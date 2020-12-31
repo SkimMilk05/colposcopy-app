@@ -35,7 +35,9 @@
     background-color: var(--shawdow-blue);
 }
 
-
+a {
+   font-family: 'Courier New', monospace;
+}
 body {
     font-family: 'Courier New', monospace;
  }
