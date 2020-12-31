@@ -144,7 +144,7 @@ Q28D = TestOption.create(test_question: Q28, letter: 'D', img_url: '28D.png')
 #Question 29
 Q29 = TestQuestion.create(active: true, question: 'Which of the following photos has findings consistent with LOW GRADE dysplasia?', correct_ans: 'B')
 Q29A = TestOption.create(test_question: Q29, letter: 'A', img_url: '29A.png')
-Q29B = TestOption.create(test_question: Q29, letter: 'B', img_url: '29B.png')
+Q29B = TestOption.create(test_question: Q29, letter: 'B', img_url: '29B.jpg')
 Q29C = TestOption.create(test_question: Q29, letter: 'C', img_url: '29C.png')
 Q29D = TestOption.create(test_question: Q29, letter: 'D', img_url: '29D.png')
 
