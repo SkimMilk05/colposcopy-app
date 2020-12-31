@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+   #clearance default#############
+  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  resource :session, controller: "clearance/sessions", only: [:create]
+
+  resources :users, controller: "clearance/users", only: [:create] do
+    resource :password,
+      controller: "clearance/passwords",
+      only: [:edit, :update]
+  end
+
+  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
+  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  get "/sign_up" => "clearance/users#new", as: "sign_up"
+  ####################################
+
   resources :post_surveys
   resources :pre_surveys
   resources :tests
@@ -15,35 +31,6 @@ Rails.application.routes.draw do
   #root to: 'general#index'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  ##clearance default ###################################################
-  Clearance.configure do |config|
-    config.routes = false
-  end
-
-  resources :passwords,
-  controller: 'clearance/passwords',
-  only: [:create, :new]
-
-  resource :session,
-  controller: 'clearance/sessions',
-  only: [:create]
-
-  resources :users,  #had to change this for users
-  controller: 'users',
-  only: Clearance.configuration.user_actions do
-    resource :password,
-    controller: 'clearance/passwords',
-    only: [:edit, :update]
-  end
-
-  get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
-  delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
-
-  if Clearance.configuration.allow_sign_up?
-    get '/sign_up' => 'clearance/users#new', as: 'sign_up'
-  end
-  #################################################################
 
 
   #when you're signed in

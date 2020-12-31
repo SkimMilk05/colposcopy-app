@@ -1,4 +1,4 @@
-class Clearance::SessionsController < Clearance::BaseController
+class SessionsController < Clearance::SessionsController
   before_action :redirect_signed_in_users, only: [:new]
   skip_before_action :require_login, only: [:create, :new, :destroy], raise: false
 
@@ -36,11 +36,13 @@ class Clearance::SessionsController < Clearance::BaseController
     Clearance.configuration.redirect_url
   end
 
+=begin
   def url_after_destroy
-    root_path #TODOOOOOO
+     general_page
   end
+=end
 
   def url_for_signed_in_users
-    url_after_create
+     signed_in_root
   end
 end
