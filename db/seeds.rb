@@ -130,7 +130,7 @@ Q26D = TestOption.create(test_question: Q26, letter: 'D', img_url: '26D.png')
 #Question 27
 Q27 = TestQuestion.create(active: true, question: 'Which of the following photos has normal blood vessels?', correct_ans: 'B')
 Q27A = TestOption.create(test_question: Q27, letter: 'A', img_url: '27A.png')
-Q27B = TestOption.create(test_question: Q27, letter: 'B', img_url: '27B.png')
+Q27B = TestOption.create(test_question: Q27, letter: 'B', img_url: '27B.jpg')
 Q27C = TestOption.create(test_question: Q27, letter: 'C', img_url: '27C.png')
 Q27D = TestOption.create(test_question: Q27, letter: 'D', img_url: '27D.png')
 
