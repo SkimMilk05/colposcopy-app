@@ -1,7 +1,20 @@
-<p id="notice"><%= notice %></p>
+<!--practice session-->
 
-<h1>Image Sets</h1>
-
+<!--navbar-->
+<nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
+   <%= link_to(image_tag("ColPractLogo.png", style: "width:40px"), signed_in_root_url) %>
+   <div>
+      Practice Session
+   </div>
+   <!-- Links -->
+   <ul class="navbar-nav d-flex" id="navbar-item">
+     <li>
+        <div >
+         <%= link_to "Exit Practice", signed_in_root_url %>
+       </div>
+     </li>
+   </ul>
+</nav>
 
 <div id="carousel" class="carousel slide" data-ride="false" data-interval="false" data-wrap="false">
   <div class="carousel-inner">
@@ -32,6 +45,3 @@
     </a>
   </div>
 </div>
-
-<br/>
-<%= link_to 'Exit Practice', signed_in_root_url, class: 'float-right' %>

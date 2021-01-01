@@ -1,41 +1,140 @@
 <!--Dashboard-->
 
+<!--navbar-->
+<nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
+   <!--logo-->
+   <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:40px"), signed_in_root_url) %>
+   <div>
+      Home Page
+   </div>
+   <!-- Links -->
+   <ul class="navbar-nav d-flex" id="navbar-item">
+
+      <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Signed in
+         </a>
+         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item"><%= current_user.first_name %> <%=current_user.last_name %></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item"><%= button_to "Sign out", sign_out_path, method: :delete, class: "invisible-button" %></a>
+         </div>
+      </li>
+   </ul>
+</nav>
+<!--end nav bar-->
+
+<div class="center-div">
+   <h2> Welcome, <%= current_user.first_name %>!</h2>
+</div>
+<br/>
 
 
-   <h2> Home Page -Dashboard </h2>
-   <p> Welcome, <%= current_user.first_name %>! </p>
-   <br/>
-   <%= button_to "Practice", image_sets_path, method: :get %>
-   <br/>
-   <%= link_to "Glossary", 'glossary' %>
-   <br/><br/>
-   <%= button_to 'TakePreTest', new_test_path, method: :get %>
-     <%= button_to('Take PostTest', tests_path, params: {user_id: current_user.id, pre_test: false, questions_correct: 0 }, method: :post, class:'')%>
+<!-- start page content-->
+<div class="container">
+   <div class="card-deck">
+      <div class="card text-left w-60">
+         <div class="row card-body">
+            <div class="col-sm-8">
+               <h5 class="card-title">Start a Practice Session</h5>
+               <p class="card-text">Polish your procedure for Colposcopy through an online simulation with feedback</p>
+            </div>
+            <div class="col-sm-4">
+               <%= image_tag("HeartAndMouse.png", style: "width:100%;") %>
+            </div>
+         </div>
+         <div class="card-footer text-muted">
+            <%= link_to "Practice", image_sets_path %>
+         </div>
+      </div>
 
-     <%= button_to 'TakePreSurvey', new_pre_survey_path, method: :get %>
-     <%= button_to 'TakePostSurvey', new_post_survey_path, method: :get %>
+      <div class="card text-left w-60">
+         <div class="row card-body">
+            <div class="col-sm-8">
+               <h5 class="card-title">Go to the Glossary</h5>
+               <p class="card-text">Study and learn the ASCCP Terminology for Colposcopic Practice through a web-based glossary</p>
+            </div>
+            <div class="col-sm-4">
+               <%= image_tag("GlossaryIcon.png", style: "width:100%;") %>
+            </div>
+         </div>
+         <div class="card-footer text-muted">
+            <%= link_to "ASCCP Glossary", 'glossary' %>
+         </div>
+      </div>
+   </div>
 
-   <%#= button_to('Biopsy on Acetowhite', image_sessions_path, params: {user_id: current_user.id, image_id: @images[2].id, greenRight: 0, blueRight: 0, greenWrong: 0, blueWrong:0, colorlessWrong: 0, greenLeft: @images[1].green_areas.length(), blueLeft: @images[1].blue_areas.length()}, method: :post, class:'btn-block')%>
+</div>
 
 
- <div class="collapse" id="changePassword">
+<br/>
+
+<br/><br/>
+<%= button_to 'TakePreTest', new_test_path, method: :get %>
+<%= button_to('Take PostTest', tests_path, params: {user_id: current_user.id, pre_test: false, questions_correct: 0 }, method: :post, class:'')%>
+
+<%= button_to 'TakePreSurvey', new_pre_survey_path, method: :get %>
+<%= button_to 'TakePostSurvey', new_post_survey_path, method: :get %>
+
+<%#= button_to('Biopsy on Acetowhite', image_sessions_path, params: {user_id: current_user.id, image_id: @images[2].id, greenRight: 0, blueRight: 0, greenWrong: 0, blueWrong:0, colorlessWrong: 0, greenLeft: @images[1].green_areas.length(), blueLeft: @images[1].blue_areas.length()}, method: :post, class:'btn-block')%>
+
+
+<div class="collapse" id="changePassword">
    <div class="card card-body">
-     <div id="clearance" class="password-reset">
-      <h3>Change Your Password</h3>
+      <div id="clearance" class="password-reset">
+         <h3>Change Your Password</h3>
 
-      <p>To be emailed a link to change your password, please enter your email address.</p>
+         <p>To be emailed a link to change your password, please enter your email address.</p>
 
-      <%= form_for :password, url: passwords_path do |form| %>
+         <%= form_for :password, url: passwords_path do |form| %>
          <div class="text-field">
-           <%= form.label :email %>
-           <%= form.text_field :email, type: 'email' %>
+            <%= form.label :email %>
+            <%= form.text_field :email, type: 'email' %>
          </div>
 
          <div class="submit-field">
-           <%= form.submit value="Submit"%>
+            <%= form.submit value="Submit"%>
          </div>
-      <% end %>
+         <% end %>
 
+      </div>
+   </div>
+</div>
+
+<footer class="pt-4 my-md-5 pt-md-5 border-top bg-white">
+   <div class="row">
+     <div class="col-12 col-md">
+      <img class="mb-2" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+      <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
+     </div>
+     <div class="col-6 col-md">
+      <h5>Features</h5>
+      <ul class="list-unstyled text-small">
+         <li><a class="text-muted" href="#">Cool stuff</a></li>
+         <li><a class="text-muted" href="#">Random feature</a></li>
+         <li><a class="text-muted" href="#">Team feature</a></li>
+         <li><a class="text-muted" href="#">Stuff for developers</a></li>
+         <li><a class="text-muted" href="#">Another one</a></li>
+         <li><a class="text-muted" href="#">Last time</a></li>
+      </ul>
+     </div>
+     <div class="col-6 col-md">
+      <h5>Resources</h5>
+      <ul class="list-unstyled text-small">
+         <li><a class="text-muted" href="#">Resource</a></li>
+         <li><a class="text-muted" href="#">Resource name</a></li>
+         <li><a class="text-muted" href="#">Another resource</a></li>
+         <li><a class="text-muted" href="#">Final resource</a></li>
+      </ul>
+     </div>
+     <div class="col-6 col-md">
+      <h5>About</h5>
+      <ul class="list-unstyled text-small">
+         <li><a class="text-muted" href="#">Team</a></li>
+         <li><a class="text-muted" href="#">Locations</a></li>
+         <li><a class="text-muted" href="#">Privacy</a></li>
+         <li><a class="text-muted" href="#">Terms</a></li>
+      </ul>
      </div>
    </div>
- </div>
+ </footer>

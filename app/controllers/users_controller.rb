@@ -31,6 +31,9 @@ class UsersController < Clearance::UsersController
  end
 
  def user_from_params
+   first_name = user_params.delete(:first_name) # added name
+   last_name = user_params.delete(:last_name)
+   #school = user_params.delete(:school) #added school
    email = user_params.delete(:email)
    password = user_params.delete(:password)
    first_name = user_params.delete(:first_name) # added name
@@ -47,6 +50,7 @@ class UsersController < Clearance::UsersController
  end
 
  def user_params
-   params[Clearance.configuration.user_parameter] || Hash.new
+   #params[Clearance.configuration.user_parameter] || Hash.new
+   params.require(:user).permit(:first_name, :last_name, :email, :password)
  end
 end
