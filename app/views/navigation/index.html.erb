@@ -1,120 +1,41 @@
-<!-- Dashboard!  -->
+<!--Dashboard-->
 
 
-<!--vertical nav bar-->
-<div class="row">
-  <div class="col-2">
-    <div class="nav nav-pills bg-light" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-      <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
-      <a class="nav-link" id="v-pills-logout-tab" data-toggle="pill" href="#v-pills-logout" role="tab" aria-controls="v-pills-logout" aria-selected="false">Log Out</a>
-      <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
-      <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/> <br/>
-    </div>
-  </div>
 
-  <!--main page content -->
-  <div class="col-8">
+   <h2> Home Page -Dashboard </h2>
+   <p> Welcome, <%= current_user.first_name %>! </p>
+   <br/>
+   <%= button_to "Practice", image_sets_path, method: :get %>
+   <br/>
+   <%= link_to "Glossary", 'glossary' %>
+   <br/><br/>
+   <%= button_to 'TakePreTest', new_test_path, method: :get %>
+     <%= button_to('Take PostTest', tests_path, params: {user_id: current_user.id, pre_test: false, questions_correct: 0 }, method: :post, class:'')%>
 
-    <!--header-->
-    <!----Top Navigation bar -->
-    <nav class="navbar navbar-expand-sm bg-white navbar-light">
-      <!-- Brand/logo -->
-      <a class="navbar-brand">
-       <%= image_tag("ColPractLogo.png", class: 'centered-image', style: 'width:200%')%>
-       Colscopy Education App </a>
-    </nav>
+     <%= button_to 'TakePreSurvey', new_pre_survey_path, method: :get %>
+     <%= button_to 'TakePostSurvey', new_post_survey_path, method: :get %>
 
-    <!--rest of pages content-->
-    <div class="tab-content" id="v-pills-tabContent">
-      <br/>
-      <!--home page-->
-      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-        <h2> Home Page -Dashboard </h2>
-        <p> Welcome, <%= current_user.first_name %>! </p>
-        <br/>
-        <%= button_to "Practice", image_sets_path, method: :get %>
-        <br/>
-        <%= link_to "Glossary", 'glossary' %>
-        <br/><br/>
-        <%= button_to 'TakePreTest', new_test_path, method: :get %>
-         <%= button_to('Take PostTest', tests_path, params: {user_id: current_user.id, pre_test: false, questions_correct: 0 }, method: :post, class:'')%>
-
-         <%= button_to 'TakePreSurvey', new_pre_survey_path, method: :get %>
-         <%= button_to 'TakePostSurvey', new_post_survey_path, method: :get %>
-
-        <%#= button_to('Biopsy on Acetowhite', image_sessions_path, params: {user_id: current_user.id, image_id: @images[2].id, greenRight: 0, blueRight: 0, greenWrong: 0, blueWrong:0, colorlessWrong: 0, greenLeft: @images[1].green_areas.length(), blueLeft: @images[1].blue_areas.length()}, method: :post, class:'btn-block')%>
-
-      </div>
-
-      <!--profile page-->
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-        <h2>Profile and User Info</h2>
-        Profile: <%= current_user.first_name + " " + current_user.last_name %>
+   <%#= button_to('Biopsy on Acetowhite', image_sessions_path, params: {user_id: current_user.id, image_id: @images[2].id, greenRight: 0, blueRight: 0, greenWrong: 0, blueWrong:0, colorlessWrong: 0, greenLeft: @images[1].green_areas.length(), blueLeft: @images[1].blue_areas.length()}, method: :post, class:'btn-block')%>
 
 
-      </div>
+ <div class="collapse" id="changePassword">
+   <div class="card card-body">
+     <div id="clearance" class="password-reset">
+      <h3>Change Your Password</h3>
 
-      <!--settings page-->
-      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-        <h2>Settings</h2>
-          Name: <%= current_user.first_name + " " + current_user.last_name %> <br/>
-          email: <%= current_user.email %> <br/>
-          user since: <%= current_user.created_at %> <br/>
+      <p>To be emailed a link to change your password, please enter your email address.</p>
 
-          confirmation_token: <%= current_user.confirmation_token %>
-          remember_token: <%= current_user.remember_token %>
+      <%= form_for :password, url: passwords_path do |form| %>
+         <div class="text-field">
+           <%= form.label :email %>
+           <%= form.text_field :email, type: 'email' %>
+         </div>
 
-        <div>
-          <h4>General</h4>
-        </div>
+         <div class="submit-field">
+           <%= form.submit value="Submit"%>
+         </div>
+      <% end %>
 
-        <div>
-          <h4>Security and Login</h4>
-        </div>
-
-        <!--collaspable for password reset-->
-        <div>
-          <h5>
-            Change Password
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#changePassword" aria-expanded="false" aria-controls="changePassword">
-              Change
-            </button>
-          </h5>
-          <div class="collapse" id="changePassword">
-            <div class="card card-body">
-              <div id="clearance" class="password-reset">
-                <h3>Change Your Password</h3>
-
-                <p>To be emailed a link to change your password, please enter your email address.</p>
-
-                <%= form_for :password, url: passwords_path do |form| %>
-                  <div class="text-field">
-                    <%= form.label :email %>
-                    <%= form.text_field :email, type: 'email' %>
-                  </div>
-
-                  <div class="submit-field">
-                    <%= form.submit value="Submit"%>
-                  </div>
-                <% end %>
-
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-
-        <!--Logut-->
-        <div class="tab-pane fade" id="v-pills-logout" role="tabpanel" aria-labelledby="v-pills-logout-tab" onclick="logOutClicked()">
-          <p>Are you sure you want to log out? </p>
-          <p><%= button_to "Yes, Log Out", sign_out_path, method: :delete %></p>
-        </div>
-
-      </div>
-
-      <!--footer-->
-
-    </div>
-  </div>
+     </div>
+   </div>
+ </div>

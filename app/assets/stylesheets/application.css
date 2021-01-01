@@ -38,11 +38,18 @@
 a {
    font-family: 'Courier New', monospace;
 }
+
+#navbar-item {
+   font-family: 'Courier New', monospace;
+
+}
 footer {
   text-align: center;
   background-color: grey;
   color: white;
 }
+
+
 
 body {
     font-family: 'Courier New', monospace;
