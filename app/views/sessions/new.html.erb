@@ -2,11 +2,9 @@
 <!--navbar-->
     <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
       <!--logo-->
-         <% if signed_in? %>
-           <%= link_to(image_tag("ColPractLogo.png", style: "width:40px"), signed_in_root_url) %>
-         <% else %>
-           <%= link_to(image_tag("ColPractLogo.png", style: "width:40px"), general_path_url) %>
-         <% end %>
+      <div>
+      <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:27px"), general_path_url) %> Col | Pract
+      </div>
     </nav>
 
 <div id="clearance" class="sign-in">

@@ -3,9 +3,11 @@
 <!--navbar-->
  <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
    <!--logo-->
-   <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:40px"), general_path_url) %>
+   <div>
+   <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:54px"), general_path_url) %>
+   </div>
 
-
+   <div>
    <!-- Links -->
    <ul class="navbar-nav d-flex" id="navbar-item">
      <li>
@@ -14,6 +16,7 @@
        </div>
      </li>
    </ul>
+</div>
  </nav>
 
 <!-- start page content-->
@@ -57,11 +60,12 @@
             <%= link_to(image_tag("UVAEngineering.jpg"), 'https://engineering.virginia.edu/departments/computer-science') %>
          </div>
       </div>
+      <br/>
+      <br/>
 
       <div class="row">
          <div class="col">
-            <%= image_tag('LogoSmall.jpg', style: 'width:60px;') %>
-            <small class="d-block mb-3 text-muted">Jan. 2021</small>
+
            <ul class="list-unstyled text-small">
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://skimmilk05.github.io/">Sion Kim</a></li>
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://med.virginia.edu/obgyn/education/residency-program/current-residents-recent-graduates/ashley-moon-md/">Ashley Moon</a></li>
@@ -70,6 +74,11 @@
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://uvahealth.com/findadoctor/profile/leigh-anne-cantrell">Dr. Leigh Cantrell, MD, MSPH</a></li>
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://homa-alem.github.io/">Dr. Homa Alemzadeh, PhD</a></li>
            </ul>
+           <br/>
+
+           <%= image_tag('LogoSmall.jpg', style: 'width:60px;') %>
+           <small class="d-block mb-3 text-muted">Jan. 2021</small>
+
          </div>
 
       </div>

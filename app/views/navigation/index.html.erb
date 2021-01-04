@@ -3,10 +3,10 @@
 <!--navbar-->
 <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
    <!--logo-->
-   <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:40px"), signed_in_root_url) %>
    <div>
-      Home Page
+   <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:27px"), signed_in_root_url) %> Col | Pract
    </div>
+
    <!-- Links -->
    <ul class="navbar-nav d-flex" id="navbar-item">
 
@@ -34,32 +34,32 @@
 <div class="container">
    <div class="card-deck">
       <div class="card text-left w-60">
-         <div class="row card-body">
-            <div class="col-sm-8">
-               <h5 class="card-title">Start a Practice Session</h5>
-               <p class="card-text">Polish your procedure for Colposcopy through an online simulation with feedback</p>
-            </div>
-            <div class="col-sm-4">
-               <%= image_tag("HeartAndMouse.png", style: "width:100%;") %>
-            </div>
+         <div class="card-body">
+            <div class="media">
+              <div class="media-body">
+                <h5 class="mt-0">Start a Practice Session</h5>
+                Polish your procedure for Colposcopy through an online simulation with feedback
+              </div>
+              <%= image_tag('HeartAndMouse.png', class: 'ml-2', style: "width:100px;") %>
+           </div>
          </div>
          <div class="card-footer text-muted">
-            <%= link_to "Practice", image_sets_path %>
+            <%= link_to "> Practice", image_sets_path %>
          </div>
       </div>
 
       <div class="card text-left w-60">
-         <div class="row card-body">
-            <div class="col-sm-8">
-               <h5 class="card-title">Go to the Glossary</h5>
-               <p class="card-text">Study and learn the ASCCP Terminology for Colposcopic Practice through a web-based glossary</p>
-            </div>
-            <div class="col-sm-4">
-               <%= image_tag("GlossaryIcon.png", style: "width:100%;") %>
-            </div>
+         <div class="card-body">
+            <div class="media">
+              <div class="media-body">
+                <h5 class="mt-0">Go to the Glossary</h5>
+                Study and learn the ASCCP Terminology for Colposcopic Practice through a web-based glossary
+              </div>
+              <%= image_tag('GlossaryIcon.png', class: 'mr-2', style: "width:90px;") %>
+           </div>
          </div>
          <div class="card-footer text-muted">
-            <%= link_to "ASCCP Glossary", 'glossary' %>
+            <%= link_to "> ASCCP Glossary", 'glossary' %>
          </div>
       </div>
    </div>
@@ -115,11 +115,12 @@
             <%= link_to(image_tag("UVAEngineering.jpg"), 'https://engineering.virginia.edu/departments/computer-science') %>
          </div>
       </div>
+      <br/>
+      <br/>
 
       <div class="row">
          <div class="col">
-            <%= image_tag('LogoSmall.jpg', style: 'width:60px;') %>
-            <small class="d-block mb-3 text-muted">Jan. 2021</small>
+
            <ul class="list-unstyled text-small">
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://skimmilk05.github.io/">Sion Kim</a></li>
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://med.virginia.edu/obgyn/education/residency-program/current-residents-recent-graduates/ashley-moon-md/">Ashley Moon</a></li>
@@ -128,6 +129,13 @@
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://uvahealth.com/findadoctor/profile/leigh-anne-cantrell">Dr. Leigh Cantrell, MD, MSPH</a></li>
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://homa-alem.github.io/">Dr. Homa Alemzadeh, PhD</a></li>
            </ul>
+           <br/>
+
+           <small class="d-block mb-3 text-muted"><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://icons8.com/">icons8.com</a></small>
+           <br/>
+           <%= image_tag('LogoSmall.jpg', style: 'width:60px;') %>
+           <small class="d-block mb-3 text-muted">Jan. 2021</small>
+
          </div>
 
       </div>
