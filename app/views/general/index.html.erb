@@ -1,7 +1,7 @@
 <!--general landing page-->
 
 <!--navbar-->
- <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
+<nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
    <!--logo-->
    <div>
    <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:54px"), general_path_url) %>
@@ -9,27 +9,27 @@
 
    <div>
    <!-- Links -->
-   <ul class="navbar-nav d-flex" id="navbar-item">
-     <li>
-        <div >
-         <%= link_to "Sign in", sign_in_path %>
-       </div>
-     </li>
-   </ul>
-</div>
- </nav>
+      <ul class="navbar-nav d-flex" id="navbar-item">
+        <li>
+           <div >
+            <%= link_to "Sign in", sign_in_path %>
+          </div>
+        </li>
+      </ul>
+   </div>
+</nav>
 
 <!-- start page content-->
 <div class="container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm p-5">
       <h1> Col|Pract</h1>
       <h2>Practice Colposcopy Online</h2>
       <h4><%= link_to "> Get Started", sign_up_path %></h4>
 
     </div>
-    <div class="col-sm">
-      <%= image_tag("ComputerColorful.jpg", id: "landing-image") %>
+    <div class="col-sm p-5">
+      <%= image_tag("ComputerColorful.jpg", class: 'img-fluid', style: "width:100%") %>
     </div>
   </div>
 
@@ -37,7 +37,7 @@
     <br/><br/><br/><br/><br/><br/><br/>
   </div>
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm mb-5">
       <h3>What is Col|Pract?</h3>
       <p>ColPract is a web application developed by a collboration between the Univeristy of Virginia Gynecology and University of Virgina's Dependable Systems and Analytics Lab.</p>
       <p>It was made for the purpose to help medical students and residents strengthen their skills in Colposcopy.</p>
@@ -54,7 +54,7 @@
             <%= link_to(image_tag("UVAMed.png"), 'https://med.virginia.edu/obgyn/') %>
          </div>
          <div class="col-sm">
-            <%= link_to(image_tag("UVADSA.png"), 'https://homa-alem.github.io/students.html') %>
+            <%= link_to(image_tag("UVADSA.png", class: 'img-fluid', style: "width:80px"), 'https://homa-alem.github.io/students.html') %>
          </div>
          <div class="col-sm-5">
             <%= link_to(image_tag("UVAEngineering.jpg"), 'https://engineering.virginia.edu/departments/computer-science') %>
