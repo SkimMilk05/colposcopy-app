@@ -59,7 +59,7 @@ var count = 0;
               <li><%= form.radio_button :Q3, 'OBGYN', onclick: "disable('otherQ3')"%>  OBGYN</li>
               <li><%= form.radio_button :Q3, 'Family medicine', onclick: "disable('otherQ3')" %> Family medicine</li>
               <li><%= form.radio_button :Q3, 'Internal medicine', onclick: "disable('otherQ3')"%> Internal medicine</li>
-              <li><%= form.radio_button :Q3, "Other", onclick: "enable('otherQ3')"%> Other: <%= form.text_field :Q2, id: 'otherQ3', disabled: true%></li>
+              <li><%= form.radio_button :Q3, "Other", onclick: "enable('otherQ3')"%> Other: <%= form.text_field :Q3, id: 'otherQ3', disabled: true%></li>
            </ul>
         </li>
 
