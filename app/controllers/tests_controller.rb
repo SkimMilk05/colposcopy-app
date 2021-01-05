@@ -11,14 +11,13 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.json
   def show
-   @test_questions = TestQuestion.all
   end
 
   # GET /tests/new
   def new
      @test_questions = TestQuestion.all
      @test = Test.new
-     39.times {@test.test_answers.build}
+     @test.test_answers.build
   end
 
   # GET /tests/1/edit
@@ -77,6 +76,6 @@ class TestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def test_params
-      params.permit(:user_id, :pre_test, :questions_correct, test_answers_attributes: [:letter])
+      params.require(:test).permit(:user_id, :authenticity_token, :commit, :pre_test, :questions_correct, test_answers_attributes: [:id, :test_question_id, :test_id, :letter])
     end
 end

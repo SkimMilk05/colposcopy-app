@@ -118,12 +118,14 @@ ActiveRecord::Schema.define(version: 2020_12_24_202200) do
 
   create_table "test_answers", force: :cascade do |t|
     t.bigint "test_id"
+    t.bigint "test_question_id"
     t.text "letter"
     t.text "answer"
     t.boolean "correct"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["test_id"], name: "index_test_answers_on_test_id"
+    t.index ["test_question_id"], name: "index_test_answers_on_test_question_id"
   end
 
   create_table "test_options", force: :cascade do |t|

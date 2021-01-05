@@ -78,6 +78,6 @@ class TestAnswersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def test_answer_params
-      params.permit(:test_question_id, :test_id, :letter, :answer, :correct)
+      params.require(:test_answer)permit(:test_question, :test, :letter, :answer, :correct)
     end
 end

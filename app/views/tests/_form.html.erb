@@ -12,15 +12,18 @@
    <li>
    <%= render 'test_questions/test_questions', test_question: test_question %>
 
+   <%= form.fields_for :test_answers, local: true do |answers_form| %>
+      <%= answers_form.hidden_field :test_question_id, value: test_question.id %>
+      <%= answers_form.hidden_field :test_id, value: @test.id %>
    <!-- answer choices and options-->
    <ul style="list-style-type:none;">
-   <%= form.fields_for :test_answer do |answers_form| %>
       <% test_question.test_options.each do |test_option| %>
         <li> <%= answers_form.radio_button :letter, test_option.letter%>
         <%= render 'test_options/test_options', test_option: test_option %> </li>
      <%end%> <!--end options-->
-  </ul>
+
    <% end %> <!--end test answer--->
+   </ul>
   <%end%> <!-- end question-->
 </ol>
 
