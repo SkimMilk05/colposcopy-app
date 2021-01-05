@@ -1,3 +1,24 @@
+<script type="text/javascript">
+
+var count = 0;
+
+  function enable(id) {
+    document.getElementById(id).removeAttribute('disabled');
+  }
+  function disable(id) {
+   document.getElementById(id).setAttribute('disabled', true);
+  }
+
+  function Q6() {
+     if (count%2 ==1){
+        disable('otherQ6');
+     } else {
+        enable('otherQ6');
+     }
+ }
+
+</script>
+
 <%= form_with(model: pre_survey, local: true) do |form| %>
 
    <%= form.hidden_field :user_id, value: current_user.id %>
@@ -10,48 +31,49 @@
          <li>
            What level are you currently in training?
            <ul style="list-style-type:none;">
-              <li><%= form.radio_button :Q1, 'Student, MS3' %> Student, MS3</li>
-              <li><%= form.radio_button :Q1, 'Student, MS4' %> Student, MS4</li>
-              <li><%= form.radio_button :Q1, 'Resident, PGY1'%> Resident, PGY1</li>
-              <li><%= form.radio_button :Q1, 'Resident, PGY2'%> Resident, PGY2</li>
-              <li><%= form.radio_button :Q1, 'Resident, PGY3'%> Resident, PGY3</li>
-              <li><%= form.radio_button :Q1, 'Resident, PGY4'%> Resident, PGY4</li>
-              <li><%= form.radio_button :Q1, 'Attending physician'%> Attending physician</li>
-              <li><%= form.radio_button :Q1, 'Nurse practitioner'%> Nurse practitioner</li>
-              <li><%= form.radio_button :Q1, 'NP or PA student'%> NP or PA student</li>
-              <li><%= form.radio_button :Q1, "#{form.text_field :Q1}"%> Other:</li>
+              <li><%= form.radio_button :Q1, 'Student, MS3', onclick: "disable('otherQ1')" %> Student, MS3</li>
+              <li><%= form.radio_button :Q1, 'Student, MS4', onclick: "disable('otherQ1')" %> Student, MS4</li>
+              <li><%= form.radio_button :Q1, 'Resident, PGY1', onclick: "disable('otherQ1')" %> Resident, PGY1</li>
+              <li><%= form.radio_button :Q1, 'Resident, PGY2', onclick: "disable('otherQ1')" %> Resident, PGY2</li>
+              <li><%= form.radio_button :Q1, 'Resident, PGY3', onclick: "disable('otherQ1')" %> Resident, PGY3</li>
+              <li><%= form.radio_button :Q1, 'Resident, PGY4', onclick: "disable('otherQ1')" %> Resident, PGY4</li>
+              <li><%= form.radio_button :Q1, 'Attending physician', onclick: "disable('otherQ1')" %> Attending physician</li>
+              <li><%= form.radio_button :Q1, 'Nurse practitioner', onclick: "disable('otherQ1')" %> Nurse practitioner</li>
+              <li><%= form.radio_button :Q1, 'NP or PA student', onclick: "disable('otherQ1')" %> NP or PA student</li>
+              <li><%= form.radio_button :Q1, 'Other', onclick: "enable('otherQ1')"%>
+               Other: <%= form.text_field :Q1, id: 'otherQ1', disabled: true%></li>
            </ul>
-        </li>
+         </li>
 
         <li>
            Where are you training/practicing currently?
            <ul style="list-style-type:none;">
-              <li><%= form.radio_button :Q2, 'UVA' %>  University of Virginia</li>
-              <li><%= form.radio_button :Q2, "#{form.text_field :Q1}"%> Other:</li>
+              <li><%= form.radio_button :Q2, 'UVA', onclick: "disable('otherQ2')" %>  University of Virginia</li>
+              <li><%= form.radio_button :Q2, 'Other', onchange: "enable('otherQ2')"%> Other: <%= form.text_field :Q2, id: 'otherQ2', disabled: true%></li>
            </ul>
         </li>
 
         <li>
            What specialty do you practice (or plan to practice)?
            <ul style="list-style-type:none;">
-              <li><%= form.radio_button :Q3, 'OBGYN' %>  OBGYN</li>
-              <li><%= form.radio_button :Q3, 'Family medicine' %> Family medicine</li>
-              <li><%= form.radio_button :Q3, 'Internal medicine'%> Internal medicine</li>
-              <li><%= form.radio_button :Q3, "#{form.text_field :Q1}"%> Other:</li>
+              <li><%= form.radio_button :Q3, 'OBGYN', onclick: "disable('otherQ3')"%>  OBGYN</li>
+              <li><%= form.radio_button :Q3, 'Family medicine', onclick: "disable('otherQ3')" %> Family medicine</li>
+              <li><%= form.radio_button :Q3, 'Internal medicine', onclick: "disable('otherQ3')"%> Internal medicine</li>
+              <li><%= form.radio_button :Q3, "Other", onclick: "enable('otherQ3')"%> Other: <%= form.text_field :Q2, id: 'otherQ3', disabled: true%></li>
            </ul>
         </li>
 
        <li>
           If OBGYN – which field do you plan to practice in?
           <ul style="list-style-type:none;">
-             <li><%= form.radio_button :Q4, 'General OBGYN' %>  General OBGYN</li>
-             <li><%= form.radio_button :Q4, 'Gynecologic Oncology' %> Gynecologic Oncology</li>
-             <li><%= form.radio_button :Q4, 'Maternal fetal medicine'%> Maternal fetal medicine</li>
-             <li><%= form.radio_button :Q4, 'Urogynecology'%> Urogynecology</li>
-             <li><%= form.radio_button :Q4, 'Reproductive endocrinology and infertility'%> Reproductive endocrinology and infertility</li>
-             <li><%= form.radio_button :Q4, 'Benign gynecology (MIGS, etc)'%> Benign gynecology (MIGS, etc)</li>
-             <li><%= form.radio_button :Q4, "#{form.text_field :Q1}"%> Other:</li>
-             <li><%= form.radio_button :Q4, 'N/a'%> N/a</li>
+             <li><%= form.radio_button :Q4, 'General OBGYN', onclick: "disable('otherQ4')" %>  General OBGYN</li>
+             <li><%= form.radio_button :Q4, 'Gynecologic Oncology', onclick: "disable('otherQ4')" %> Gynecologic Oncology</li>
+             <li><%= form.radio_button :Q4, 'Maternal fetal medicine', onclick: "disable('otherQ4')"%> Maternal fetal medicine</li>
+             <li><%= form.radio_button :Q4, 'Urogynecology', onclick: "disable('otherQ4')"%> Urogynecology</li>
+             <li><%= form.radio_button :Q4, 'Reproductive endocrinology and infertility', onclick: "disable('otherQ4')"%> Reproductive endocrinology and infertility</li>
+             <li><%= form.radio_button :Q4, 'Benign gynecology (MIGS, etc)', onclick: "disable('otherQ4')"%> Benign gynecology (MIGS, etc)</li>
+             <li><%= form.radio_button :Q4, 'Other', onclick: "enable('otherQ4')"%> Other: <%= form.text_field :Q4, id: 'otherQ4', disabled: true%></li>
+             <li><%= form.radio_button :Q4, 'N/a', onclick: "disable('otherQ4')"%> N/a</li>
           </ul>
        </li>
      </div>
@@ -75,12 +97,12 @@
            What aspects of colposcopy education have been incorporated into your training? (please check all that apply)
            <ul style="list-style-type:none;">
              <li><%= form.check_box :Q6_Lectures %>  Lectures</li>
-             <li><%= form.check_box :Q6_Online_modules %> Online modules</li>
-             <li><%= form.check_box :Q6_Hands_on_simulation%> Hands on simulation/trainers</li>
-             <li><%= form.check_box :Q6_Web_based_simulation%> Web based simulation</li>
-             <li><%= form.check_box :Q6_Chalk_talk%> Chalk talks</li>
-             <li><%= form.check_box :Q6_Case_based_teaching %> Case based teaching</li>
-             <li><%= form.check_box :Q6_Other%> Other: <%= form.text_field :Q6_Other_value %></li>
+             <li><%= form.check_box :Q6_Online_modules  %> Online modules</li>
+             <li><%= form.check_box :Q6_Hands_on_simulation %> Hands on simulation/trainers</li>
+             <li><%= form.check_box :Q6_Web_based_simulation %> Web based simulation</li>
+             <li><%= form.check_box :Q6_Chalk_talk %> Chalk talks</li>
+             <li><%= form.check_box :Q6_Case_based_teaching  %> Case based teaching</li>
+             <li><%= form.check_box :Q6_Other, onclick: "enable('otherQ6')" %> Other: <%= form.text_field :Q6_Other_value, id: 'otherQ6', disabled: true %></li>
           </ul>
         </li>
 
