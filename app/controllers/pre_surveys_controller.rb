@@ -75,6 +75,6 @@ class PreSurveysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pre_survey_params
-      params.fetch(:pre_survey, {}).permit(:user_id, :Q1, :Q2, :Q3, :Q4, :Q5, :Q6_Lectures, :Q6_Online_modules, :Q6_Hands_on_simulation, :Q6_Web_based_simulation, :Q6_Chalk_talk, :Q6_Case_based_teaching,:Q6_Other, :Q6_Other_value, :Q7, :Q8, :Q9 )
+      params.fetch(:pre_survey, {}).permit(:user_id, :Q1, :Q1_Other_value, :Q2, :Q2_Other_value, :Q3, :Q3_Other_value, :Q4, :Q4_Other_value, :Q5, :Q6_Lectures, :Q6_Online_modules, :Q6_Hands_on_simulation, :Q6_Web_based_simulation, :Q6_Chalk_talk, :Q6_Case_based_teaching,:Q6_Other, :Q6_Other_value, :Q7, :Q8, :Q9 )
     end
 end

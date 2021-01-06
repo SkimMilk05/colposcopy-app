@@ -1,0 +1,18 @@
+<div class="scoreboard">
+   <ul style="list-style-type:none;">
+      <!-- green areas -->
+      <li>You <strong>correctly</strong> bioposied <strong><%= @image_session.greenRight %></strong> out of <strong><%= @image.green_areas.length() %></strong> sites.</li>
+
+      <!-- blue areas -->
+      <% if @image_session.blueWrong == 0 && @image_session.blueRight != 0%>
+         <li><strong>Correctly</strong> requested an <strong>ECC.</strong></li>
+      <% elsif @image_session.blueLeft != 0 %>
+         <li><strong>Did not request</strong> an <strong>ECC</strong> when it was needed</li>
+      <%else%>
+         <li>Requested an <strong>ECC</strong> when it was <strong>not needed.</strong></li>
+      <% end %>
+
+      <!-- colorlessWrong-->
+      <li>Selected <strong>incorrect</strong> areas to biopsy <strong><%= @image_session.colorlessWrong %></strong> times.</li>
+   </ul>
+</div>

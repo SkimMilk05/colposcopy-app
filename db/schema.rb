@@ -96,9 +96,13 @@ ActiveRecord::Schema.define(version: 2020_12_24_202200) do
   create_table "pre_surveys", force: :cascade do |t|
     t.bigint "user_id"
     t.text "Q1", null: false
+    t.text "Q1_Other_value"
     t.text "Q2", null: false
+    t.text "Q2_Other_value"
     t.text "Q3", null: false
+    t.text "Q3_Other_value"
     t.text "Q4", null: false
+    t.text "Q4_Other_value"
     t.text "Q5", null: false
     t.text "Q6_Lectures"
     t.text "Q6_Online_modules"

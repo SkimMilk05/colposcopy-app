@@ -204,7 +204,7 @@ testsession = ImageSession.create()
 
 
 ################imageset A
-C107 = ImageSet.create(cervical_biopsies: '5:00 - CIN 1, 12:00 - CIN 1', ECC: 'not done')
+C107 = ImageSet.create(cervical_biopsies: '5:00 - CIN 1, 12:00 - CIN 1', ECC: 'Benign')
 
 C107_Pre = Image.create(img_url: 'C107_Pre.JPG', image_set: C107)
 C107_Green = Image.create(img_url: 'C107_Green.JPG', image_set: C107)

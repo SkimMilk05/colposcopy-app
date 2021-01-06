@@ -1,9 +1,9 @@
 <!--navbar-->
 <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
-   <%= link_to(image_tag("ColPractLogo.png", style: "width:40px"), signed_in_root_url) %>
    <div>
-      Practice Session
+   <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:27px"), signed_in_root_url) %> Col | Pract
    </div>
+
    <!-- Links -->
    <ul class="navbar-nav d-flex" id="navbar-item">
      <li>
@@ -15,15 +15,19 @@
 </nav>
 
 <div class="container">
-  <div class="row">
-    <div class="col-6">
-      <%= render "scorepage" %>
+   <div class="row mt-3">
+    <div class="col-sm">
+      <!-- image set information/answers-->
+      <h3>Summary Page</h3>
+      <%= render "image_sets/set_information" %>
     </div>
-    <div class="col-6"
-      <%= render "image_sets/summary_page" %>
+    <div class="col-sm">
+      <!-- personal user score-->
+      <h4>Score</h4>
+      <%= render "session_score" %>
     </div>
-  </div>
+   </div>
+   <div class="row mt-3">
+      <%= link_to 'Back to Practice', image_sets_path %> | <%= link_to 'Exit Practice', signed_in_root_url %>
+   </div>
 </div>
-
-<%= link_to 'Back to Practice', image_sets_path %> |
-<%= link_to 'Exit Practice', signed_in_root_url %>

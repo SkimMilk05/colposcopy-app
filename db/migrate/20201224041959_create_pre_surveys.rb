@@ -4,9 +4,13 @@ class CreatePreSurveys < ActiveRecord::Migration[6.0]
       t.belongs_to :user, index: true
 
       t.text :Q1, null: false
+      t.text :Q1_Other_value
       t.text :Q2, null: false
+      t.text :Q2_Other_value
       t.text :Q3, null: false
+      t.text :Q3_Other_value
       t.text :Q4, null: false
+      t.text :Q4_Other_value
       t.text :Q5, null: false
       t.text :Q6_Lectures
       t.text :Q6_Online_modules
