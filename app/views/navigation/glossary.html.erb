@@ -18,40 +18,40 @@
 
 <%=image_tag("GlossaryChart.jpg") %>
 
+<!-- footer-->
 <footer class="pt-4 my-md-5 pt-md-5 border-top bg-white">
-   <div class="row">
-     <div class="col-12 col-md">
-      <img class="mb-2" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-      <small class="d-block mb-3 text-muted">&copy; 2017-2020</small>
-     </div>
-     <div class="col-6 col-md">
-      <h5>Features</h5>
-      <ul class="list-unstyled text-small">
-         <li><a class="text-muted" href="#">Cool stuff</a></li>
-         <li><a class="text-muted" href="#">Random feature</a></li>
-         <li><a class="text-muted" href="#">Team feature</a></li>
-         <li><a class="text-muted" href="#">Stuff for developers</a></li>
-         <li><a class="text-muted" href="#">Another one</a></li>
-         <li><a class="text-muted" href="#">Last time</a></li>
-      </ul>
-     </div>
-     <div class="col-6 col-md">
-      <h5>Resources</h5>
-      <ul class="list-unstyled text-small">
-         <li><a class="text-muted" href="#">Resource</a></li>
-         <li><a class="text-muted" href="#">Resource name</a></li>
-         <li><a class="text-muted" href="#">Another resource</a></li>
-         <li><a class="text-muted" href="#">Final resource</a></li>
-      </ul>
-     </div>
-     <div class="col-6 col-md">
-      <h5>About</h5>
-      <ul class="list-unstyled text-small">
-         <li><a class="text-muted" href="#">Team</a></li>
-         <li><a class="text-muted" href="#">Locations</a></li>
-         <li><a class="text-muted" href="#">Privacy</a></li>
-         <li><a class="text-muted" href="#">Terms</a></li>
-      </ul>
-     </div>
+   <div class="container">
+      <div class="row">
+         <div class="col-sm-5">
+            <%= link_to(image_tag("UVAMed.png"), 'https://med.virginia.edu/obgyn/') %>
+         </div>
+         <div class="col-sm">
+            <%= link_to(image_tag("UVADSA.png", class: 'img-fluid', style: "width:80px"), 'https://homa-alem.github.io/students.html') %>
+         </div>
+         <div class="col-sm-5">
+            <%= link_to(image_tag("UVAEngineering.jpg"), 'https://engineering.virginia.edu/departments/computer-science') %>
+         </div>
+      </div>
+      <br/>
+      <br/>
+
+      <div class="row">
+         <div class="col">
+
+           <ul class="list-unstyled text-small">
+              <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://skimmilk05.github.io/">Sion Kim</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://med.virginia.edu/obgyn/education/residency-program/current-residents-recent-graduates/ashley-moon-md/">Dr. Ashley Moon, MD</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://engineering.virginia.edu/news/2020/05/%E2%80%98be-builder%E2%80%99">Kay Hutchinson</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://med.virginia.edu/obgyn/2019/08/26/welcome-gyn-onc-fellow-class-of-2022/">Dr. Ian Cook, MD</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://uvahealth.com/findadoctor/profile/leigh-anne-cantrell">Dr. Leigh Cantrell, MD, MSPH</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://homa-alem.github.io/">Dr. Homa Alemzadeh, PhD</a></li>
+           </ul>
+           <br/>
+
+           <%= image_tag('LogoSmall.jpg', style: 'width:60px;') %>
+           <small class="d-block mb-3 text-muted">&copy 2021 Sion Kim<br/>All Rights Reserved</small>
+
+         </div>
+      </div>
    </div>
  </footer>

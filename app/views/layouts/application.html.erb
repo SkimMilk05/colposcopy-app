@@ -4,6 +4,9 @@
 
     <title>Col | Pract</title>
     <meta charset="utf-8">
+    <% if signed_in? %>
+      <meta http-equiv="refresh" content="300">  <!-- refresh page every 5 min for automatic timeout-->
+    <%end%>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

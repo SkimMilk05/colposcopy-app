@@ -67,49 +67,57 @@
    </ul>
 </nav>
 
-<div id="feedback">
-  Click on the area to biopsy
-</div>
+<div class="container">
+   <div class="row">
+      <div id="feedback">
+        Click on the area to biopsy
+      </div>
+   </div>
+   <div class="row">
+      <!--displaying the image-->
+      <%= form_with model: @image_session do |form| %>
+         <%= hidden_field_tag :colorlessWrong, @image_session.colorlessWrong + 1 %>
+         <%= form.button class: 'invisible-button' do %>
+         <%= image_tag(@image.img_url, usemap: "#map", id: "image", onclick: "colorlessClicked()")%>
+         <%end%>
+      <%end%>
+      <div class="green_area-field">
+        <!-- map for image -->
+        <map name="map">
+          <!-- conditionals to count wrong and right -->
+          <% @image.green_areas.each do |green_area| %>
+                <%= form_with model: @image_session do |form| %>
+                <%= hidden_field_tag :greenRight, @image_session.greenRight + 1 %>
+                <%= hidden_field_tag :greenLeft, @image_session.greenLeft - 1 %>
+                <%= form.button data: {disable: true}, class: 'hide' do %>
+                  <area shape="rect" coords="<%= green_area.coordinates%>" alt="green area" onclick="greenClicked()">
+                <%end%>
+              <%end%>
+          <% end %>
+        </map>
+      </div>
 
-<!--displaying the image-->
-<%= form_with model: @image_session do |form| %>
-   <%= hidden_field_tag :colorlessWrong, @image_session.colorlessWrong + 1 %>
-   <%= form.button class: 'invisible-button' do %>
-   <%= image_tag(@image.img_url, usemap: "#map", id: "image", onclick: "colorlessClicked()")%>
-   <%end%>
-<%end%>
-<div class="green_area-field">
-  <!-- map for image -->
-  <map name="map">
-    <!-- conditionals to count wrong and right -->
-    <% @image.green_areas.each do |green_area| %>
-          <%= form_with model: @image_session do |form| %>
-          <%= hidden_field_tag :greenRight, @image_session.greenRight + 1 %>
-          <%= hidden_field_tag :greenLeft, @image_session.greenLeft - 1 %>
-          <%= form.button data: {disable: true}, class: 'hide' do %>
-            <area shape="rect" coords="<%= green_area.coordinates%>" alt="green area" onclick="greenClicked()">
+      <div class="form-inline justify-content-between">
+      <div class="blue_area-field">
+          <%= form_with model: @image_session, class: 'form-inline' do |form| %>
+            <% if @image_session.greenLeft > 0 %>
+              <%= hidden_field_tag :blueWrong, @image_session.blueWrong + 1 %>
+            <%else%>
+              <%= hidden_field_tag :blueRight, @image_session.blueRight + 1 %>
+            <%end%>
+            <%= form.button data: {disable: true}, class: 'hide' do %>
+              <button onclick="blueClicked()">ECC Requested</button>
+            <%end%>
           <%end%>
-        <%end%>
-    <% end %>
-  </map>
+        </div>
+      <!--button to move on. Scores record as they go-->
+      <%= button_to("Finished >", image_session_path, method: :get, style: 'display:inline;') %>
+      </div>
+
+   </div>
 </div>
 
-<div class="form-inline justify-content-between">
-<div class="blue_area-field">
-    <%= form_with model: @image_session, class: 'form-inline' do |form| %>
-      <% if @image_session.greenLeft > 0 %>
-        <%= hidden_field_tag :blueWrong, @image_session.blueWrong + 1 %>
-      <%else%>
-        <%= hidden_field_tag :blueRight, @image_session.blueRight + 1 %>
-      <%end%>
-      <%= form.button data: {disable: true}, class: 'hide' do %>
-        <button onclick="blueClicked()">ECC Requested</button>
-      <%end%>
-    <%end%>
-  </div>
-<!--button to move on. Scores record as they go-->
-<%= button_to("Finished >", image_session_path, method: :get, style: 'display:inline;') %>
-</div>
+
 
 
 
