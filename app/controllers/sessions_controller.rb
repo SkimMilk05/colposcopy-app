@@ -17,7 +17,7 @@ class SessionsController < Clearance::SessionsController
 
   def destroy
     sign_out
-    redirect_to url_after_destroy
+    redirect_to general_path_url
   end
 
   def new

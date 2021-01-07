@@ -1,4 +1,11 @@
 <!--Dashboard-->
+<script type="text/javascript">
+   function message() {
+      if (<%= @first_time_user%>) {
+         alert('Please take the initial survey and test first.');
+      }
+   };
+</script>
 
 <!--navbar-->
 <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
@@ -28,92 +35,82 @@
 
 <!-- start page content-->
 <div class="container">
-
-   <div class="center-div">
-      <h2> Welcome, <%= current_user.first_name %>!</h2>
-   </div>
-   <br/>
-
-   <div class="card-deck">
-      <div class="card text-left w-60">
-         <div class="card-body">
-            <div class="media">
-              <div class="media-body">
-                <h5 class="mt-0">Start a Practice Session</h5>
-                Polish your procedure for Colposcopy through an online simulation with feedback
-              </div>
-              <%= image_tag('HeartAndMouse.png', class: 'ml-2', style: "width:100px;") %>
-           </div>
-         </div>
-         <div class="card-footer text-muted">
-            <%= link_to "> Practice", image_sets_path %>
-         </div>
-      </div>
-
-      <div class="card text-left w-60">
-         <div class="card-body">
-            <div class="media">
-              <div class="media-body">
-                <h5 class="mt-0">Go to the Glossary</h5>
-                Study and learn the ASCCP Terminology for Colposcopic Practice through a web-based glossary
-              </div>
-              <%= image_tag('GlossaryIcon.png', class: 'mr-2', style: "width:90px;") %>
-           </div>
-         </div>
-         <div class="card-footer text-muted">
-            <%= link_to "> ASCCP Glossary", 'glossary' %>
-         </div>
+   <div class="row mt-5">
+      <div class="col-sm">
+         <h3 class="text-center">Welcome, <%= current_user.first_name %>!</h3>
+         <% if @first_time_user %>
+         <p class="text-center" id="alert">Please take an initial survey and test to get started. <%= button_to 'Take Initial Survey >', new_pre_survey_path, method: :get%></p>
+         <%end%>
+         <p class="text-center" id="notice"><%= notice %></p>
       </div>
    </div>
+
+   <div class="row mt-4 mb-5 p-2">
+      <div class="col-sm">
+         <div class="card-deck">
+            <div class="card text-left w-60 ">
+               <div class="card-body">
+                  <div class="media">
+                    <div class="media-body">
+                      <h5 class="mt-0">Start a Practice Session</h5>
+                      Polish your procedure for Colposcopy through an online simulation with feedback
+                    </div>
+                    <%= image_tag('HeartAndMouse.png', class: 'ml-2', style: "width:100px;") %>
+                 </div>
+               </div>
+               <div class="card-footer text-muted" onclick="message();">
+                  <%= link_to_if !(@first_time_user), "> Practice", image_sets_path %>
+               </div>
+            </div>
+
+            <div class="card text-left w-60 ">
+               <div class="card-body">
+                  <div class="media">
+                    <div class="media-body">
+                      <h5 class="mt-0">Go to the Glossary</h5>
+                      Study and learn the ASCCP Terminology for Colposcopic Practice through a web-based glossary
+                    </div>
+                    <%= image_tag('GlossaryIcon.png', class: 'mr-2', style: "width:90px;") %>
+                 </div>
+               </div>
+               <div class="card-footer text-muted" onclick="message()">
+                  <%= link_to_if !(@first_time_user), "> ASCCP Glossary", 'glossary' %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="row mt-5 mb-5">
+   </div>
+
+   <div class="row mt-5 mb-5">
+   </div>
+
+   <div class="row mt-5 mb-5">
+   </div>
+
+   <div class="row mt-3 mb-3">
+   </div>
+
 
 </div>
 
-
-<br/>
-
-<br/><br/>
-<%= button_to 'TakePreTest', new_test_path, method: :get %>
-<%= button_to('Take PostTest', tests_path, params: {user_id: current_user.id, pre_test: false, questions_correct: 0 }, method: :post, class:'')%>
-
-<%= button_to 'TakePreSurvey', new_pre_survey_path, method: :get %>
-<%= button_to 'TakePostSurvey', new_post_survey_path, method: :get %>
 
 <%#= button_to('Biopsy on Acetowhite', image_sessions_path, params: {user_id: current_user.id, image_id: @images[2].id, greenRight: 0, blueRight: 0, greenWrong: 0, blueWrong:0, colorlessWrong: 0, greenLeft: @images[1].green_areas.length(), blueLeft: @images[1].blue_areas.length()}, method: :post, class:'btn-block')%>
 
 
-<div class="collapse" id="changePassword">
-   <div class="card card-body">
-      <div id="clearance" class="password-reset">
-         <h3>Change Your Password</h3>
-
-         <p>To be emailed a link to change your password, please enter your email address.</p>
-
-         <%= form_for :password, url: passwords_path do |form| %>
-         <div class="text-field">
-            <%= form.label :email %>
-            <%= form.text_field :email, type: 'email' %>
-         </div>
-
-         <div class="submit-field">
-            <%= form.submit value="Submit"%>
-         </div>
-         <% end %>
-
-      </div>
-   </div>
-</div>
-
-<!--footer-->
+<!-- footer-->
 <footer class="pt-4 my-md-5 pt-md-5 border-top bg-white">
    <div class="container">
-      <div class="row my-2">
-         <div class="col-sm-5 my-2">
+      <div class="row">
+         <div class="col-sm-5">
             <%= link_to(image_tag("UVAMed.png"), 'https://med.virginia.edu/obgyn/') %>
          </div>
-         <div class="col-sm my-2">
+         <div class="col-sm">
             <%= link_to(image_tag("UVADSA.png", class: 'img-fluid', style: "width:80px"), 'https://homa-alem.github.io/students.html') %>
          </div>
-         <div class="col-sm-5 my-2">
+         <div class="col-sm-5">
             <%= link_to(image_tag("UVAEngineering.jpg"), 'https://engineering.virginia.edu/departments/computer-science') %>
          </div>
       </div>
@@ -122,9 +119,10 @@
 
       <div class="row">
          <div class="col">
+
            <ul class="list-unstyled text-small">
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://skimmilk05.github.io/">Sion Kim</a></li>
-              <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://med.virginia.edu/obgyn/education/residency-program/current-residents-recent-graduates/ashley-moon-md/">Ashley Moon</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://med.virginia.edu/obgyn/education/residency-program/current-residents-recent-graduates/ashley-moon-md/">Dr. Ashley Moon, MD</a></li>
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://engineering.virginia.edu/news/2020/05/%E2%80%98be-builder%E2%80%99">Kay Hutchinson</a></li>
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://med.virginia.edu/obgyn/2019/08/26/welcome-gyn-onc-fellow-class-of-2022/">Dr. Ian Cook, MD</a></li>
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://uvahealth.com/findadoctor/profile/leigh-anne-cantrell">Dr. Leigh Cantrell, MD, MSPH</a></li>
@@ -132,13 +130,10 @@
            </ul>
            <br/>
 
-           <small class="d-block mb-3 text-muted"><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://icons8.com/">icons8.com</a></small>
-           <br/>
            <%= image_tag('LogoSmall.jpg', style: 'width:60px;') %>
-           <small class="d-block mb-3 text-muted">Jan. 2021</small>
+           <small class="d-block mb-3 text-muted">&copy 2021 Sion Kim<br/>All Rights Reserved</small>
 
          </div>
-
       </div>
    </div>
  </footer>

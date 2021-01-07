@@ -11,6 +11,7 @@ class TestsController < ApplicationController
   # GET /tests/1
   # GET /tests/1.json
   def show
+     @test_questions = TestQuestion.all
   end
 
   # GET /tests/new
@@ -18,6 +19,7 @@ class TestsController < ApplicationController
      @test_questions = TestQuestion.all
      @test = Test.new
      @test.test_answers.build
+     @pre_test_exists = !(current_user.tests.empty?)
   end
 
   # GET /tests/1/edit
@@ -34,7 +36,7 @@ class TestsController < ApplicationController
 
     respond_to do |format|
       if @test.save
-        format.html { redirect_to @test, notice: 'Test was successfully created.' }
+        format.html { redirect_to signed_in_root_url, notice: 'Thank you for taking the survey and test.' }
         format.json { render :show, status: :created, location: @test }
       else
         format.html { render :new }

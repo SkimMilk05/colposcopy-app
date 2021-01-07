@@ -1,8 +1,11 @@
 <%= form_with(model: test, local: true) do |form| %>
 
 <%= form.hidden_field :user_id, value: current_user.id %>
-<%= form.hidden_field :pre_test, value: true %>
-<%= form.hidden_field :questions_correct, value: 1 %>
+<% if @pre_test_exists %>
+   <%= form.hidden_field :pre_test, value: true %>
+<%else %>
+   <%= form.hidden_field :pre_test, value: false %>
+<%end%>
 
   Welcome to your Test! Here are directions:
 
@@ -18,8 +21,17 @@
    <!-- answer choices and options-->
    <ul style="list-style-type:none;">
       <% test_question.test_options.each do |test_option| %>
-        <li> <%= answers_form.radio_button :letter, test_option.letter%>
-        <%= render 'test_options/test_options', test_option: test_option %> </li>
+        <li>
+           <%= answers_form.radio_button :letter, test_option.letter%>
+           <% if test_option.text != nil %>
+               <%= test_option.letter + '. '+test_option.text %>
+           <%else%>
+               <%= test_option.letter + '. ' %>
+           <%end%>
+           <% if test_option.img_url != nil %>
+               <%= image_tag(test_option.img_url, style: 'width:10%; display:inline;') %>
+           <%end%>
+        </li>
      <%end%> <!--end options-->
    <% end %> <!--end test answer--->
    </ul>
@@ -28,6 +40,6 @@
 
 
 <div class="actions">
- <%= form.submit %>
+ <%= form.submit "Submit Test"%>
 </div>
 <% end %>

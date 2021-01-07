@@ -2,7 +2,9 @@ class NavigationController < ApplicationController
   before_action :require_login
 
   def index
-     @test_questions = TestQuestion.all
+     @first_time_user = current_user.tests.empty?
+
+
   end
 
   def glossary

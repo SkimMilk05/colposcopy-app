@@ -1,13 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-Hello this is a test
 
-You answered this many questions:
-<%= @test.test_answers.length %>
-
-These were your answers:
-<% @test.test_answers.each do |a| %>
-<%= a.letter %>
-<%end%>
 
 <%= link_to 'Back', tests_path %>

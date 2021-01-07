@@ -29,9 +29,8 @@ class PreSurveysController < ApplicationController
 
     begin
        respond_to do |format|
-         if @pre_survey.save
-           format.html { redirect_to @pre_survey, notice: 'Pre survey was successfully created.' }
-           format.json { render :show, status: :created, location: @pre_survey }
+         if @pre_survey.save #after submit pre-survey, take test
+           format.html { redirect_to new_test_path , notice: 'Pre survey was successfully created.' }
          else
            format.html { render :new , notice: 'Presurvey not created'}
            format.json { render json: @pre_survey.errors, status: :unprocessable_entity }
