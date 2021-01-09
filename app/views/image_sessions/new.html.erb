@@ -25,7 +25,6 @@
     greenLeft--;
     feedback.innerHTML = "Correct area to biopsy";
     correctSound.play();
-    alert(greenRight);
     }
 
     $(document).ready(function(){
@@ -123,7 +122,7 @@
            <!-- map for image -->
            <map name="map">
             <% @image.green_areas.each do |green_area| %>
-               <area shape="circle" coords="<%= green_area.coordinates%>" alt="green area" onclick="greenClicked()">
+               <area shape="<%= green_area.shape%>" coords="<%= green_area.coordinates%>" alt="green area" onclick="greenClicked()">
             <%end%>
            </map>
          </div>

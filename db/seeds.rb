@@ -206,34 +206,24 @@ testsession = ImageSession.create()
 ################imageset A
 C107 = ImageSet.create(cervical_biopsies: '5:00 - CIN 1, 12:00 - CIN 1', ECC: 'Benign')
 
-C107_Pre = Image.create(img_url: 'C107_Pre.JPG', image_set: C107)
-C107_Green = Image.create(img_url: 'C107_Green.JPG', image_set: C107)
-C107_Post = Image.create(img_url: 'C107_Post.JPG', image_set: C107)
+   C107_Pre = Image.create(img_url: 'C107_Pre.JPG', image_set: C107)
+   C107_Green = Image.create(img_url: 'C107_Green.JPG', image_set: C107)
+   C107_Post = Image.create(img_url: 'C107_Post.JPG', image_set: C107)
 
-GreenArea.create(coordinates: '719,491,68', image: C107_Pre)
-GreenArea.create(coordinates: '853,835,83', image: C107_Pre)
-BlueArea.create(coordinates: '706,679,62', image: C107_Pre)
-
-GreenArea.create(coordinates: '719,491,68', image: C107_Green)
-GreenArea.create(coordinates: '853,835,83', image: C107_Green)
-BlueArea.create(coordinates: '706,679,62', image: C107_Green)
-
-GreenArea.create(coordinates: '719,491,68', image: C107_Post)
-GreenArea.create(coordinates: '853,835,83', image: C107_Post)
-BlueArea.create(coordinates: '706,679,62', image: C107_Post)
+   [C107_Pre, C107_Green, C107_Post].each do |image|
+      GreenArea.create(coordinates: '1430,1764,2018,1464', shape: 'rect', image: image)
+      GreenArea.create(coordinates: '1678,1828,2017,2071', shape: 'rect', image: image)
+      BlueArea.create(image: image)
+   end
 
 ################imageset B
-C109 = ImageSet.create(cervical_biopsies: '1:00 - CIN 1, 11:00 CIN 1', ECC: 'not done')
+C109 = ImageSet.create(cervical_biopsies: '1:00 - CIN 1, 11:00 CIN 1', ECC: 'Not Done')
 
-C109_Pre = Image.create(img_url: 'C109_Pre.JPG', image_set: C109)
-C109_Green = Image.create(img_url: 'C109_Green.JPG', image_set: C109)
-C109_Post = Image.create(img_url: 'C109_Post.JPG', image_set: C109)
+   C109_Pre = Image.create(img_url: 'C109_Pre.JPG', image_set: C109)
+   C109_Green = Image.create(img_url: 'C109_Green.JPG', image_set: C109)
+   C109_Post = Image.create(img_url: 'C109_Post.JPG', image_set: C109)
 
-GreenArea.create(coordinates: '1002,527,112', image: C109_Pre)
-GreenArea.create(coordinates: '763,592,69', image: C109_Pre)
-
-GreenArea.create(coordinates: '1002,527,112', image: C109_Green)
-GreenArea.create(coordinates: '763,592,69', image: C109_Green)
-
-GreenArea.create(coordinates: '1002,527,112', image: C109_Post)
-GreenArea.create(coordinates: '763,592,69', image: C109_Post)
+   [C109_Pre, C109_Green, C109_Post].each do |image|
+      GreenArea.create(coordinates: '1719,1458,1994,1884', shape: 'rect', image: image)
+      GreenArea.create(coordinates: '2429,1675,2653,1940', shape: 'rect', image: image)
+   end

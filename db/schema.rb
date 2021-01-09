@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2020_12_24_202200) do
   end
 
   create_table "blue_areas", force: :cascade do |t|
-    t.text "coordinates"
     t.bigint "image_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_12_24_202200) do
 
   create_table "green_areas", force: :cascade do |t|
     t.text "coordinates"
+    t.text "shape"
     t.bigint "image_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

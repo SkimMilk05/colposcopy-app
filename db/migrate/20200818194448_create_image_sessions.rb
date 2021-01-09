@@ -1,11 +1,11 @@
 class CreateImageSessions < ActiveRecord::Migration[6.0]
   def change
     create_table :image_sessions do |t|
-      t.integer :greenRight
-      t.integer :blueRight
-      t.integer :greenWrong
-      t.integer :blueWrong
-      t.integer :colorlessWrong
+      t.integer :greenRight, default: 0
+      t.integer :blueRight, default: 0
+      t.integer :greenWrong, default: 0
+      t.integer :blueWrong, default: 0
+      t.integer :colorlessWrong, default: 0
       t.integer :greenLeft
       t.integer :blueLeft
 
