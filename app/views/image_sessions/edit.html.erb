@@ -81,16 +81,21 @@
          <%= image_tag(@image.img_url, usemap: "#map", id: "image", onclick: "colorlessClicked()")%>
          <%end%>
       <%end%>
+
       <div class="green_area-field">
+
+         <%= form_with model: @image_session do |form| %>
         <!-- map for image -->
         <map name="map">
           <!-- conditionals to count wrong and right -->
           <% @image.green_areas.each do |green_area| %>
-                <%= form_with model: @image_session do |form| %>
+
+                  <area shape="circle" coords="<%= green_area.coordinates%>" alt="green area" onclick="greenClicked()">
+
                 <%= hidden_field_tag :greenRight, @image_session.greenRight + 1 %>
                 <%= hidden_field_tag :greenLeft, @image_session.greenLeft - 1 %>
                 <%= form.button data: {disable: true}, class: 'hide' do %>
-                  <area shape="rect" coords="<%= green_area.coordinates%>" alt="green area" onclick="greenClicked()">
+                  <area shape="circle" coords="<%= green_area.coordinates%>" alt="green area" onclick="greenClicked()">
                 <%end%>
               <%end%>
           <% end %>
