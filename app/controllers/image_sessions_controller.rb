@@ -43,11 +43,7 @@ class ImageSessionsController < ApplicationController
   def update
     respond_to do |format|
       if @image_session.update(image_session_params)
-        if finished?
-          format.html { redirect_to @image_session}
-        else
           format.html { redirect_to edit_image_session_path(@image_session) }
-        end
       else
         format.html { redirect_back f }
       end
@@ -76,7 +72,4 @@ class ImageSessionsController < ApplicationController
       params.permit(:greenRight, :blueRight, :blueWrong, :colorlessWrong, :greenLeft, :blueLeft, :image_id, :user_id)
     end
 
-    def finished?
-      @image_session.greenLeft == 0 && @image_session.blueLeft == 0
-    end
 end
