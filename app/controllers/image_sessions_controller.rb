@@ -23,10 +23,6 @@ class ImageSessionsController < ApplicationController
     @num_blue_areas = @image.blue_areas.length
   end
 
-  # GET /image_sessions/1/edit
-  def edit
-    @image = @image_session.image
-  end
 
   # POST /image_sessions
   # POST /image_sessions.json

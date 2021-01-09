@@ -30,9 +30,8 @@
     <%end%> <!--end conditionals -->
             <% @images = image_set.images %>
             <%= image_tag(@images[0].img_url, class: 'd-block w-50 mx-auto') %>
-            <%= button_to('Biopsy on Green with acetowhite', image_sessions_path, params: {user_id: current_user.id, image_id: @images[1].id, greenRight: 0, blueRight: 0, greenWrong: 0, blueWrong:0, colorlessWrong: 0, greenLeft: @images[2].green_areas.length(), blueLeft: @images[2].blue_areas.length()}, method: :post, class:'btn-block')%>
-            <%= button_to('Biopsy on Green with acetowhite test', new_image_session_path, params: {image_id: @images[1].id}, method: :get, class:'btn-block') %>
-            <%= button_to('Biopsy on Acetowhite', image_sessions_path, params: {user_id: current_user.id, image_id: @images[2].id, greenRight: 0, blueRight: 0, greenWrong: 0, blueWrong:0, colorlessWrong: 0, greenLeft: @images[1].green_areas.length(), blueLeft: @images[1].blue_areas.length()}, method: :post, class:'btn-block')%>
+            <%= button_to('Biopsy on Green with acetowhite', new_image_session_path, params: {image_id: @images[1].id}, method: :get, class:'btn-block') %>
+            <%= button_to('Biopsy on Acetowhite', new_image_session_path, params: {image_id: @images[2].id}, method: :get, class:'btn-block') %>
           <!-- button to create/start image_session -->
       </div>
       <% end %> <!-- end loop -->
