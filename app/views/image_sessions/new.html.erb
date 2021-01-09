@@ -15,6 +15,7 @@
 
   var colorlessWrong = 0;
 
+
   //function to respond to clicks - for sound and display only. Score kept through controller buttons
 
   function greenClicked() {
@@ -29,7 +30,6 @@
 
     $(document).ready(function(){
          $("#greenRight").val(greenRight);
-         alert('form updated');
     });
   }
 
@@ -40,7 +40,6 @@
       blueRight++;
       feedback.innerHTML = "Correct to request an ECC";
       correctSound.play();
-      alert(blueRight);
     }
     else if (numBlueAreas == 0 ) {
       blueWrong++;
