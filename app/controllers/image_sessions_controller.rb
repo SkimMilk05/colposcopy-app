@@ -18,6 +18,9 @@ class ImageSessionsController < ApplicationController
   # GET /image_sessions/new
   def new
     @image_session = ImageSession.new
+    @image = Image.find(params[:image_id])
+    @num_green_areas = @image.green_areas.length
+    @num_blue_areas = @image.blue_areas.length
   end
 
   # GET /image_sessions/1/edit
@@ -32,7 +35,7 @@ class ImageSessionsController < ApplicationController
 
     respond_to do |format|
       if @image_session.save
-        format.html { redirect_to edit_image_session_path(@image_session) }
+        format.html { redirect_to @image_session}
       else
         format.html { render :new }
       end
