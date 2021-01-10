@@ -1,17 +1,9 @@
 <%= form_with(model: glossary_session, local: true) do |form| %>
-  <% if glossary_session.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(glossary_session.errors.count, "error") %> prohibited this glossary_session from being saved:</h2>
 
-      <ul>
-        <% glossary_session.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+   <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Exit Glossary >", class: 'invisible-button' %>
   </div>
+
 <% end %>

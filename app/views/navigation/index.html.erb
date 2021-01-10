@@ -74,7 +74,11 @@
                  </div>
                </div>
                <div class="card-footer text-muted" onclick="message()">
-                  <%= link_to_if !(@first_time_user), "> ASCCP Glossary", 'glossary' %>
+                  <% if !(@first_time_user) %>
+                     <%= button_to "> ASCCP Glossary", glossary_sessions_path, params: {user_id: current_user.id}, method: :post, class: 'invisible-button'%>
+                  <% else %>
+                     > ASCCP Glossary
+                  <% end %>
                </div>
             </div>
          </div>
@@ -129,6 +133,9 @@
               <li><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://homa-alem.github.io/">Dr. Homa Alemzadeh, PhD</a></li>
            </ul>
            <br/>
+
+
+           <small class="d-block mb-3 text-muted"><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://icons8.com/">icons8.com</a></small>
 
            <%= image_tag('LogoSmall.jpg', style: 'width:60px;') %>
            <small class="d-block mb-3 text-muted">&copy 2021 Sion Kim<br/>All Rights Reserved</small>
