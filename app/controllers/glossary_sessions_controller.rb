@@ -9,30 +9,28 @@ class GlossarySessionsController < ApplicationController
 
   # POST /glossary_sessions
   # POST /glossary_sessions.json
-  def create #when you first go to glossary from index
+  # when you first enter glossary
+  def create
     @glossary_session = GlossarySession.new(glossary_session_params)
 
     respond_to do |format|
       if @glossary_session.save
-        format.html { redirect_to edit_glossary_session_path(@glossary_session), notice: 'Glossary session was successfully created.'}
-        format.json { render :show, status: :created, location: @glossary_session }
+        format.html { redirect_to edit_glossary_session_path(@glossary_session)}
       else
         format.html { render :new }
-        format.json { render json: @glossary_session.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /glossary_sessions/1
   # PATCH/PUT /glossary_sessions/1.json
-  def update #when you exit glossary
+  # when you exit glossary
+  def update
     respond_to do |format|
       if @glossary_session.update(glossary_session_params)
-        format.html { redirect_to signed_in_root_url, notice: 'Glossary session was successfully updated and exited.' }
-        format.json { render :show, status: :ok, location: @glossary_session }
+        format.html { redirect_to signed_in_root_url}
       else
         format.html { render :edit }
-        format.json { render json: @glossary_session.errors, status: :unprocessable_entity }
       end
     end
   end
