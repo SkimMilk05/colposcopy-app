@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :glossary_sessions
   resources :post_surveys
   resources :pre_surveys
   resources :tests

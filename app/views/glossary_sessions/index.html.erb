@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Glossary Sessions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @glossary_sessions.each do |glossary_session| %>
+      <tr>
+        <td><%= link_to 'Show', glossary_session %></td>
+        <td><%= link_to 'Edit', edit_glossary_session_path(glossary_session) %></td>
+        <td><%= link_to 'Destroy', glossary_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Glossary Session', new_glossary_session_path %>

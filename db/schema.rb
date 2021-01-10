@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_202200) do
+ActiveRecord::Schema.define(version: 2021_01_10_042749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 2020_12_24_202200) do
     t.index ["image_id"], name: "index_blue_areas_on_image_id"
   end
 
+  create_table "glossary_sessions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_glossary_sessions_on_user_id"
+  end
+
   create_table "green_areas", force: :cascade do |t|
     t.text "coordinates"
     t.text "shape"
@@ -53,15 +60,15 @@ ActiveRecord::Schema.define(version: 2020_12_24_202200) do
   end
 
   create_table "image_sessions", force: :cascade do |t|
-    t.integer "greenRight"
-    t.integer "blueRight"
-    t.integer "greenWrong"
-    t.integer "blueWrong"
-    t.integer "colorlessWrong"
-    t.integer "greenLeft"
-    t.integer "blueLeft"
     t.bigint "image_id", null: false
     t.bigint "user_id", null: false
+    t.integer "greenRight", default: 0
+    t.integer "blueRight", default: 0
+    t.integer "greenWrong", default: 0
+    t.integer "blueWrong", default: 0
+    t.integer "colorlessWrong", default: 0
+    t.integer "greenLeft"
+    t.integer "blueLeft"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["image_id"], name: "index_image_sessions_on_image_id"
@@ -69,7 +76,10 @@ ActiveRecord::Schema.define(version: 2020_12_24_202200) do
   end
 
   create_table "image_sets", force: :cascade do |t|
-    t.text "cervical_biopsies"
+    t.text "category"
+    t.text "pathology"
+    t.text "findings"
+    t.text "lesion_location"
     t.text "ECC"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -174,6 +184,7 @@ ActiveRecord::Schema.define(version: 2020_12_24_202200) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "glossary_sessions", "users"
   add_foreign_key "image_sessions", "images"
   add_foreign_key "image_sessions", "users"
 end

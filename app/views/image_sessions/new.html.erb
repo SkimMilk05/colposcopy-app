@@ -15,44 +15,72 @@
 
   var colorlessWrong = 0;
 
+  window.onload = function(){
+     $(document).ready(function(){
+        $("#greenRight").val(greenRight);
+        $("#greenWrong").val(greenWrong);
+        $("#greenLeft").val(greenLeft);
+        $("#blueRight").val(blueRight);
+        $("#blueLeft").val(blueLeft);
+        $("#blueWrong").val(blueWrong);
+        $("#colorlessWrong").val(colorlessWrong);
+     });
+};
+
+
 
   //function to respond to clicks - for sound and display only. Score kept through controller buttons
 
   function checkDone() {
-     if (greenLeft == 0 && blueLeft == 0) {
+     if (numBlueAreas == 1) {
+        if (blueLeft == 0 && greenLeft == 0)
         document.getElementById("image_session_form").submit();
+     } else {
+        if (greenLeft == 0) {
+           document.getElementById("image_session_form").submit();
+        }
      }
- }
+  }
 
-  function greenClicked() {
+    function disable(id) {
+    document.getElementById(id).setAttribute('disabled', true);
+   }
+
+  function greenClicked(id) {
     var feedback = document.getElementById('feedback');
 
-    if ( greenLeft > 0 ) {
-    greenRight++;
-    greenLeft--;
-    feedback.innerHTML = "Correct area to biopsy";
-    correctSound.play();
-    }
+    if ( document.getElementById(id).getAttribute('disabled')) { //if already clicked
+      greenWrong--;
+    feedback.innerHTML = "You already selected this area to biopsy";
+    okaySound.play();
+} else { //if not clicked
+      greenRight++;
+      greenLeft--;
+      feedback.innerHTML = "Correct area to biopsy";
+      correctSound.play();
+      disable(id);
+      }
 
     $(document).ready(function(){
          $("#greenRight").val(greenRight);
+         $("#greenWrong").val(greenWrong);
+         $("#greenLeft").val(greenLeft);
+         checkDone();
     });
-
-    checkDone();
   }
 
   function blueClicked() {
     var feedback = document.getElementById('feedback');
-    if ( greenLeft == 0 && blueLeft > 0 ) {
+    if (numBlueAreas == 0 ) {
+      blueWrong++;
+      feedback.innerHTML = "ECC Request is not needed";
+      okaySound.play();
+    }
+    else if ( greenLeft == 0 && blueLeft == 1 ) {
       blueLeft--;
       blueRight++;
       feedback.innerHTML = "Correct to request an ECC";
       correctSound.play();
-    }
-    else if (numBlueAreas == 0 ) {
-      blueWrong++;
-      feedback.innerHTML = "More areas to bioposy remaining";
-      okaySound.play();
     }
     else {
       blueWrong++;
@@ -61,8 +89,10 @@
     }
 
     $(document).ready(function(){
-         $("#blueLeft").val(blueLeft);
          $("#blueRight").val(blueRight);
+         $("#blueLeft").val(blueLeft);
+         $("#blueWrong").val(blueWrong);
+         checkDone(); //check done when it's ready will write all fields
     });
   }
 
@@ -131,7 +161,7 @@
            <!-- map for image -->
            <map name="map">
             <% @image.green_areas.each do |green_area| %>
-               <area shape="<%= green_area.shape%>" coords="<%= green_area.coordinates%>" alt="green area" onclick="greenClicked()">
+               <area shape="<%= green_area.shape%>" coords="<%= green_area.coordinates%>" alt="green area" id="<%= green_area.id %>" onclick="greenClicked(<%= green_area.id %>)">
             <%end%>
            </map>
          </div>

@@ -37,7 +37,7 @@ class PreSurveysController < ApplicationController
          end
        end
    rescue ActiveRecord::NotNullViolation => e
-      format.html {redirect_to @pre_survey, notice: 'hello'}
+      flash[:alert] = 'Please answer ALL of the survey questions'
    end
 
   end

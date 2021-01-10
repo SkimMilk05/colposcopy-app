@@ -1,6 +1,9 @@
 class CreateImageSessions < ActiveRecord::Migration[6.0]
   def change
     create_table :image_sessions do |t|
+      t.belongs_to :image, null: false, foreign_key: true
+      t.belongs_to :user, null: false, foreign_key: true
+
       t.integer :greenRight, default: 0
       t.integer :blueRight, default: 0
       t.integer :greenWrong, default: 0
@@ -10,8 +13,7 @@ class CreateImageSessions < ActiveRecord::Migration[6.0]
       t.integer :blueLeft
 
 
-      t.belongs_to :image, null: false, foreign_key: true
-      t.belongs_to :user, null: false, foreign_key: true
+
 
       t.timestamps
     end

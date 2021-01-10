@@ -10,12 +10,20 @@
   }
 
   function Q6() {
-     if (count%2 ==1){
+     if (count%2 == 1){
         disable('otherQ6');
      } else {
         enable('otherQ6');
      }
     }
+
+   function submit() {
+      if (document.getElementById('submit').getAttribute('disabled')) {
+         alert('Please answer ALL survey questions.');
+      } else {
+         enable('submit');
+      }
+   }
 
 </script>
 
@@ -145,7 +153,6 @@
 
 
   <div class="actions">
-     I'm finished, take me to the pre-test!
     <%= form.submit "Submit Survey >" %>
 
   </div>
