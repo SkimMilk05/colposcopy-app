@@ -153,7 +153,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
   end
 
   create_table "test_questions", force: :cascade do |t|
-    t.boolean "active"
+    t.text "question_number"
     t.text "question"
     t.text "correct_ans"
     t.text "img_url"

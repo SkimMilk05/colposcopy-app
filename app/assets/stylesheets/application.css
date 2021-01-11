@@ -106,6 +106,15 @@ margin:0 ! important;
 padding:0 ! important;
 }
 
+.carousel-control-prev, .carousel-control-next{
+   height: 35%;
+   margin-top: auto;
+   margin-bottom: auto;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+}
+
 #landing-image {
    display: block;
    margin-left: auto;

@@ -4,6 +4,9 @@
       if (<%= @first_time_user%>) {
          alert('Please take the initial survey and test first.');
       }
+      else if (<%= @user_needs_assessment %>){
+         alert('Please take the initial survey and test first.');
+      }
    };
 </script>
 
@@ -39,7 +42,7 @@
       <div class="col-sm">
          <h3 class="text-center">Welcome, <%= current_user.first_name %>!</h3>
          <% if @first_time_user %>
-         <p class="text-center" id="alert">Please take an initial survey and test to get started. <%= button_to 'Take Initial Survey >', new_pre_survey_path, method: :get%></p>
+            <p class="text-center" id="alert">Please take an initial survey and test to get started. <%= button_to 'Take Initial Survey >', new_pre_survey_path, method: :get%></p>
          <%end%>
          <p class="text-center" id="notice"><%= notice %></p>
       </div>

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
 
+=begin
   private
 
   def first_time_user
@@ -45,5 +46,5 @@ class ApplicationController < ActionController::Base
       redirect_back fallback_location: signed_in_root_url # halts request cycle
     end
   end
-
+=end
 end

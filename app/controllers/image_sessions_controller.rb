@@ -16,6 +16,7 @@ class ImageSessionsController < ApplicationController
   end
 
   # GET /image_sessions/new
+  # when they start session
   def new
     @image_session = ImageSession.new
     @image = Image.find(params[:image_id])
@@ -26,6 +27,7 @@ class ImageSessionsController < ApplicationController
 
   # POST /image_sessions
   # POST /image_sessions.json
+  # when they complete a session
   def create
     @image_session = ImageSession.new(image_session_params)
 
@@ -38,28 +40,6 @@ class ImageSessionsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /image_sessions/1
-  # PATCH/PUT /image_sessions/1.json
-  def update
-    respond_to do |format|
-      if @image_session.update(image_session_params)
-          format.html { redirect_to edit_image_session_path(@image_session) }
-      else
-        format.html { redirect_back f }
-      end
-    end
-  end
-
-
-  # DELETE /image_sessions/1
-  # DELETE /image_sessions/1.json
-  def destroy
-    @image_session.destroy
-    respond_to do |format|
-      format.html { redirect_to image_sessions_url, notice: 'Image session was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

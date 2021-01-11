@@ -1,12 +1,11 @@
   <!--displaying the test question-->
   <div class="question-field">
-     <% if test_question.question != nil %>
-      <%= label_tag test_question.question%>
-     <%end%>
-
-     <%if test_question.img_url != nil %>
-      <%= image_tag(test_question.img_url, style: 'width:10%') %>
-     <%end%>
+   <% if test_question.question != nil %>
+      <%= test_question.question_number%>. <%= test_question.question %>
+   <%elsif test_question.img_url != nil %>
+      <%= test_question.question_number%>. <br/>
+      <%= image_tag(test_question.img_url, style: 'width:50%') %>
+   <% else %>
+      <%= test_question.question_number%>.
+   <%end%>
   </div>
-
-  

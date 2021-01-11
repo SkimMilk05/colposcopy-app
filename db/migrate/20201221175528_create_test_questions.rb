@@ -3,7 +3,7 @@ class CreateTestQuestions < ActiveRecord::Migration[6.0]
     create_table :test_questions do |t|
 
 
-      t.boolean :active
+      t.text :question_number
       t.text :question
       t.text :correct_ans
 

@@ -9,10 +9,18 @@
 
   Welcome to your Test! Here are directions:
 
-  <ol type="1">
+
+  <ul style="list-style-type:none;">
   <% @test_questions.each do |test_question| %>
    <!-- question -->
    <li>
+   <% if test_question.id == 5 %>
+      [Question 5: Multiple Choice Questions with Types and Examples]
+      Please select one of the following for each of the following colposcopic findings: benign, low grade, high grade, or suspicious for invasion <br/>
+   <% elsif test_question.id == 30 %>
+      For questions 10-14, please identify the following findings in each photo & label as suggestive of low or high grade findings: <br/>
+   <% end %>
+
    <%= render 'test_questions/test_questions', test_question: test_question %>
 
    <%= form.fields_for :test_answers, local: true do |answers_form| %>
@@ -29,14 +37,15 @@
                <%= test_option.letter + '. ' %>
            <%end%>
            <% if test_option.img_url != nil %>
-               <%= image_tag(test_option.img_url, style: 'width:10%; display:inline;') %>
+               <%= image_tag(test_option.img_url, style: 'width:50%; display:inline;') %>
            <%end%>
         </li>
      <%end%> <!--end options-->
    <% end %> <!--end test answer--->
    </ul>
+   <br/>
   <%end%> <!-- end question-->
-</ol>
+</ul>
 
 
 <div class="actions">
