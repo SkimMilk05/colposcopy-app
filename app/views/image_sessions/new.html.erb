@@ -25,9 +25,7 @@
         $("#blueWrong").val(blueWrong);
         $("#colorlessWrong").val(colorlessWrong);
      });
-};
-
-
+  };
 
   //function to respond to clicks - for sound and display only. Score kept through controller buttons
 
@@ -50,10 +48,9 @@
     var feedback = document.getElementById('feedback');
 
     if ( document.getElementById(id).getAttribute('disabled')) { //if already clicked
-      greenWrong--;
     feedback.innerHTML = "You already selected this area to biopsy";
-    okaySound.play();
-} else { //if not clicked
+    okaySound.play();} else {
+      //if not clicked
       greenRight++;
       greenLeft--;
       feedback.innerHTML = "Correct area to biopsy";
@@ -125,52 +122,55 @@
 
    <!--navbar-->
    <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
-      <!--logo-->
       <div>
-      <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:27px"), signed_in_root_url) %> Col | Pro
-      </div>
-
-      <div>
-         Practice Session
+      <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:27px"), signed_in_root_url) %> Col | Pract
       </div>
 
       <!-- Links -->
       <ul class="navbar-nav d-flex" id="navbar-item">
-         <li>
-            <div >
-               <%= form.submit "Quit" %>
-            </div>
-         </li>
+        <li>
+           <div >
+            <%= link_to "Exit Practice", signed_in_root_url %>
+          </div>
+        </li>
       </ul>
    </nav>
 
+
    <!--start page content-->
-   <div class="container">
+   <div class="container-fluid fullscreen remove-all-margin-padding" >
       <!-- header-->
-      <div class="row">
-         <div id="feedback">
-           Click on the area to biopsy
+      <div class="row no-gutters" style="height: 10%;">
+         <div class="col h-100">
+            <div id="feedback">
+             Click on the area to biopsy
+            </div>
          </div>
       </div>
       <!--image and map -->
-      <div class="row justify-content-center">
-         <!--displaying the image-->
-         <%= image_tag(@image.img_url, usemap: "#map", id: "image", onclick: "colorlessClicked()")%>
+      <div class="row" style="height: 80%;"  >
+         <div class="col h-100">
+            <!--displaying the image-->
+            <%= image_tag(@image.img_url, usemap: "#map", id: "practice-image", class: 'full-img', onclick: "colorlessClicked()")%>
 
-         <div class="green_area-field">
-           <!-- map for image -->
-           <map name="map">
-            <% @image.green_areas.each do |green_area| %>
-               <area shape="<%= green_area.shape%>" coords="<%= green_area.coordinates%>" alt="green area" id="<%= green_area.id %>" onclick="greenClicked(<%= green_area.id %>)">
-            <%end%>
-           </map>
+            <div class="green_area-field">
+              <!-- map for image -->
+              <map name="map" style="height: 100%;">
+               <% @image.green_areas.each do |green_area| %>
+                  <area shape="<%= green_area.shape%>" coords="<%= green_area.coordinates%>" alt="green area" id="<%= green_area.id %>" onclick="greenClicked(<%= green_area.id %>)">
+               <%end%>
+              </map>
+           </div>
          </div>
       </div>
       <!--ECC and submit button-->
-      <div class="row inline justify-content-between">
-         <button type='button' onclick="blueClicked()">ECC Requested</button>
+      <div class="row justify-content-between" >
+         <div class="col d-flex justify-content-between">
+            <button type='button' onclick="blueClicked()">ECC Requested</button>
+            <%= form.submit "Finished >" %>
+         </div>
       </div>
-      <%= form.submit "Finished >" %>
+
    </div>
 
 <%end%>

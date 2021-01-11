@@ -25,9 +25,9 @@
       <!-- personal user score-->
       <h4>Feedback</h4>
       <%= render "session_score" %>
+      <div class="justify-content-end">
+         <%= link_to '< Back to Practice', image_sets_path %>
+      </div>
     </div>
-   </div>
-   <div class="row mt-3">
-      <%= link_to 'Back to Practice', image_sets_path %> | <%= link_to 'Exit Practice', signed_in_root_url %>
    </div>
 </div>

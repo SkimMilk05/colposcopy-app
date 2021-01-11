@@ -6,9 +6,6 @@
    <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:27px"), signed_in_root_url) %> Col | Pract
    </div>
 
-   <div>
-      Practice Session
-   </div>
    <!-- Links -->
    <ul class="navbar-nav d-flex" id="navbar-item">
      <li>
@@ -19,32 +16,39 @@
    </ul>
 </nav>
 
-<div id="carousel" class="carousel slide" data-ride="false" data-interval="false" data-wrap="false">
-  <div class="carousel-inner">
-    <% @image_sets.each do |image_set| %>  <!-- shuffle function randomizes order -->
-    <!-- first item must be active-->
-    <% if image_set == @image_sets.first() %>
-      <div class="carousel-item active">
-    <%else%>
-      <div class="carousel-item">
-    <%end%> <!--end conditionals -->
-            <% @images = image_set.images %>
-            <%= image_tag(@images[0].img_url, class: 'd-block w-50 mx-auto') %>
-            <%= button_to('Biopsy on Green with acetowhite', new_image_session_path, params: {image_id: @images[1].id}, method: :get, class:'btn-block') %>
-            <%= button_to('Biopsy on Acetowhite', new_image_session_path, params: {image_id: @images[2].id}, method: :get, class:'btn-block') %>
+<div class="container-fluid fullscreen justify-content-center">
+   <div class="row no-gutters center-div">
+      <div class="col center-div justify-content-center">
+         <div id="carousel" class="carousel slide" data-ride="false" data-interval="false" data-wrap="false">
+           <div class="carousel-inner">
+             <% @image_sets.each do |image_set| %>  <!-- shuffle function randomizes order -->
+             <!-- first item must be active-->
+             <% if image_set == @image_sets.first() %>
+               <div class="carousel-item active">
+             <%else%>
+               <div class="carousel-item">
+             <%end%> <!--end conditionals -->
+             <% @images = image_set.images %>
+             <%= image_tag(@images[0].img_url, class: 'd-block mx-auto') %>
+             <br/>
+             <%= button_to('Biopsy on Green with acetowhite', new_image_session_path, params: {image_id: @images[1].id}, method: :get, class:'btn-block') %>
+             <%= button_to('Biopsy on Acetowhite', new_image_session_path, params: {image_id: @images[2].id}, method: :get, class:'btn-block') %>
           <!-- button to create/start image_session -->
-      </div>
-      <% end %> <!-- end loop -->
-    </div>
+               </div>
+               <% end %> <!-- end loop -->
+             </div>
 
-    <!--controls-->
-    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
+             <!--controls-->
+             <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+               <span class="sr-only">Previous</span>
+             </a>
+             <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+               <span class="carousel-control-next-icon" aria-hidden="true"></span>
+               <span class="sr-only">Next</span>
+             </a>
+           </div>
+         </div>
+      </div>
+   </div>
 </div>
