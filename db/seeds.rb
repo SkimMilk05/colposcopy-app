@@ -202,39 +202,40 @@ Q29D = TestOption.create(test_question: Q29, letter: 'D', img_url: '29D.png')
 
 testsession = ImageSession.create()
 
-
-################imageset A
-C107 = ImageSet.create(lesion_location: '5:00 - CIN 1, 12:00 - CIN 1', ECC: 'Benign')
+#UVA image sets--------------------------------------------------------
+C107 = ImageSet.create(pathology: 'CIN 1', lesion_location: '5:00, 12:00', ECC: 'Benign')
 
    C107_Pre = Image.create(img_url: 'C107_Pre.JPG', image_set: C107)
    C107_Green = Image.create(img_url: 'C107_Green.JPG', image_set: C107)
    C107_Post = Image.create(img_url: 'C107_Post.JPG', image_set: C107)
 
-   [C107_Green].each do |image|
-      GreenArea.create(coordinates: '1430,1764,2018,1464', shape: 'rect', image: image)
-      GreenArea.create(coordinates: '1678,1828,2017,2071', shape: 'rect', image: image)
-      BlueArea.create(image: image)
-   end
 
-   [C107_Post].each do |image|
-      GreenArea.create(coordinates: '1439,1425,1929,1727', shape: 'rect', image: image)
-      GreenArea.create(coordinates: '1663,1745,1930,1897', shape: 'rect', image: image)
-      BlueArea.create(image: image)
-   end
+      GreenArea.create(coordinates: '1430,1764,2018,1464', shape: 'rect', image: C107_Green)
+      GreenArea.create(coordinates: '1678,1828,2017,2071', shape: 'rect', image: C107_Green)
+      BlueArea.create(image: C107_Green)
 
-################imageset B
-C109 = ImageSet.create(lesion_location: '1:00 - CIN 1, 11:00 CIN 1', ECC: 'Not Done')
+      GreenArea.create(coordinates: '1439,1425,1929,1727', shape: 'rect', image: C107_Post)
+      GreenArea.create(coordinates: '1663,1745,1930,1897', shape: 'rect', image: C107_Post)
+      BlueArea.create(image: C107_Post)
 
+C109 = ImageSet.create(pathology: 'CIN 1', lesion_location: '1:00, 11:00', ECC: 'Not Done')
    C109_Pre = Image.create(img_url: 'C109_Pre.JPG', image_set: C109)
+
    C109_Green = Image.create(img_url: 'C109_Green.JPG', image_set: C109)
+      GreenArea.create(coordinates: '1719,1458,1994,1884', shape: 'rect', image: C109_Green)
+      GreenArea.create(coordinates: '2429,1675,2653,1940', shape: 'rect', image: C109_Green)
    C109_Post = Image.create(img_url: 'C109_Post.JPG', image_set: C109)
+      GreenArea.create(coordinates: '2120,1690,2453,2235', shape: 'rect', image: C109_Post)
+      GreenArea.create(coordinates: '2825,1775,3063,2144', shape: 'rect', image: C109_Post)
 
-   [C109_Green].each do |image|
-      GreenArea.create(coordinates: '1719,1458,1994,1884', shape: 'rect', image: image)
-      GreenArea.create(coordinates: '2429,1675,2653,1940', shape: 'rect', image: image)
-   end
 
-   [C109_Post].each do |image|
-      GreenArea.create(coordinates: '2120,1690,2453,2235', shape: 'rect', image: image)
-      GreenArea.create(coordinates: '2825,1775,3063,2144', shape: 'rect', image: image)
-   end
+#Squamous Cell CANCERS------------------------------------------------
+SCC1 = ImageSet.create(category: 'Squamous Cell', pathology: 'microinvasive SCC', lesion_location: '11:00 - 2:00', findings: 'dense AW area, coarse punctations, sharp raised border, erosion', ECC: 'Yes')
+   SCC1Pre = Image.create(img_url: '', image_set: SCC1)
+
+   SCC1AWGreen = Image.create(img_url: 'SCC1AWGreen.jpg', image_set: SCC1)
+      GreenArea.create(coordinates: '304,169,337,139,369,123,400,117,414,137,418,148,435,137,454,141,474,157,484,163,516,170,539,189,552,199,566,191,582,214,588,236,593,255,608,268,608,289,603,314,598,327,592,344,587,357,554,361,533,371,526,386,510,402,488,407,469,407,439,403,417,406,405,416,390,410,382,402,374,397,365,390,360,398,360,408,352,409,334,412,324,405,311,401,294,394,280,383,266,389,256,391,245,388,235,373,228,389,220,390,206,389,192,379,186,365,174,345,168,321,162,287,170,263,183,250,197,228,213,214,227,195,246,176,264,173,277,186,289,193', shape: 'poly', image: SCC1AWGreen)
+      BlueArea.create(image: SCC1AWGreen)
+   SCC1AW = Image.create(img_url: 'SCC1AW.jpg', image_set: SCC1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: SCC1AW)
+      BlueArea.create(image: SCC1AW)
