@@ -11,7 +11,7 @@
 <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
    <!--logo-->
    <div>
-   <%= link_to(image_tag("LogoSmallNoWords.jpg", style: "width:27px"), signed_in_root_url) %> Col | Pro
+   <%= link_to(image_tag("logos/LogoSmallNoWords.jpg", style: "width:27px"), signed_in_root_url) %> Col | Pro
    </div>
 
    <!-- Links -->
@@ -55,7 +55,7 @@
                       <h5 class="mt-0">Start a Practice Session</h5>
                       Polish your procedure for Colposcopy through an online simulation with feedback
                     </div>
-                    <%= image_tag('HeartAndMouse.png', class: 'ml-2', style: "width:100px;") %>
+                    <%= image_tag('logos/HeartAndMouse.png', class: 'ml-2', style: "width:100px;") %>
                  </div>
                </div>
                <div class="card-footer text-muted" onclick="message();">
@@ -70,7 +70,7 @@
                       <h5 class="mt-0">Go to the Glossary</h5>
                       Study and learn the ASCCP Terminology for Colposcopic Practice through a web-based glossary
                     </div>
-                    <%= image_tag('GlossaryIcon.png', class: 'mr-2', style: "width:90px;") %>
+                    <%= image_tag('logos/GlossaryIcon.png', class: 'mr-2', style: "width:90px;") %>
                  </div>
                </div>
                <div class="card-footer text-muted" onclick="message()">
@@ -101,21 +101,19 @@
 </div>
 
 
-<%#= button_to('Biopsy on Acetowhite', image_sessions_path, params: {user_id: current_user.id, image_id: @images[2].id, greenRight: 0, blueRight: 0, greenWrong: 0, blueWrong:0, colorlessWrong: 0, greenLeft: @images[1].green_areas.length(), blueLeft: @images[1].blue_areas.length()}, method: :post, class:'btn-block')%>
-
 
 <!-- footer-->
 <footer class="pt-4 my-md-5 pt-md-5 border-top bg-white">
    <div class="container">
       <div class="row">
          <div class="col-sm-5">
-            <%= link_to(image_tag("UVAMed.png"), 'https://med.virginia.edu/obgyn/') %>
+            <%= link_to(image_tag("logos/UVAMed.png"), 'https://med.virginia.edu/obgyn/') %>
          </div>
          <div class="col-sm">
-            <%= link_to(image_tag("UVADSA.png", class: 'img-fluid', style: "width:80px"), 'https://homa-alem.github.io/students.html') %>
+            <%= link_to(image_tag("logos/UVADSA.png", class: 'img-fluid', style: "width:80px"), 'https://homa-alem.github.io/students.html') %>
          </div>
          <div class="col-sm-5">
-            <%= link_to(image_tag("UVAEngineering.jpg"), 'https://engineering.virginia.edu/departments/computer-science') %>
+            <%= link_to(image_tag("logos/UVAEngineering.jpg"), 'https://engineering.virginia.edu/departments/computer-science') %>
          </div>
       </div>
       <br/>
@@ -137,7 +135,7 @@
 
            <small class="d-block mb-3 text-muted"><a target="_blank" rel="noopener noreferrer" class="text-muted" href="https://icons8.com/">icons8.com</a></small>
 
-           <%= image_tag('LogoSmall.jpg', style: 'width:60px;') %>
+           <%= image_tag('logos/LogoSmall.jpg', style: 'width:60px;') %>
            <small class="d-block mb-3 text-muted">&copy 2021 Sion Kim<br/>All Rights Reserved</small>
 
          </div>

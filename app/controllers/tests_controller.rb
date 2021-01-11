@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
-   before_action :require_login
    before_action :set_test, only: [:show, :edit, :update, :destroy]
+   before_action :require_login
+   before_action :user_needs_assessment
 
   # GET /tests
   # GET /tests.json

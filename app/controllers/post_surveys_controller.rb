@@ -1,5 +1,7 @@
 class PostSurveysController < ApplicationController
   before_action :set_post_survey, only: [:show, :edit, :update, :destroy]
+  before_action :require_login
+  before_action :user_needs_assessment
 
   # GET /post_surveys
   # GET /post_surveys.json
