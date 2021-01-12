@@ -140,10 +140,10 @@
    <!--start page content-->
    <div class="container-fluid fullscreen remove-all-margin-padding" >
       <!-- header-->
-      <div class="row no-gutters" style="height: 10%;">
+      <div class="row" style="height: 10%;">
          <div class="col h-100">
             <div id="feedback">
-             Click on the area to biopsy
+               Instructions: click on the area you should biposy on the image. If you wish to request a ECC, click on the button 'Request ECC' on the lower left corner of the screen.
             </div>
          </div>
       </div>
@@ -151,7 +151,7 @@
       <div class="row" style="height: 80%;"  >
          <div class="col h-100">
             <!--displaying the image-->
-            <%= image_tag(@image.img_url, usemap: "#map", id: "practice-image", class: 'full-img', onclick: "colorlessClicked()")%>
+            <%= image_tag(@image.img_url, usemap: "#map", id: "practice-image", class: 'full-img rounded', onclick: "colorlessClicked()")%>
 
             <div class="green_area-field">
               <!-- map for image -->
@@ -164,10 +164,11 @@
          </div>
       </div>
       <!--ECC and submit button-->
-      <div class="row justify-content-between" >
+      <div class="row" >
          <div class="col d-flex justify-content-between">
-            <button type='button' onclick="blueClicked()">ECC Requested</button>
-            <%= form.submit "Finished >" %>
+               <button type='button' onclick="blueClicked()">ECC Requested</button>
+               <span class="badge badge-primary align-self-center">Image: <%= @image.image_type%></span>
+               <%= form.submit "Finished >" %>
          </div>
       </div>
 

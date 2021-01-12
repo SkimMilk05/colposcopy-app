@@ -112,7 +112,9 @@ padding:0 ! important;
    margin-bottom: auto;
 }
 
-.carousel-control-prev-icon, .carousel-control-next-icon {
+.badge {
+   background-color: purple;
+   text-emphasis-color: white;
 }
 
 #landing-image {
