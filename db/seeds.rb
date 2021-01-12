@@ -43,7 +43,7 @@ Q4B = TestOption.create(test_question: Q4, letter: 'B', text: 'HIV', img_url: ni
 Q4C = TestOption.create(test_question: Q4, letter: 'C', text: 'Recent diagnosis of HPV infection', img_url: nil)
 Q4D = TestOption.create(test_question: Q4, letter: 'D', text: 'Older age', img_url: nil)
 Q4E = TestOption.create(test_question: Q4, letter: 'E', text: 'Immunocompromised state', img_url: nil)
-Q4F = TestOption.create(test_question: Q4, letter: 'F', text: 'High oncogenic HPV subtype', img_url: nil)
+Q4F = TestOption.create(test_question: Q4, letter: 'F', text: 'High oncogenic HPV subimage_type', img_url: nil)
 
 #######Q 5 HAS MULTIPLE PARTS //MAYBE USE A FOR LOOP?
    Q5a = TestQuestion.create(question_number: '5a', question: 'Rapid appearance of acetowhite changes', correct_ans: 'C')
@@ -185,9 +185,9 @@ testsession = ImageSession.create()
 #UVA image sets--------------------------------------------------------
 C107 = ImageSet.create(category: 'UVA', pathology: 'CIN 1', findings: '', lesion_location: '5:00, 12:00', ECC: 'Benign')
 
-   C107_Pre = Image.create(type: 'Speculum Exam', img_url: 'C107_Pre.JPG', image_set: C107)
-   C107_Green = Image.create(type: 'Green', img_url: 'C107_Green.JPG', image_set: C107)
-   C107_Post = Image.create(type: 'Post', img_url: 'C107_Post.JPG', image_set: C107)
+   C107_Pre = Image.create(image_type: 'Speculum Exam', img_url: 'C107_Pre.JPG', image_set: C107)
+   C107_Green = Image.create(image_type: 'Green', img_url: 'C107_Green.JPG', image_set: C107)
+   C107_Post = Image.create(image_type: 'Post', img_url: 'C107_Post.JPG', image_set: C107)
 
 
       GreenArea.create(coordinates: '1430,1764,2018,1464', shape: 'rect', image: C107_Green)
@@ -199,12 +199,12 @@ C107 = ImageSet.create(category: 'UVA', pathology: 'CIN 1', findings: '', lesion
       BlueArea.create(image: C107_Post)
 
 C109 = ImageSet.create(category: 'UVA', pathology: 'CIN 1', findings: '', lesion_location: '1:00, 11:00', ECC: 'Not Done')
-   C109_Pre = Image.create(type: 'Speculum Exam', img_url: 'C109_Pre.JPG', image_set: C109)
+   C109_Pre = Image.create(image_type: 'Speculum Exam', img_url: 'C109_Pre.JPG', image_set: C109)
 
-   C109_Green = Image.create(type: 'Green', img_url: 'C109_Green.JPG', image_set: C109)
+   C109_Green = Image.create(image_type: 'Green', img_url: 'C109_Green.JPG', image_set: C109)
       GreenArea.create(coordinates: '1719,1458,1994,1884', shape: 'rect', image: C109_Green)
       GreenArea.create(coordinates: '2429,1675,2653,1940', shape: 'rect', image: C109_Green)
-   C109_Post = Image.create(type: 'Post', img_url: 'C109_Post.JPG', image_set: C109)
+   C109_Post = Image.create(image_type: 'Post', img_url: 'C109_Post.JPG', image_set: C109)
       GreenArea.create(coordinates: '2120,1690,2453,2235', shape: 'rect', image: C109_Post)
       GreenArea.create(coordinates: '2825,1775,3063,2144', shape: 'rect', image: C109_Post)
 

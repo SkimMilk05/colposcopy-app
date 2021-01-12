@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
   end
 
   create_table "images", force: :cascade do |t|
+    t.text "image_type"
     t.text "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

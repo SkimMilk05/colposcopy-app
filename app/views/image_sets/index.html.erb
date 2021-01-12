@@ -32,27 +32,32 @@
                   <%end%> <!--end conditionals -->
                         <!--start slide content-->
                   <ul class="nav nav-tabs">
-                     <li class="nav-item active"><a class="nav-link active" data-toggle="tab" href="#<%= @images[0].id %>">Speculum Exam</a></li>
-                     <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#<%= @images[1].id %>">Acetic Acid + Green filter</a></li>
-                     <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#<%= @images[2].id %>">Acetic Acid</a></li>
+                  <% @images.each do |image| %>
+                     <% if image == @images[0]%>
+                        <li class="nav-item active"><a class="nav-link active" data-toggle="tab" href="#<%= image.id %>"><%= image.image_type %></a></li>
+                     <%else%>
+                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#<%= image.id %>"><%= image.image_type %></a></li>
+                     <%end%>
+                  <%end%>
                   </ul>
 
                   <div class="tab-content">
-                     <div id="<%= @images[0].id %>" class="tab-pane active">
-                        <%= image_tag(@images[0].img_url, class: 'd-block w-100 mx-auto') %>
-                        <%= button_to('^ Browse tabs above to choose image to practice ', '', disabled: true, class:'btn-block')%>
-                     </div>
-                     <div id="<%= @images[1].id %>" class="tab-pane fade">
-                        <%= image_tag(@images[1].img_url, class: 'd-block w-100 mx-auto') %>
-                        <%= button_to('Practice with this image', new_image_session_path, params: {image_id: @images[1].id}, method: :get, class:'btn-block')%>
-                     </div>
-                     <div id="<%= @images[2].id %>" class="tab-pane fade">
-                        <%= image_tag(@images[2].img_url, class: 'd-block w-100 mx-auto') %>
-                        <%= button_to('Practice with this image', new_image_session_path, params: {image_id: @images[2].id}, method: :get, class:'btn-block')%>
-                     </div>
+                  <% @images.each do |image| %>
+                     <% if image == @images[0]%>
+                        <div id="<%= image.id %>" class="tab-pane active">
+                           <%= image_tag(image.img_url, class: 'd-block w-100 mx-auto') %>
+                           <%= button_to('^ Browse tabs above to choose image to practice ', '', disabled: true, class:'btn-block')%>
+                        </div>
+                     <%else%>
+                        <div id="<%= image.id %>" class="tab-pane fade">
+                           <%= image_tag(image.img_url, class: 'd-block w-100 mx-auto') %>
+                           <%= button_to('Practice with this image', new_image_session_path, params: {image_id: @images[1].id}, method: :get, class:'btn-block')%>
+                        </div>
+                     <%end%>
+                  <%end%>
                   </div>
-                  <!-- button to create/start image_session -->
-               </div>
+                     <!-- button to create/start image_session -->
+                  </div>
                <% end %> <!-- end loop -->
             </div>
 
