@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Clearance::Controller
 
-=begin
+
   private
 
   def first_time_user
@@ -40,11 +40,14 @@ class ApplicationController < ActionController::Base
      end
   end
 
-  def user_needs_assessment
+  def has_permission_user
+     return first_time_user || did_first_practice || one_month_passed || three_months_passed || six_months_passed
+  end
+
+  def require_permission_user
     unless first_time_user || did_first_practice || one_month_passed || three_months_passed || six_months_passed
-      flash[:alert] = "You must be prompted to take a survey & test"
-      redirect_back fallback_location: signed_in_root_url # halts request cycle
+      redirect_to signed_in_root_url, alert: "You must be prompted to take a survey & test"  # halts request cycle
     end
   end
-=end
+
 end

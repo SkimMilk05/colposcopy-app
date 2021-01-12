@@ -170,7 +170,7 @@ Q9D = TestOption.create(test_question: Q9, letter: 'D', img_url: '9D.png')
       TestOption.create(test_question: n, letter: 'E', text: 'cuffed crypt opening', img_url: nil)
    end
 
-   [Q11,Q11,Q15,Q17,Q19].each do |n|
+   [Q11,Q13,Q15,Q17,Q19].each do |n|
       TestOption.create(test_question: n, letter: 'A', text: 'low grade', img_url: nil)
       TestOption.create(test_question: n, letter: 'B', text: 'high grade', img_url: nil)
    end
