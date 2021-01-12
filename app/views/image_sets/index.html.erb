@@ -45,12 +45,12 @@
                   <% @images.each do |image| %>
                      <% if image == @images[0]%>
                         <div id="<%= image.id %>" class="tab-pane active">
-                           <%= image_tag(image.img_url, class: 'd-block w-100 mx-auto') %>
-                           <%= button_to('^ Browse tabs above to choose image to practice ', '', disabled: true, class:'btn-block')%>
+                           <%= image_tag(image.img_url, class: 'd-block w-100 mx-auto my-2') %>
+                              <%= button_to('^ Browse the tabs above to choose an image', '', disabled: true, class:'btn-block', style: 'color: black;')%>
                         </div>
                      <%else%>
                         <div id="<%= image.id %>" class="tab-pane fade">
-                           <%= image_tag(image.img_url, class: 'd-block w-100 mx-auto') %>
+                           <%= image_tag(image.img_url, class: 'd-block w-100 mx-auto my-2') %>
                            <%= button_to('Practice with this image', new_image_session_path, params: {image_id: @images[1].id}, method: :get, class:'btn-block')%>
                         </div>
                      <%end%>
