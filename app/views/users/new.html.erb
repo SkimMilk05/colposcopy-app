@@ -31,7 +31,8 @@
       <div class="col mt-3">
          <div class="center-div">
             <%= form_for @user do |form| %>
-              <%= render partial: '/users/form', object: form %>
+               <p class="text-center" id="alert"><%= alert %></p>
+               <%= render partial: '/users/form', object: form %>
              <%= form.submit %>
              <br/><br/>
              Already have an Account? | <%= link_to t(".sign_in"), sign_in_path %>

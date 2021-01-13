@@ -38,7 +38,8 @@ class PreSurveysController < ApplicationController
          end
        end
    rescue ActiveRecord::NotNullViolation => e
-      flash[:alert] = 'Please answer ALL of the survey questions'
+      render "new"
+      flash.now[:alert] = 'Please answer ALL of the survey questions'
    end
 
   end

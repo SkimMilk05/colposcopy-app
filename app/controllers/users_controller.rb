@@ -13,7 +13,8 @@ class UsersController < Clearance::UsersController
    if @user.save
      sign_in @user
      redirect_to url_after_create
-   else
+  else #if user already exists
+     flash.now[:alert] = 'User with that email already exists'
      render template: "users/new"
    end
  end
