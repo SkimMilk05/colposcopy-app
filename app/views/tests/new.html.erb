@@ -1,3 +1,7 @@
-<h1>New Test</h1>
+<% if @pre_test_exists %>
+   <h1>Initial Pre-Test</h1>
+<%else %>
+   <h1>Follow-Up Post-Test</h1>
+<%end%>
 
 <%= render 'form', test: @test %>

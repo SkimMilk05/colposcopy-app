@@ -7,12 +7,8 @@
 </nav>
 <!--end nav bar-->
 
-<h1>New Pre Survey</h1>
+<h1>Initial Survey</h1>
 
-<% flash.each do |type, msg| %>
-  <div>
-    <%= msg %>
-  </div>
-<% end %>
+<p id="alert"><%= alert %></p>
 
 <%= render 'form', pre_survey: @pre_survey %>

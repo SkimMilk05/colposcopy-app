@@ -28,13 +28,18 @@ class PostSurveysController < ApplicationController
   def create
     @post_survey = PostSurvey.new(post_survey_params)
 
-    respond_to do |format|
-      if @post_survey.save #after submit post-survey, take test
-        format.html { redirect_to new_test_path}
-      else
-        format.html { render :new }
-      end
-    end
+    begin
+       respond_to do |format|
+         if @post_survey.save #after submit post-survey, take test
+           format.html { redirect_to new_test_path}
+         else
+           format.html { render :new }
+         end
+       end
+    rescue ActiveRecord::NotNullViolation => e
+      flash.now[:alert] = 'Please answer ALL of the survey questions'
+      render "new"
+   end
   end
 
   # PATCH/PUT /post_surveys/1
