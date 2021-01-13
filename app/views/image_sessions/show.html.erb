@@ -25,8 +25,10 @@
       <!-- personal user score-->
       <h4>Feedback</h4>
       <%= render "session_score" %>
-      <div class="justify-content-end">
-         <%= link_to '< Back to Practice', image_sets_path %>
+      <div class="d-flex justify-content-around">
+         <ul style="list-style-type:none;">
+         <li><%= link_to '< Back to Practice', image_sets_path %></li>
+         </ul>
       </div>
     </div>
    </div>

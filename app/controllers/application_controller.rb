@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def did_first_practice
-     if current_user.image_sessions.length() == 1
+     if current_user.image_sessions.length() == 1 && current_user.tests.length() == 1
         return true
      else
         return false

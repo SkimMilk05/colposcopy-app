@@ -29,12 +29,10 @@ class PostSurveysController < ApplicationController
     @post_survey = PostSurvey.new(post_survey_params)
 
     respond_to do |format|
-      if @post_survey.save #after submit pre-survey, take test
-        format.html { redirect_to new_test_path , notice: 'Post survey was successfully created.' }
-        format.json { render :show, status: :created, location: @post_survey }
+      if @post_survey.save #after submit post-survey, take test
+        format.html { redirect_to new_test_path}
       else
         format.html { render :new }
-        format.json { render json: @post_survey.errors, status: :unprocessable_entity }
       end
     end
   end

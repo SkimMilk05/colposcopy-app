@@ -33,7 +33,11 @@ class ImageSessionsController < ApplicationController
 
     respond_to do |format|
       if @image_session.save
-        format.html { redirect_to @image_session}
+         if did_first_practice #if they did first practice
+            format.html { redirect_to new_post_survey_path} #go take post-survey
+         else
+            format.html { redirect_to @image_session}
+         end
       else
         format.html { render :new }
       end

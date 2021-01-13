@@ -27,6 +27,7 @@
 
 </script>
 
+<div class="pre_survey">
 <%= form_with(model: pre_survey, local: true) do |form| %>
 
    <%= form.hidden_field :user_id, value: current_user.id %>
@@ -35,8 +36,7 @@
    <ol type="1">
       <div class="demographics">
          <h5>Demographics</h5>
-
-         <li>
+         <li class="question">
            What level are you currently in training?
            <ul style="list-style-type:none;">
               <li><%= form.radio_button :Q1, 'Student, MS3', onclick: "disable('otherQ1')" %> Student, MS3</li>
@@ -53,7 +53,7 @@
            </ul>
          </li>
 
-        <li>
+        <li class="question">
            Where are you training/practicing currently?
            <ul style="list-style-type:none;">
               <li><%= form.radio_button :Q2, 'UVA', onclick: "disable('otherQ2')" %>  University of Virginia</li>
@@ -61,7 +61,7 @@
            </ul>
         </li>
 
-        <li>
+        <li class="question">
            What specialty do you practice (or plan to practice)?
            <ul style="list-style-type:none;">
               <li><%= form.radio_button :Q3, 'OBGYN', onclick: "disable('otherQ3')"%>  OBGYN</li>
@@ -71,7 +71,7 @@
            </ul>
         </li>
 
-       <li>
+       <li class="question">
           If OBGYN – which field do you plan to practice in?
           <ul style="list-style-type:none;">
              <li><%= form.radio_button :Q4, 'General OBGYN', onclick: "disable('otherQ4')" %>  General OBGYN</li>
@@ -89,7 +89,7 @@
 
      <div class="education">
         <h5>Education/Experience</h5>
-        <li>
+        <li class="question">
            How many lectures/educational sessions have you received on colposcopy as part of your training?
            <ul style="list-style-type:none;">
              <li><%= form.radio_button :Q5, '0' %>  0</li>
@@ -101,7 +101,7 @@
           </ul>
         </li>
 
-        <li>
+        <li class="question">
            What aspects of colposcopy education have been incorporated into your training? (please check all that apply)
            <ul style="list-style-type:none;">
              <li><%= form.check_box :Q6_Lectures %>  Lectures</li>
@@ -114,7 +114,7 @@
           </ul>
         </li>
 
-        <li>
+        <li class="question">
            How much prior clinical experience have you had with colposcopy?
            <ul style="list-style-type:none;">
              <li><%= form.radio_button :Q7, '0' %>  None</li>
@@ -126,7 +126,7 @@
           </ul>
         </li>
 
-        <li>
+        <li class="question">
            How prepared do you feel to perform colposcopy independently?
            <ul style="list-style-type:none;">
              <li><%= form.radio_button :Q8, 'Not at all prepared' %>  Not at all prepared</li>
@@ -137,7 +137,7 @@
 
         </li>
 
-        <li>
+        <li class="question">
            Please rate how important you feel it is to be trained in colposcopy
            <ul style="list-style-type:none;">
              <li><%= form.radio_button :Q9, 'Very important' %>  Very important</li>
@@ -154,6 +154,6 @@
 
   <div class="actions">
     <%= form.submit "Submit Survey >" %>
-
   </div>
 <% end %>
+</div>

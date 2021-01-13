@@ -51,7 +51,7 @@
                      <%else%>
                         <div id="<%= image.id %>" class="tab-pane fade">
                            <%= image_tag(image.img_url, class: 'd-block w-100 mx-auto my-2') %>
-                           <%= button_to('Practice with this image', new_image_session_path, params: {image_id: @images[1].id}, method: :get, class:'btn-block')%>
+                           <%= button_to('Practice with this image', new_image_session_path, params: {image_id: image.id}, method: :get, class:'btn-block')%>
                         </div>
                      <%end%>
                   <%end%>

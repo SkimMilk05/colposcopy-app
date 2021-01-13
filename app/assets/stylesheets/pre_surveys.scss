@@ -1,3 +1,16 @@
 // Place all the styles related to the pre-surveys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.pre_survey {
+   .question {
+      margin-top: 10px;
+      font-style: 'Noto Sans', sans-serif;
+   }
+   ul {
+      li {
+         margin-top: 3px;
+         font-style: 'Noto Sans', sans-serif;
+      }
+   }
+}

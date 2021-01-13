@@ -1,3 +1,4 @@
+<div class="test">
 <%= form_with(model: test, local: true) do |form| %>
 
 <%= form.hidden_field :user_id, value: current_user.id %>
@@ -37,7 +38,7 @@
                <%= test_option.letter + '. ' %>
            <%end%>
            <% if test_option.img_url != nil %>
-               <%= image_tag(test_option.img_url, style: 'width:50%; display:inline;') %>
+               <%= image_tag(test_option.img_url, style: 'width:50%; display:inline;', class: 'my-3') %>
            <%end%>
         </li>
      <%end%> <!--end options-->
@@ -52,3 +53,5 @@
  <%= form.submit "Submit Test"%>
 </div>
 <% end %>
+
+</div>

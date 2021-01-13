@@ -1,10 +1,13 @@
+<!--navbar-->
+<nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
+   <!--logo-->
+   <div>
+   <%= image_tag "logos/LogoSmallNoWords.jpg", style: "width:27px" %> Col | Pro
+   </div>
+</nav>
+<!--end nav bar-->
+
 <h1>New Pre Survey</h1>
 
-<p class="text-center" id="alert"><%= alert %></p>
-<% flash.each do |name, msg| %>
-   <div>
-      <%= msg %>
-   </div>
-<% end %>
 
 <%= render 'form', pre_survey: @pre_survey %>

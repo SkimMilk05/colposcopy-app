@@ -42,9 +42,15 @@
       <div class="col-sm">
          <h3 class="text-center">Welcome, <%= current_user.first_name %>!</h3>
          <% if @first_time_user %>
-            <p class="text-center" id="alert">Please take an initial survey and test to get started. <%= button_to 'Take Initial Survey >', new_pre_survey_path, method: :get%></p>
+            <p class="text-center" id="alert">Please take an initial survey and test to get started.</p>
+            <div class="d-flex justify-content-center">
+               <%= button_to 'Take Initial Survey', new_pre_survey_path, method: :get%>
+            </div>
          <% elsif @has_permission_user %>
-            <p class="text-center" id="alert">Please take a follow-up survey and test. <%= button_to 'Take Initial Survey >', new_post_survey_path, method: :get%></p>
+            <p class="d-flex justify-content-text-center" id="alert">Please take a follow-up survey and test.</p>
+            <div class="d-flex justify-content-center">
+               <%= button_to 'Take Follow-Up Survey', new_post_survey_path, method: :get%>
+            </div>
          <%end%>
          <p class="text-center" id="notice"><%= notice %></p>
          <p class="text-center" id="alert"><%= alert %></p>
@@ -65,7 +71,7 @@
                  </div>
                </div>
                <div class="card-footer text-muted" onclick="message();">
-                  <%= link_to_if !(@first_time_user) || !(@has_permission_user), "> Practice", image_sets_path %>
+                  <%= link_to_if !(@has_permission_user), "> Practice", image_sets_path %>
                </div>
             </div>
 
@@ -80,7 +86,7 @@
                  </div>
                </div>
                <div class="card-footer text-muted" onclick="message()">
-                  <% if !(@first_time_user) || !(@has_permission_user) %>
+                  <% if !(@has_permission_user) %>
                      <%= button_to "> ASCCP Glossary", glossary_sessions_path, params: {user_id: current_user.id}, method: :post, class: 'invisible-button'%>
                   <% else %>
                      > ASCCP Glossary
