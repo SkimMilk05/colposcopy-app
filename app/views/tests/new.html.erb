@@ -1,7 +1,14 @@
-<% if @pre_test_exists %>
-   <h1>Initial Pre-Test</h1>
-<%else %>
-   <h1>Follow-Up Post-Test</h1>
-<%end%>
+<!--navbar-->
+<nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
+   <!--logo-->
+   <div>
+   <%= image_tag "logos/LogoSmallNoWords.jpg", style: "width:27px" %> Col | Pro
+   </div>
+</nav>
+<!--end nav bar-->
+
+<h1>Test</h1>
+
+Directions:
 
 <%= render 'form', test: @test %>
