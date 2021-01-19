@@ -12,67 +12,68 @@
    <ul style="list-style-type:none;">
       <% @test_questions.each do |test_question| %>
       <!-- question -->
-      <li>
+
          <% if (5..25).to_a.include?(test_question.id) %> <!--if its question 5, different format -->
             <% if test_question.id == 5 %>
-               [Question 5: Multiple Choice Questions with Types and Examples]
-               Please select one of the following for each of the following colposcopic findings: benign, low grade, high grade, or suspicious for invasion <br/>
-               <table>
+               <li>[Question 5: Multiple Choice Questions with Types and Examples]
+               Please select one of the following for each of the following colposcopic findings: benign, low grade, high grade, or suspicious for invasion <br/></li>
+               <li><table>
                   <tr>
-                     <td></td>
-                     <td style="text-align: center;"><strong>benign</strong><td>
-                     <td style="text-align: center;"><strong>low grade</strong><td>
-                     <td style="text-align: center;"><strong>high grade</strong><td>
-                     <td style="text-align: center;"><strong>suspicious for invasion</strong><td>
+                     <td style="text-align: center;">&nbsp;</td>
+                     <td style="text-align: center;"><strong>benign</strong></td>
+                     <td style="text-align: center;"><strong>low grade</strong></td>
+                     <td style="text-align: center;"><strong>high grade</strong></td>
+                     <td style="text-align: center;"><strong>suspicious for invasion</strong></td>
                   </tr>
             <% end %>
-         <tr>
-            <%= form.fields_for :test_answers, local: true do |answers_form| %>
-               <!-- answer choices and options-->
-               <td><%= render 'test_questions/test_questions', test_question: test_question %></td>
-               <%= answers_form.hidden_field :test_question_id, value: test_question.id %>
-               <%= answers_form.hidden_field :test_id, value: @test.id %>
-               <% test_question.test_options.each do |test_option| %>
-               <td align="center"><%= answers_form.radio_button :letter, test_option.letter%></td>
-               <% end %> <!--end test answer--->
-            <%end%> <!-- end question-->
-         </tr>
-         <% if test_question.id == 25 %>
-            </table>
-         <%end%>
+            <tr>
+               <%= form.fields_for :test_answers, local: true do |answers_form| %>
+                  <!-- answer choices and options-->
+                  <td><%= render 'test_questions/test_questions', test_question: test_question %></td>
+                  <%= answers_form.hidden_field :test_question_id, value: test_question.id %>
+                  <%= answers_form.hidden_field :test_id, value: @test.id %>
+                  <% test_question.test_options.each do |test_option| %>
+                     <td align="center"><%= answers_form.radio_button :letter, test_option.letter%></td>
+                  <% end %> <!--end test answer--->
+               <%end%> <!-- end question-->
+            </tr>
+            <% if test_question.id == 25 %>
+               </table></li>
+            <%end%>
 
       <%else %>
 
          <% if test_question.id == 30 %>
-            For questions 10-14, please identify the following findings in each photo & label as suggestive of low or high grade findings: <br/>
+            <li>For questions 10-14, please identify the following findings in each photo & label as suggestive of low or high grade findings: <br/></li>
          <%end%>
-         <%= render 'test_questions/test_questions', test_question: test_question %>
+         <li>
+            <%= render 'test_questions/test_questions', test_question: test_question %>
 
-         <%= form.fields_for :test_answers, local: true do |answers_form| %>
-         <%= answers_form.hidden_field :test_question_id, value: test_question.id %>
-         <%= answers_form.hidden_field :test_id, value: @test.id %>
-         <!-- answer choices and options-->
-         <ul style="list-style-type:none;">
-            <% test_question.test_options.each do |test_option| %>
-            <li>
-               <%= answers_form.radio_button :letter, test_option.letter%>
-               <% if test_option.text != nil %>
-               <%= test_option.letter + '. '+test_option.text %>
-               <%else%>
-               <%= test_option.letter + '. ' %>
-               <%end%>
-               <% if test_option.img_url != nil %>
-               <%= image_tag(test_option.img_url, style: 'width:50%; display:inline;', class: 'my-3') %>
-               <%end%>
-            </li>
-            <%end%> <!--end options-->
+            <%= form.fields_for :test_answers, local: true do |answers_form| %>
+            <%= answers_form.hidden_field :test_question_id, value: test_question.id %>
+            <%= answers_form.hidden_field :test_id, value: @test.id %>
+            <!-- answer choices and options-->
+            <ul style="list-style-type:none;">
+               <% test_question.test_options.each do |test_option| %>
+               <li>
+                  <%= answers_form.radio_button :letter, test_option.letter%>
+                  <% if test_option.text != nil %>
+                  <%= test_option.letter + '. '+test_option.text %>
+                  <%else%>
+                  <%= test_option.letter + '. ' %>
+                  <%end%>
+                  <% if test_option.img_url != nil %>
+                  <%= image_tag(test_option.img_url, style: 'width:50%; display:inline;', class: 'my-3') %>
+                  <%end%>
+               </li>
+               <%end%> <!--end options-->
             <% end %> <!--end test answer--->
+            </ul>
+            <br/>
+            <%end%> <!-- end question-->
+            <%end%>  <!-- end else -->
          </ul>
-         <br/>
-         <%end%> <!-- end question-->
-         <%end%>  <!-- end else -->
-      </ul>
-   </li>
+      </li>
 
    <div class="actions">
       <%= form.submit "Submit Test"%>
