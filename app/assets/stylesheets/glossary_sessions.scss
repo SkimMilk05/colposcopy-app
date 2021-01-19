@@ -1,3 +1,19 @@
 // Place all the styles related to the GlossarySessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.modal-link {
+  background: transparent;
+  border: none !important;
+  color: blue;
+  text-decoration: underline;
+}
+
+.glossary {
+   h5 {
+      font-weight: bold;
+   }
+   img {
+      margin-top: 10px;
+   }
+}

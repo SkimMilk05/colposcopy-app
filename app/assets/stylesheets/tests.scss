@@ -16,4 +16,16 @@
          font-style: 'Noto Sans', sans-serif;
       }
    }
+   table {
+      width: 100%;
+   }
+   th, td {
+      padding: 5px;
+   }
+
+   .radio-cell {
+      td {
+         align: center;
+      }
+   }
 }
