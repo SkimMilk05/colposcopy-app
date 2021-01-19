@@ -208,15 +208,130 @@ C109 = ImageSet.create(category: 'UVA', pathology: 'CIN 1', findings: '', lesion
       GreenArea.create(coordinates: '2120,1690,2453,2235', shape: 'rect', image: C109_Post)
       GreenArea.create(coordinates: '2825,1775,3063,2144', shape: 'rect', image: C109_Post)
 
-=begin
-#Squamous Cell CANCERS------------------------------------------------
-SCC1 = ImageSet.create(category: 'Squamous Cell', pathology: 'microinvasive SCC', lesion_location: '11:00 - 2:00', findings: 'dense AW area, coarse punctations, sharp raised border, erosion', ECC: 'Yes')
-   SCC1Pre = Image.create(img_url: '', image_set: SCC1)
 
-   SCC1AWGreen = Image.create(img_url: 'SCC1AWGreen.jpg', image_set: SCC1)
+#Squamous Cell CANCERS------------------------------------------------
+SCC1 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'microinvasive SCC', lesion_location: '11:00 - 2:00', findings: 'dense AW area, coarse punctations, sharp raised border, erosion', ECC: 'Yes')
+   SCC1Pre = Image.create(image_type: 'Speculum Exam', img_url: 'SCC1AW.jpg', image_set: SCC1)
+
+   SCC1AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'SCC1AWGreen.jpg', image_set: SCC1)
       GreenArea.create(coordinates: '304,169,337,139,369,123,400,117,414,137,418,148,435,137,454,141,474,157,484,163,516,170,539,189,552,199,566,191,582,214,588,236,593,255,608,268,608,289,603,314,598,327,592,344,587,357,554,361,533,371,526,386,510,402,488,407,469,407,439,403,417,406,405,416,390,410,382,402,374,397,365,390,360,398,360,408,352,409,334,412,324,405,311,401,294,394,280,383,266,389,256,391,245,388,235,373,228,389,220,390,206,389,192,379,186,365,174,345,168,321,162,287,170,263,183,250,197,228,213,214,227,195,246,176,264,173,277,186,289,193', shape: 'poly', image: SCC1AWGreen)
       BlueArea.create(image: SCC1AWGreen)
-   SCC1AW = Image.create(img_url: 'SCC1AW.jpg', image_set: SCC1)
-      GreenArea.create(coordinates: '', shape: 'poly', image: SCC1AW)
+   SCC1AW = Image.create(image_type: 'Acetic Acid', img_url: 'SCC1AW.jpg', image_set: SCC1)
+      GreenArea.create(coordinates: '216,196,241,181,259,168,284,164,302,157,315,156,320,139,333,120,359,111,378,111,395,111,403,119,416,123,438,122,457,126,470,131,480,144,485,165,504,173,516,173,532,180,538,198,542,214,552,229,557,240,563,258,567,280,565,321,548,348,517,335,493,309,469,297,461,308,438,317,408,320,392,320,370,316,353,310,333,308,310,306,288,304,272,294,265,276,250,279,233,278,220,264,217,251,219,227', shape: 'poly', image: SCC1AW)
       BlueArea.create(image: SCC1AW)
-=end
+
+SCC8 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'invasive SCC', lesion_location: '4:00 - 10:00', findings: 'dense AW, coarse punctation, sharp border, atypical vessels, fragile vessels, irregular surface', ECC: 'Yes')
+   SCC8Pre = Image.create(image_type: 'Normal Saline', img_url: 'SCC8NS.jpg', image_set: SCC8)
+
+   SCC8AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'SCC8AWGreen.jpg', image_set: SCC8)
+      GreenArea.create(coordinates: '586,356,612,396,632,428,660,453,668,495,607,524,584,534,565,549,535,566,512,568,488,568,466,533,458,503,444,478,423,466,402,456,368,458,349,447,342,433,341,413,323,396,312,375,286,370,262,362,238,360,213,353,185,327,170,300,156,267,161,229,176,218,198,209,221,215,247,211,253,189,279,174,315,175,350,191,376,219,407,212,453,263,497,321,521,342,560,357', shape: 'poly', image: SCC8AWGreen)
+      BlueArea.create(image: SCC8AWGreen)
+   SCC8AW = Image.create(image_type: 'Acetic Acid', img_url: 'SCC8AW.jpg', image_set: SCC8)
+      GreenArea.create(coordinates: '585,518,558,532,537,540,515,542,478,546,449,548,435,542,423,532,415,518,406,507,404,490,395,473,378,461,357,448,350,429,339,409,323,392,315,373,298,355,277,349,238,346,204,325,175,305,156,282,146,266,141,246,140,227,150,202,166,187,194,183,214,184,232,197,243,202,246,173,256,155,276,155,302,159,325,168,350,181,363,204,384,211,405,223,422,237,430,264,429,281,415,278,395,273,379,267,389,292,415,307,439,321,460,325,481,336,504,353,524,366,540,382,560,385,571,398,580,413,596,433,606,472,602,499', shape: 'poly', image: SCC8AW)
+      BlueArea.create(image: SCC8AW)
+   SCC8Lugols = Image.create(image_type: "Lugol's", img_url: 'SCC8Lugols.jpg', image_set: SCC8)
+      GreenArea.create(coordinates: '199,106,210,83,224,60,248,63,280,71,306,77,320,89,354,107,393,119,425,147,431,164,488,188,526,205,563,190,592,191,611,205,626,210,643,223,671,236,697,258,706,281,719,308,711,343,699,358,692,386,696,407,685,416,692,461,685,478,674,498,666,517,651,532,631,513,613,497,587,485,567,492,547,497,547,523,543,547,532,570,517,583,503,597,340,596,406,538,414,513,405,474,384,469,362,450,334,427,329,389,310,383,278,362,260,337,240,319,226,282,194,273,156,254,120,228,102,183,101,131,114,109,143,90', shape: 'poly', image: SCC8AW)
+      BlueArea.create(image: SCC8Lugols)
+
+#HIGH GRADE dysplasia---------------------------------------------------------------------
+HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '11:00, 2:00, 5:00', findings: 'dense AW, sharp border ', ECC: 'No')
+   HSIL1Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 1 NS.jpg', image_set: HSIL1)
+
+   HSIL1AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 1 AW 1.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW1)
+
+   HSIL1AW2 = Image.create(image_type: 'Acetic Acid 2', img_url: 'HSIL 1 AW 2.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW2)
+
+   HSIL1AW3 = Image.create(image_type: 'Acetic Acid 3', img_url: 'HSIL 1 AW 3.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW3)
+
+HSIL2 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '2:00 - 6:00, 12:00 - 1:00', findings: 'dense AW, sharp border ', ECC: 'No')
+   HSIL2Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 2 NS.jpg', image_set: HSIL2)
+   HSIL2Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 2 Pre.jpg', image_set: HSIL2)
+
+   HSIL2AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 2 AW.jpg', image_set: HSIL2)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL2AW)
+   HSIL2AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 2 AW.jpg', image_set: HSIL2)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL2AW)
+   HSIL2Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 2 AW.jpg', image_set: HSIL2)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL2AW)
+
+HSIL5 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '1:00, 5:00, 7:00, 11:00', findings: 'dense AW, sharp border', ECC: 'No')
+   HSIL5Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 5 NS.jpg', image_set: HSIL5)
+   HSIL5Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 5 Pre.jpg', image_set: HSIL5)
+
+   HSIL5AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 5 AW.jpg', image_set: HSIL5)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL5AW)
+   HSIL5AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 5 AW.jpg', image_set: HSIL5)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL5AW)
+   HSIL5Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 5 AW.jpg', image_set: HSIL5)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL5AW)
+
+HSIL6 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '3:00 - 8:00', findings: 'dense AW, sharp border', ECC: 'No')
+   HSIL6Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 6 NS.jpg', image_set: HSIL6)
+   HSIL6Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 6 Pre.jpg', image_set: HSIL6)
+
+   HSIL6AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 6 AW.jpg', image_set: HSIL6)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL6AW)
+   HSIL6AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 6 AW.jpg', image_set: HSIL6)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL6AW)
+   HSIL6Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 6 AW.jpg', image_set: HSIL6)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL6AW)
+
+HSIL7 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '6:00, 8:00', findings: 'dense AW, sharp border', ECC: 'No')
+   HSIL7Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 7 NS.jpg', image_set: HSIL7)
+   HSIL7Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 7 Pre.jpg', image_set: HSIL7)
+
+   HSIL7AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 7 AW.jpg', image_set: HSIL7)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL7AW)
+   HSIL7AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 7 AW.jpg', image_set: HSIL7)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL7AW)
+   HSIL7Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 7 AW.jpg', image_set: HSIL7)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL7AW)
+
+HSIL8 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '4:00', findings: 'dense AW, sharp border', ECC: 'No')
+   HSIL8Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 8 NS.jpg', image_set: HSIL8)
+   HSIL8Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 8 Pre.jpg', image_set: HSIL8)
+
+   HSIL8AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 8 AW.jpg', image_set: HSIL8)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL8AW)
+   HSIL8AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 8 AW.jpg', image_set: HSIL8)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL8AW)
+   HSIL8Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 8 AW.jpg', image_set: HSIL8)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL8AW)
+
+
+
+HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: '', lesion_location: '', findings: '', ECC: 'No')
+   HSIL1Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 1 NS.jpg', image_set: HSIL1)
+   HSIL1Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 1 Pre.jpg', image_set: HSIL1)
+
+   HSIL1AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)
+   HSIL1AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)
+   HSIL1Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)
+
+HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: '', lesion_location: '', findings: '', ECC: 'No')
+   HSIL1Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 1 NS.jpg', image_set: HSIL1)
+   HSIL1Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 1 Pre.jpg', image_set: HSIL1)
+
+   HSIL1AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)
+   HSIL1AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)
+   HSIL1Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)
+
+HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: '', lesion_location: '', findings: '', ECC: 'No')
+   HSIL1Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 1 NS.jpg', image_set: HSIL1)
+   HSIL1Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 1 Pre.jpg', image_set: HSIL1)
+
+   HSIL1AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)
+   HSIL1AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)
+   HSIL1Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 1 AW.jpg', image_set: HSIL1)
+      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL1AW)

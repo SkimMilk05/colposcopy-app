@@ -10,10 +10,24 @@
 }
 
 .glossary {
+   .title {
+      padding-top: 25px;
+   }
+   h2 {
+      text-align: center;
+   }
    h5 {
       font-weight: bold;
    }
    img {
+      margin-top: 10px;
+   }
+   caption {
+      text-align: right;
+      margin-top: 20px;
+   }
+   .table {
+      border-bottom: 2px solid #dddddd;
       margin-top: 10px;
    }
 }
