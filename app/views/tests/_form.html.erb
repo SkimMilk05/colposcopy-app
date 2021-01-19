@@ -16,8 +16,8 @@
          <% if (5..25).to_a.include?(test_question.id) %> <!--if its question 5, different format -->
             <% if test_question.id == 5 %>
                <li>[Question 5: Multiple Choice Questions with Types and Examples]
-               Please select one of the following for each of the following colposcopic findings: benign, low grade, high grade, or suspicious for invasion <br/></li>
-               <li><table>
+               Please select one of the following for each of the following colposcopic findings: benign, low grade, high grade, or suspicious for invasion <br/>
+               <ul style="list-style-type:none;"><li><table>
                   <tr>
                      <td style="text-align: center;">&nbsp;</td>
                      <td style="text-align: center;"><strong>benign</strong></td>
@@ -38,7 +38,7 @@
                <%end%> <!-- end question-->
             </tr>
             <% if test_question.id == 25 %>
-               </table></li>
+         </table></li></ul></li>
             <%end%>
 
       <%else %>
