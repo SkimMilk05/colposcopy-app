@@ -23,7 +23,7 @@ Q1E = TestOption.create(test_question: Q1, letter: 'E', text: 'The cervix increa
 
 
 #Question 2
-Q2 = TestQuestion.create(question_number: '2', question: "What is the most common error in colposcopy?", correct_ans: 'A')
+Q2 = TestQuestion.create(question_number: '2', question: "What is the most common error in colposcopyLugols", correct_ans: 'A')
 Q2A = TestOption.create(test_question: Q2, letter: 'A', text: 'Failure to identify the SCJ', img_url: nil)
 Q2B = TestOption.create(test_question: Q2, letter: 'B', text: 'Choosing incorrect biopsy sites', img_url: nil)
 Q2C = TestOption.create(test_question: Q2, letter: 'C', text: 'Insufficient tissue sampling', img_url: nil)
@@ -37,7 +37,7 @@ Q3C = TestOption.create(test_question: Q3, letter: 'C', text: 'Endometrium', img
 Q3D = TestOption.create(test_question: Q3, letter: 'D', text: 'Vagina', img_url: nil)
 
 #Question 4
-Q4 = TestQuestion.create(question_number: '4', question: 'Which of the following is not a risk factor for persistent HPV infection?', correct_ans: 'C')
+Q4 = TestQuestion.create(question_number: '4', question: 'Which of the following is not a risk factor for persistent HPV infectionLugols', correct_ans: 'C')
 Q4A = TestOption.create(test_question: Q4, letter: 'A', text: 'Smoking', img_url: nil)
 Q4B = TestOption.create(test_question: Q4, letter: 'B', text: 'HIV', img_url: nil)
 Q4C = TestOption.create(test_question: Q4, letter: 'C', text: 'Recent diagnosis of HPV infection', img_url: nil)
@@ -45,7 +45,7 @@ Q4D = TestOption.create(test_question: Q4, letter: 'D', text: 'Older age', img_u
 Q4E = TestOption.create(test_question: Q4, letter: 'E', text: 'Immunocompromised state', img_url: nil)
 Q4F = TestOption.create(test_question: Q4, letter: 'F', text: 'High oncogenic HPV subimage_type', img_url: nil)
 
-#######Q 5 HAS MULTIPLE PARTS //MAYBE USE A FOR LOOP?
+#######Q 5 HAS MULTIPLE PARTS MAYBE USE A FOR LOOPLugols
    Q5a = TestQuestion.create(question_number: '5a', question: 'Rapid appearance of acetowhite changes', correct_ans: 'C')
 
    Q5b = TestQuestion.create(question_number: '5b', question: 'Thin acetowhite epithelium', correct_ans: 'B')
@@ -107,27 +107,27 @@ Q6C = TestOption.create(test_question: Q6, letter: 'C', img_url: '6C.png')
 Q6D = TestOption.create(test_question: Q6, letter: 'D', img_url: '6D.png')
 
 #Question 7
-Q7 = TestQuestion.create(question_number: '7', question: 'Which of the following photos has normal blood vessels?', correct_ans: 'B')
+Q7 = TestQuestion.create(question_number: '7', question: 'Which of the following photos has normal blood vesselsLugols', correct_ans: 'B')
 Q7A = TestOption.create(test_question: Q7, letter: 'A', img_url: '7A.png')
 Q7B = TestOption.create(test_question: Q7, letter: 'B', img_url: '7B.jpg')
 Q7C = TestOption.create(test_question: Q7, letter: 'C', img_url: '7C.png')
 Q7D = TestOption.create(test_question: Q7, letter: 'D', img_url: '7D.png')
 
 #Question 8
-Q8 = TestQuestion.create(question_number: '8', question: 'Which of the following photos has findings consistent with HIGH GRADE dysplasia?', correct_ans: 'A')
+Q8 = TestQuestion.create(question_number: '8', question: 'Which of the following photos has findings consistent with HIGH GRADE dysplasiaLugols', correct_ans: 'A')
 Q8A = TestOption.create(test_question: Q8, letter: 'A', img_url: '8A.png')
 Q8B = TestOption.create(test_question: Q8, letter: 'B', img_url: '8B.png')
 Q8C = TestOption.create(test_question: Q8, letter: 'C', img_url: '8C.png')
 Q8D = TestOption.create(test_question: Q8, letter: 'D', img_url: '8D.png')
 
 #Question 9
-Q9 = TestQuestion.create(question_number: '9', question: 'Which of the following photos has findings consistent with LOW GRADE dysplasia?', correct_ans: 'B')
+Q9 = TestQuestion.create(question_number: '9', question: 'Which of the following photos has findings consistent with LOW GRADE dysplasiaLugols', correct_ans: 'B')
 Q9A = TestOption.create(test_question: Q9, letter: 'A', img_url: '9A.png')
 Q9B = TestOption.create(test_question: Q9, letter: 'B', img_url: '9B.jpg')
 Q9C = TestOption.create(test_question: Q9, letter: 'C', img_url: '9C.png')
 Q9D = TestOption.create(test_question: Q9, letter: 'D', img_url: '9D.png')
 
-#######Q 10-14 ARE of the same parts //MAYBE USE A FOR LOOP?
+#######Q 10-14 ARE of the same parts MAYBE USE A FOR LOOP
 # directions: 'Please identify the following findings in the photo:' 'Label the photo as suggestive of low or high grade findings:'
    #Question 10
    Q10 = TestQuestion.create(question_number: '10a',  correct_ans: 'D', img_url: '10.png')
@@ -259,8 +259,8 @@ HSIL2 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
       GreenArea.create(coordinates: '594,87,540,80,517,76,482,83,457,89,430,104,405,124,399,145,413,159,442,165,478,169,516,172,532,183,551,199,536,211,525,235,538,254,556,268,575,275,589,275,617,260,633,220,649,186,658,155,661,128,631,106,613,95', shape: 'poly', image: HSIL2AWGreen)
       GreenArea.create(coordinates: '557,260,528,258,493,270,466,296,444,319,434,339,431,365,438,398,460,410,501,400,539,372,559,346,579,328,592,289,581,273', shape: 'poly', image: HSIL2AWGreen)
    HSIL2Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 2 Lugol_s.jpg', image_set: HSIL2)
-      GreenArea.create(coordinates: '305,243,298,225,290,204,298,182,316,172,342,173,362,175,383,177,411,175,440,174,469,164,505,170,529,182,543,202,547,224,537,247,522,260,504,278,474,291,440,291,409,278,387,257,364,240,333,233', shape: 'poly', image: HSIL2AWLugols)
-      GreenArea.create(coordinates: '448,302,475,307,482,330,482,350,445,388,396,423,354,446,326,451,307,445,304,429,306,413,313,396,344,352,371,334,395,326,416,326,431,326,441,324', shape: 'poly', image: HSIL2AWLugols)
+      GreenArea.create(coordinates: '305,243,298,225,290,204,298,182,316,172,342,173,362,175,383,177,411,175,440,174,469,164,505,170,529,182,543,202,547,224,537,247,522,260,504,278,474,291,440,291,409,278,387,257,364,240,333,233', shape: 'poly', image: HSIL2Lugols)
+      GreenArea.create(coordinates: '448,302,475,307,482,330,482,350,445,388,396,423,354,446,326,451,307,445,304,429,306,413,313,396,344,352,371,334,395,326,416,326,431,326,441,324', shape: 'poly', image: HSIL2Lugols)
 
 HSIL5 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '1:00, 5:00, 7:00, 11:00', findings: 'dense AW, sharp border', ECC: 'No')
    HSIL5Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 5 NS green.jpg', image_set: HSIL5)
@@ -272,28 +272,27 @@ HSIL5 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
       GreenArea.create(coordinates: '422,455,459,434,484,427,518,416,533,426,559,429,588,448,594,465,608,486,600,510,587,522,557,533,523,534,486,533,449,522,418,501,408,481', shape: 'poly', image: HSIL5AW)
 
    HSIL5Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 5 Lugol_s.jpg', image_set: HSIL5)
-      GreenArea.create(coordinates: '307,132,322,82,353,58,377,42,404,42,436,62,451,91,418,109,390,117,346,127,318,147', shape: 'poly', image: HSIL5AWLugols)
-      GreenArea.create(coordinates: '525,261,540,239,569,227,583,231,600,232,610,245,614,265,605,278,587,291,563,299,530,290', shape: 'poly', image: HSIL5AWLugols)
-      GreenArea.create(coordinates: '323,296,339,262,367,247,394,254,417,269,438,299,445,325,428,350,401,366,372,370,352,370,343,352,328,326', shape: 'poly', image: HSIL5AWLugols)
-      GreenArea.create(coordinates: '432,397,458,386,492,375,527,378,558,397,579,411,588,442,578,463,549,476,503,477,437,468,410,444,416,419', shape: 'poly', image: HSIL5AWLugols)
+      GreenArea.create(coordinates: '307,132,322,82,353,58,377,42,404,42,436,62,451,91,418,109,390,117,346,127,318,147', shape: 'poly', image: HSIL5Lugols)
+      GreenArea.create(coordinates: '525,261,540,239,569,227,583,231,600,232,610,245,614,265,605,278,587,291,563,299,530,290', shape: 'poly', image: HSIL5Lugols)
+      GreenArea.create(coordinates: '323,296,339,262,367,247,394,254,417,269,438,299,445,325,428,350,401,366,372,370,352,370,343,352,328,326', shape: 'poly', image: HSIL5Lugols)
+      GreenArea.create(coordinates: '432,397,458,386,492,375,527,378,558,397,579,411,588,442,578,463,549,476,503,477,437,468,410,444,416,419', shape: 'poly', image: HSIL5Lugols)
 
 HSIL6 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '3:00 - 8:00', findings: 'dense AW, sharp border', ECC: 'No')
    HSIL6Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 6 NS.jpg', image_set: HSIL6)
-   HSIL6Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 6 Pre.jpg', image_set: HSIL6)
 
    HSIL6AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 6 AW.jpg', image_set: HSIL6)
       GreenArea.create(coordinates: '80,376,106,303,179,260,225,253,266,258,303,267,351,279,384,300,403,322,433,340,455,350,488,364,506,368,554,345,586,327,613,308,620,296,623,260,642,226,666,203,694,192,714,193,740,236,752,269,730,311,708,340,676,364,662,386,643,407,624,465,601,502,591,532,577,556,571,587,568,594,221,590,188,579,155,550,118,534,77,495', shape: 'poly', image: HSIL6AW)
    HSIL6Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 6 Lugol_s.jpg', image_set: HSIL6)
-      GreenArea.create(coordinates: '162,294,187,266,186,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL6AWLugols)
+      GreenArea.create(coordinates: '162,294,187,266,186,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL6Lugols)
 
 HSIL7 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '6:00, 8:00', findings: 'dense AW, sharp border', ECC: 'No')
    HSIL7Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 7 NS.jpg', image_set: HSIL7)
 
    HSIL7AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 7 AW.jpg', image_set: HSIL7)
-      GreenArea.create(coordinates: '133,398,140,377,159,363,184,352,203,351,223,371,239,382,263,394,270,415,283,435,304,447,320,455,328,469,323,496,297,515,267,523,237,519,199,493,167,476,145,439', shape: 'poly', image: HSIL7AW)
-      GreenArea.create(coordinates: '364,513,378,469,405,446,436,429,457,407,487,396,518,404,540,425,553,447,554,479,547,511,520,529,479,546,435,556,367,550', shape: 'poly', image: HSIL7AW)
+      GreenArea.create(coordinates: '133,398,140,377,159,363,184,352,203,351,223,371,239,382,263,394,270,415,283,435,304,447,320,455,328,469,323,496,297,515,267,523,237,519,199,493,167,476,145,439', shape: 'poly', image: HSIL7AW1)
+      GreenArea.create(coordinates: '364,513,378,469,405,446,436,429,457,407,487,396,518,404,540,425,553,447,554,479,547,511,520,529,479,546,435,556,367,550', shape: 'poly', image: HSIL7AW1)
    HSIL7AW2 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 7 AW 2.jpg', image_set: HSIL7)
-      GreenArea.create(coordinates: '65,352,104,307,132,296,159,313,178,348,179,372,196,374,212,391,231,381,254,381,280,397,303,403,312,414,306,443,305,451,314,451,324,439,337,436,350,425,365,413,374,396,385,374,392,361,406,353,440,342,467,344,484,355,496,380,502,415,501,436,489,460,472,473,451,491,431,509,399,525,361,533,344,540,325,519,318,540,292,528,270,533,252,514,251,493,263,483,238,486,222,497,203,501,182,499,157,473,141,456,118,450,107,423,98,387,90,354', shape: 'poly', image: HSIL7AW)
+      GreenArea.create(coordinates: '65,352,104,307,132,296,159,313,178,348,179,372,196,374,212,391,231,381,254,381,280,397,303,403,312,414,306,443,305,451,314,451,324,439,337,436,350,425,365,413,374,396,385,374,392,361,406,353,440,342,467,344,484,355,496,380,502,415,501,436,489,460,472,473,451,491,431,509,399,525,361,533,344,540,325,519,318,540,292,528,270,533,252,514,251,493,263,483,238,486,222,497,203,501,182,499,157,473,141,456,118,450,107,423,98,387,90,354', shape: 'poly', image: HSIL7AW2)
    HSIL7Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 7 Lugol_s.jpg', image_set: HSIL7)
       GreenArea.create(coordinates: '53,440,85,423,120,406,146,390,181,372,205,379,225,393,229,409,225,439,222,467,218,483,226,485,234,470,243,454,258,453,280,422,304,406,323,392,339,371,368,368,392,371,411,389,428,424,437,432,443,457,448,477,405,515,371,534,337,559,308,559,281,559,282,574,262,563,236,543,223,519,219,502,205,498,185,501,165,503,133,489,103,492,75,491,60,478,56,461', shape: 'poly', image: HSIL7Lugols)
 
@@ -500,7 +499,6 @@ HSIL35 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
 
 HSIL37 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '5:00 - 8:00', findings: 'dense AW, sharp border, cuffed crypts, erosion', ECC: 'Yes')
    HSIL37Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 37 NS.jpg', image_set: HSIL37)
-   HSIL37Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 37 pre.jpg', image_set: HSIL37)
 
    HSIL37AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 37 AW.jpg', image_set: HSIL37)
       GreenArea.create(coordinates: '198,317,220,300,222,285,244,278,261,291,270,274,291,262,311,264,312,283,313,298,329,299,346,293,354,273,363,258,387,255,399,256,412,275,417,297,418,315,408,330,412,343,424,361,419,385,409,398,338,422,321,418,301,395,294,384,260,402,250,413,229,410,191,381,191,365,197,345', shape: 'poly', image: HSIL37AW)
@@ -659,7 +657,6 @@ LSIL10 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', l
 
 LSIL11 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '8:00, 10:00', findings: 'thin AW, irregular border ', ECC: 'No')
    LSIL11Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 11 NS.jpg', image_set: LSIL11)
-   LSIL11Pre = Image.create(image_type: 'Speculum Exam', img_url: 'LSIL 11 pre.jpg', image_set: LSIL11)
 
    LSIL11AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'LSIL 11 AW.jpg', image_set: LSIL11)
       GreenArea.create(coordinates: '239,256,259,220,312,215,334,234,333,258,297,278,251,278', shape: 'poly', image: LSIL11AW1)
@@ -677,7 +674,7 @@ LSIL11 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', l
 LSIL13 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'dense AW, sharp border', ECC: 'Yes')
    LSIL13Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 13 NS.jpg', image_set: LSIL13)
 
-   LSIL13AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'LSIL 13 AW green.jpg', image_set: LSIL131)
+   LSIL13AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'LSIL 13 AW green.jpg', image_set: LSIL13)
       GreenArea.create(coordinates: '203,518,190,537,198,562,228,562,246,549,243,528,230,510', shape: 'poly', image: LSIL13AWGreen)
       GreenArea.create(coordinates: '162,400,221,385,312,384,358,388,383,398,394,382,406,321,414,287,399,258,387,238,378,204,374,152,351,128,307,118,275,136,250,161,224,202,230,160,231,135,225,120,210,116,192,124,180,140,172,163,160,197,156,238,149,316', shape: 'poly', image: LSIL13AWGreen)
       GreenArea.create(coordinates: '174,402,188,415,165,422,131,422,106,420,94,442,116,457,148,476,168,498,211,499,243,476,251,451,267,431,279,424,268,402,220,391,197,394', shape: 'poly', image: LSIL13AWGreen)
