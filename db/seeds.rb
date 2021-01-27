@@ -504,8 +504,7 @@ HSIL37 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
 
    HSIL37AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 37 AW.jpg', image_set: HSIL37)
       GreenArea.create(coordinates: '198,317,220,300,222,285,244,278,261,291,270,274,291,262,311,264,312,283,313,298,329,299,346,293,354,273,363,258,387,255,399,256,412,275,417,297,418,315,408,330,412,343,424,361,419,385,409,398,338,422,321,418,301,395,294,384,260,402,250,413,229,410,191,381,191,365,197,345', shape: 'poly', image: HSIL37AW)
-      BlueArea.create(image: HSIL37AW)      GreenArea.create(coordinates: '', shape: 'poly', image: HSIL37AWGreen)
-      BlueArea.create(image: HSIL37AWGreen)
+      BlueArea.create(image: HSIL37AW)
    HSIL37Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 37 Lugol_s.jpg', image_set: HSIL37)
       GreenArea.create(coordinates: '51,332,76,274,80,228,95,189,120,154,152,135,186,132,224,152,248,184,274,207,291,227,311,244,330,273,338,299,335,327,337,342,352,352,348,380,342,406,331,432,319,459,299,477,283,483,258,469,235,441,210,425,185,404,165,405,151,425,134,450,100,444,45,399,38,361', shape: 'poly', image: HSIL37Lugols)
       BlueArea.create(image: HSIL37Lugols )
