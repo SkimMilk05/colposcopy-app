@@ -5,7 +5,8 @@ class ImageSetsController < ApplicationController
   # GET /image_sets
   # GET /image_sets.json
   def index
-    @image_sets = ImageSet.all.shuffle #shuffle function randomizes order
+    #@image_sets = ImageSet.all.shuffle #shuffle function randomizes order
+    @image_sets = ImageSet.all
   end
 
   # GET /image_sets/1
