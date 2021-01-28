@@ -61,6 +61,10 @@ p {
   font-family: 'Courier New', monospace;
 }
 
+textarea {
+  width: 100%;
+  height: 100px;
+}
 
 
 .fullscreen {
