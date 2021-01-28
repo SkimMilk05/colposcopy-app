@@ -16,6 +16,14 @@ class ApplicationController < ActionController::Base
      end
   end
 
+  def did_ten_sets
+     if current_user.image_sessions.length() == 10 && current_user.tests.length() == 1
+       return true
+     else
+       return false
+     end
+  end
+
   def one_month_passed
      if (current_user.created_at - DateTime.now).to_i >= 30 && current_user.tests.length() < 2
         return true

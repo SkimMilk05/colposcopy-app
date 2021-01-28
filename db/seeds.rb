@@ -239,22 +239,24 @@ HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
    HSIL1Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 1 NS.jpg', image_set: HSIL1)
 
    HSIL1AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 1 AW 1.jpg', image_set: HSIL1)
-      GreenArea.create(coordinates: '238,131,245,92,275,65,299,42,315,21,340,0,385,2,403,23,437,36,466,55,480,80,473,98,454,111,426,119,389,113,352,128,310,139,266,158,250,145', shape: 'poly', image: HSIL1AW1)
-      GreenArea.create(coordinates: '536,248,556,258,548,292,545,323,543,349,540,373,523,385,503,373,499,359,500,327,494,295', shape: 'poly', image: HSIL1AW1)
-      GreenArea.create(coordinates: '470,397,496,401,520,425,525,462,542,472,563,489,566,514,544,534,519,545,497,558,483,575,471,599,460,597,463,553,477,517,496,496,501,476,478,463,449,439,438,420,446,406', shape: 'poly', image: HSIL1AW1)
+      GreenArea.create(coordinates: '263,155,237,130,247,98,260,82,294,43,329,11,357,0,389,8,408,25,455,42,478,66,474,93,437,115,426,125,397,114', shape: 'poly', image: HSIL1AW1)
+      GreenArea.create(coordinates: '540,248,512,270,498,295,500,340,501,372,523,380,536,380,549,354,548,313,555,274,550,253', shape: 'poly', image: HSIL1AW1)
+      GreenArea.create(coordinates: '440,415,473,395,518,419,527,441,522,471,506,484,482,468,448,438', shape: 'poly', image: HSIL1AW1)
+      GreenArea.create(coordinates: '496,492,531,465,543,475,570,517,524,551,471,599,458,598,458,568,469,532,479,510', shape: 'poly', image: HSIL1AW1)
 
    HSIL1AW2 = Image.create(image_type: 'Acetic Acid 2', img_url: 'HSIL 1 AW 2.jpg', image_set: HSIL1)
       GreenArea.create(coordinates: '414,184,444,142,479,118,506,113,520,128,523,142,579,173,583,183,586,223,586,255,577,262,570,267,580,281,571,307,552,318,538,312,491,297,458,306,433,295,426,269,422,214,424,195', shape: 'poly', image: HSIL1AW2)
       GreenArea.create(coordinates: '481,344,554,347,595,371,613,403,611,445,598,483,577,502,531,518,497,534,465,543,456,517,459,499,452,464,452,435,466,407,479,373', shape: 'poly', image: HSIL1AW2)
 
    HSIL1AW3 = Image.create(image_type: 'Acetic Acid 3', img_url: 'HSIL 1 AW 3.jpg', image_set: HSIL1)
-      GreenArea.create(coordinates: '204,482,211,449,228,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL1AW3)
+      GreenArea.create(coordinates: '347,396,375,380,398,332,428,326,452,340,461,404,457,458,436,512,412,525,375,525,351,511,323,506,281,515,238,515,205,494,206,463,231,424,266,400,305,387', shape: 'poly', image: HSIL1AW3)
 
 HSIL2 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '2:00 - 6:00, 12:00 - 1:00', findings: 'dense AW, sharp border ', ECC: 'No')
    HSIL2Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 2 NS.jpg', image_set: HSIL2)
 
    HSIL2AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 2 AW.jpg', image_set: HSIL2)
-      GreenArea.create(coordinates: '423,172,445,144,487,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL2AW)
+      GreenArea.create(coordinates: '423,200,419,171,434,153,474,141,519,146,569,142,618,145,663,187,646,248,604,282,581,288,560,263,582,237,573,219', shape: 'poly', image: HSIL2AW)
+      GreenArea.create(coordinates: '582,287,548,284,507,307,471,339,452,360,454,386,498,384,562,371,595,344,607,327,598,296', shape: 'poly', image: HSIL2AW)
    HSIL2AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 2 AW green.jpg', image_set: HSIL2)
       GreenArea.create(coordinates: '594,87,540,80,517,76,482,83,457,89,430,104,405,124,399,145,413,159,442,165,478,169,516,172,532,183,551,199,536,211,525,235,538,254,556,268,575,275,589,275,617,260,633,220,649,186,658,155,661,128,631,106,613,95', shape: 'poly', image: HSIL2AWGreen)
       GreenArea.create(coordinates: '557,260,528,258,493,270,466,296,444,319,434,339,431,365,438,398,460,410,501,400,539,372,559,346,579,328,592,289,581,273', shape: 'poly', image: HSIL2AWGreen)
