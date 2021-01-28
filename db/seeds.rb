@@ -285,7 +285,7 @@ HSIL6 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
    HSIL6AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 6 AW.jpg', image_set: HSIL6)
       GreenArea.create(coordinates: '80,376,106,303,179,260,225,253,266,258,303,267,351,279,384,300,403,322,433,340,455,350,488,364,506,368,554,345,586,327,613,308,620,296,623,260,642,226,666,203,694,192,714,193,740,236,752,269,730,311,708,340,676,364,662,386,643,407,624,465,601,502,591,532,577,556,571,587,568,594,221,590,188,579,155,550,118,534,77,495', shape: 'poly', image: HSIL6AW)
    HSIL6Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 6 Lugol_s.jpg', image_set: HSIL6)
-      GreenArea.create(coordinates: '162,294,187,266,186,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL6Lugols)
+      GreenArea.create(coordinates: '156,294,182,262,180,229,224,195,274,177,296,182,315,216,352,252,401,282,448,285,499,285,534,266,600,255,606,228,628,188,620,162,656,152,690,162,694,181,683,221,666,259,632,301,602,363,593,391,579,426,564,463,536,499,485,536,422,543,363,540,322,525,277,512,220,486,182,453,167,425,151,385', shape: 'poly', image: HSIL6Lugols)
 
 HSIL7 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '6:00, 8:00', findings: 'dense AW, sharp border', ECC: 'No')
    HSIL7Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 7 NS.jpg', image_set: HSIL7)
@@ -302,11 +302,11 @@ HSIL8 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
    HSIL8Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 8 AW.jpg', image_set: HSIL8)
 
    HSIL8AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 8 AW.jpg', image_set: HSIL8)
-      GreenArea.create(coordinates: '429,391,456,347,492,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL8AW)
+      GreenArea.create(coordinates: '519,467,489,443,451,422,432,405,429,382,454,351,496,330,531,315,548,310,564,290,588,289,621,313,628,340,590,388,559,436,541,458', shape: 'poly', image: HSIL8AW)
    HSIL8AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 8 AW green.jpg', image_set: HSIL8)
-      GreenArea.create(coordinates: '590,267,582,232,626,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL8AWGreen)
+      GreenArea.create(coordinates: '599,362,562,331,566,313,558,303,563,282,584,268,580,242,594,225,624,219,647,184,681,175,745,155,772,177,783,212,785,245,770,266,774,311,757,342,722,365,708,345,679,348,652,343,626,358', shape: 'poly', image: HSIL8AWGreen)
    HSIL8Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 8 Lugol_s.jpg', image_set: HSIL8)
-      GreenArea.create(coordinates: '562,211,593,202,620,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL8Lugols)
+      GreenArea.create(coordinates: '549,221,610,204,642,185,661,171,680,180,689,240,667,263,681,282,688,303,675,325,649,333,621,319,615,353,596,361,577,359,556,337,535,307,543,279,560,255', shape: 'poly', image: HSIL8Lugols)
 
 HSIL15 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '12:00', findings: 'dense AW, sharp border', ECC: 'Yes')
    HSIL15Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 15 AW.jpg', image_set: HSIL15)
@@ -340,7 +340,7 @@ HSIL29 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', 
    HSIL29Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 29 pre.jpg', image_set: HSIL29)
 
    HSIL29AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 29 AW.jpg', image_set: HSIL29)
-      GreenArea.create(coordinates: '193,295,199,275,236,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000,000', shape: 'poly', image: HSIL29AW)
+      GreenArea.create(coordinates: '396,319,351,304,300,284,243,267,197,277,194,306,231,321,275,337,324,360,352,389,379,406,411,400,429,386,428,347,414,327', shape: 'poly', image: HSIL29AW)
       BlueArea.create(image: HSIL29AW)
 
 HSIL31 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '7:00 - 10:00', findings: 'dense AW, sharp border, erosion', ECC: 'No')
