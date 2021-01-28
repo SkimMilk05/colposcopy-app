@@ -74,6 +74,6 @@ class PostSurveysController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_survey_params
-      params.fetch(:post_survey, {}).permit(:user_id,:Q1, :Q2, :Q3)
+      params.fetch(:post_survey, {}).permit(:user_id,:Q1, :Q2, :Q3, :Q4)
     end
 end
