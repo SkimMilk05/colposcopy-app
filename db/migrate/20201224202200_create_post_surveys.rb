@@ -7,6 +7,8 @@ class CreatePostSurveys < ActiveRecord::Migration[6.0]
       t.text :Q2, null: false
       t.text :Q3, null: false
 
+      t.text :Q4, null: false
+
       t.timestamps
     end
   end

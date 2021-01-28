@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
     t.text "Q1", null: false
     t.text "Q2", null: false
     t.text "Q3", null: false
+    t.text "Q4", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_post_surveys_on_user_id"
