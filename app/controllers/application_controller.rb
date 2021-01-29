@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
      end
   end
   def did_first_post_survey
-     return current_user.post_survey.length() == 1
+     return current_user.post_surveys.length() == 1
   end
 
   def did_ten_sets
