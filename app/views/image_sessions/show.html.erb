@@ -8,11 +8,7 @@
    <ul class="navbar-nav d-flex" id="navbar-item">
      <li>
         <div >
-           <% if @need_survey_and_test %>
-             <li><<%= button_to 'Take Follow-Up Survey >', new_post_survey_path, method: :get%></li>
-           <% else %>
-            <%= link_to "Exit Practice", signed_in_root_url %>
-           <% end %>
+         <%= link_to "Exit Practice", signed_in_root_url %>
        </div>
      </li>
    </ul>
@@ -31,11 +27,7 @@
       <%= render "session_score" %>
       <div class="d-flex justify-content-around">
          <ul style="list-style-type:none;">
-            <% if @need_survey_and_test %>
-               <li><%= button_to 'Take Follow-Up Survey >', new_post_survey_path, method: :get%></li>
-            <% else %>
-               <li><%= link_to '< Back to Practice', image_sets_path %></li>
-            <% end %>
+         <li><%= link_to '< Back to Practice', image_sets_path %></li>
          </ul>
       </div>
     </div>
