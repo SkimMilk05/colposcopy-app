@@ -1,7 +1,7 @@
 class PreSurveysController < ApplicationController
   before_action :set_pre_survey, only: [:show, :edit, :update, :destroy]
   before_action :require_login
-  before_action :require_permission_user
+  before_action :require_survey_permission_user
 
   # GET /pre_surveys
   # GET /pre_surveys.json
@@ -31,7 +31,7 @@ class PreSurveysController < ApplicationController
     begin
        respond_to do |format|
          if @pre_survey.save #after submit pre-survey, take test
-           format.html { redirect_to new_test_path , notice: 'Pre survey was successfully created.' }
+           format.html { redirect_to new_test_path, notice: 'Pre-survey successfully submitted'}
          else
            format.html { render :new , notice: 'Presurvey not created'}
            format.json { render json: @pre_survey.errors, status: :unprocessable_entity }

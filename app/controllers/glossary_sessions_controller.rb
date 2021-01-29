@@ -1,6 +1,7 @@
 class GlossarySessionsController < ApplicationController
   before_action :set_glossary_session, only: [:edit, :update]
   before_action :require_login
+  before_action :require_clear_user
 
 
   # GET /glossary_sessions/1/edit

@@ -1,12 +1,13 @@
 class ImageSetsController < ApplicationController
   before_action :require_login
+  before_action :require_clear_user
   before_action :set_image_set, only: [:show]
 
   # GET /image_sets
   # GET /image_sets.json
   def index
-    #@image_sets = ImageSet.all.shuffle #shuffle function randomizes order
-    @image_sets = ImageSet.all
+    @image_sets = ImageSet.all.shuffle #shuffle function randomizes order
+   # @image_sets = ImageSet.all
   end
 
   # GET /image_sets/1

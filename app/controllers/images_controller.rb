@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
   before_action :require_login
+  before_action :require_clear_user
   before_action :set_image, only: [:show]
 
   # GET /images

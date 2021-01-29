@@ -1,7 +1,7 @@
 class PostSurveysController < ApplicationController
   before_action :set_post_survey, only: [:show, :edit, :update, :destroy]
   before_action :require_login
-  before_action :require_permission_user
+  before_action :require_survey_permission_user
 
   # GET /post_surveys
   # GET /post_surveys.json
@@ -31,7 +31,7 @@ class PostSurveysController < ApplicationController
     begin
        respond_to do |format|
          if @post_survey.save #after submit post-survey, take test
-           format.html { redirect_to new_test_path}
+           format.html { redirect_to new_test_path, notice: 'Post-survey successfully submitted'}
          else
            format.html { render :new }
          end
@@ -42,29 +42,6 @@ class PostSurveysController < ApplicationController
    end
   end
 
-  # PATCH/PUT /post_surveys/1
-  # PATCH/PUT /post_surveys/1.json
-  def update
-    respond_to do |format|
-      if @post_survey.update(post_survey_params)
-        format.html { redirect_to @post_survey, notice: 'Post survey was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post_survey }
-      else
-        format.html { render :edit }
-        format.json { render json: @post_survey.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /post_surveys/1
-  # DELETE /post_surveys/1.json
-  def destroy
-    @post_survey.destroy
-    respond_to do |format|
-      format.html { redirect_to post_surveys_url, notice: 'Post survey was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

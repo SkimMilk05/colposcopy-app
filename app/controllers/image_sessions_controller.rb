@@ -1,6 +1,7 @@
 class ImageSessionsController < ApplicationController
   before_action :require_login
   before_action :set_image_session, only: [:show, :edit, :update, :destroy]
+  before_action :require_clear_user
 
   # GET /image_sessions
   # GET /image_sessions.json

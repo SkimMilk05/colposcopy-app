@@ -3,7 +3,8 @@ class NavigationController < ApplicationController
 
   def index
      @first_time_user = first_time_user
-     @has_permission_user = has_permission_user
+     @has_survey_permission_user = has_survey_permission_user
+     @has_test_permission_user = has_test_permission_user
   end
 
 
