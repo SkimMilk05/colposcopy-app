@@ -57,12 +57,12 @@
             <% if @has_survey_permission_user %>
                <p class="d-flex justify-content-text-center" id="alert">Please take a follow-up survey and test.</p>
                <div class="d-flex justify-content-center">
-                  <%= button_to 'Take Initial Survey', new_post_survey_path, method: :get%>
+                  <%= button_to 'Take Follow-Up Survey', new_post_survey_path, method: :get%>
                </div>
             <% elsif @has_test_permission_user %>
                <p class="d-flex justify-content-text-center" id="alert">Please take a follow-up survey and test.</p>
                <div class="d-flex justify-content-center">
-                  <%= button_to 'Take Initial Test', new_test_path, method: :get%>
+                  <%= button_to 'Take Post-test', new_test_path, method: :get%>
                </div>
             <%end%>
          <%end%>
