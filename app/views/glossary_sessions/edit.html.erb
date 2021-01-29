@@ -1,3 +1,49 @@
+<script type="text/javascript">
+   var warningTimeout = 900000;
+   var timoutNow = 60000;
+   var warningTimerID,timeoutTimerID;
+
+   function startTimer() {
+   // window.setTimeout returns an Id that can be used to start and stop a timer
+   warningTimerID = window.setTimeout(warningInactive, warningTimeout);
+   }
+
+   function warningInactive() {
+   window.clearTimeout(warningTimerID);
+   timeoutTimerID = window.setTimeout(IdleTimeout, timoutNow);
+   $('#modalAutoLogout').modal('show');
+   }
+
+   function resetTimer() {
+   window.clearTimeout(timeoutTimerID);
+   window.clearTimeout(warningTimerID);
+   startTimer();
+   }
+
+   // Logout the user.
+   function IdleTimeout() {
+   document.getElementById('glossary_session_form').submit();
+   }
+
+   function setupTimers () {
+   document.addEventListener("mousemove", resetTimer, false);
+   document.addEventListener("mousedown", resetTimer, false);
+   document.addEventListener("keypress", resetTimer, false);
+   document.addEventListener("touchmove", resetTimer, false);
+   document.addEventListener("onscroll", resetTimer, false);
+   startTimer();
+   }
+
+   $(document).on('click','#btnStayLoggedIn',function(){
+   resetTimer();
+   $('#modalAutoLogout').modal('hide');
+   });
+
+   $(document).ready(function(){
+   setupTimers();
+   });
+</script>
+
 <!--navbar-->
 <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
    <!--logo-->
@@ -13,3 +59,23 @@
 
 
 <%= render 'glossary'%>
+
+<!-- Modal -->
+<div id="modalAutoLogout" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+         <h4 class="modal-title">Inactive Warning</h4>
+      </div>
+      <div class="modal-body">
+        You have been inactive for 15 min. You will be redirected to the home dashboard unless you click "Continue" to remain on the glossary.
+      </div>
+      <div class="modal-footer">
+        <button id="btnStayLoggedIn" type="button" class="btn btn-default" data-dismiss="modal" >CONTINUE</button>
+      </div>
+    </div>
+
+  </div>
+</div>

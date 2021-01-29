@@ -1,5 +1,4 @@
-<%= form_with(model: glossary_session, local: true) do |form| %>
-
+<%= form_with model: @glossary_session, html: {id: "glossary_session_form"} do |form| %>
    <%= form.hidden_field :user_id, value: current_user.id %>
 
   <div class="actions">
