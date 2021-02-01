@@ -23,7 +23,7 @@ Q1E = TestOption.create(test_question: Q1, letter: 'E', text: 'The cervix increa
 
 
 #Question 2
-Q2 = TestQuestion.create(question_number: '2', question: "What is the most common error in colposcopyLugols", correct_ans: 'A')
+Q2 = TestQuestion.create(question_number: '2', question: "What is the most common error in colposcopy?", correct_ans: 'A')
 Q2A = TestOption.create(test_question: Q2, letter: 'A', text: 'Failure to identify the SCJ', img_url: nil)
 Q2B = TestOption.create(test_question: Q2, letter: 'B', text: 'Choosing incorrect biopsy sites', img_url: nil)
 Q2C = TestOption.create(test_question: Q2, letter: 'C', text: 'Insufficient tissue sampling', img_url: nil)
@@ -37,13 +37,13 @@ Q3C = TestOption.create(test_question: Q3, letter: 'C', text: 'Endometrium', img
 Q3D = TestOption.create(test_question: Q3, letter: 'D', text: 'Vagina', img_url: nil)
 
 #Question 4
-Q4 = TestQuestion.create(question_number: '4', question: 'Which of the following is not a risk factor for persistent HPV infectionLugols', correct_ans: 'C')
+Q4 = TestQuestion.create(question_number: '4', question: 'Which of the following is not a risk factor for persistent HPV infection?', correct_ans: 'C')
 Q4A = TestOption.create(test_question: Q4, letter: 'A', text: 'Smoking', img_url: nil)
 Q4B = TestOption.create(test_question: Q4, letter: 'B', text: 'HIV', img_url: nil)
 Q4C = TestOption.create(test_question: Q4, letter: 'C', text: 'Recent diagnosis of HPV infection', img_url: nil)
 Q4D = TestOption.create(test_question: Q4, letter: 'D', text: 'Older age', img_url: nil)
 Q4E = TestOption.create(test_question: Q4, letter: 'E', text: 'Immunocompromised state', img_url: nil)
-Q4F = TestOption.create(test_question: Q4, letter: 'F', text: 'High oncogenic HPV subimage_type', img_url: nil)
+Q4F = TestOption.create(test_question: Q4, letter: 'F', text: 'High oncogenic HPV subtype', img_url: nil)
 
 #######Q 5 HAS MULTIPLE PARTS MAYBE USE A FOR LOOPLugols
    Q5a = TestQuestion.create(question_number: '5a', question: 'Rapid appearance of acetowhite changes', correct_ans: 'C')
@@ -107,14 +107,14 @@ Q6C = TestOption.create(test_question: Q6, letter: 'C', img_url: '6C.png')
 Q6D = TestOption.create(test_question: Q6, letter: 'D', img_url: '6D.png')
 
 #Question 7
-Q7 = TestQuestion.create(question_number: '7', question: 'Which of the following photos has normal blood vesselsLugols', correct_ans: 'B')
+Q7 = TestQuestion.create(question_number: '7', question: 'Which of the following photos has normal blood vessels?', correct_ans: 'B')
 Q7A = TestOption.create(test_question: Q7, letter: 'A', img_url: '7A.png')
 Q7B = TestOption.create(test_question: Q7, letter: 'B', img_url: '7B.jpg')
 Q7C = TestOption.create(test_question: Q7, letter: 'C', img_url: '7C.png')
 Q7D = TestOption.create(test_question: Q7, letter: 'D', img_url: '7D.png')
 
 #Question 8
-Q8 = TestQuestion.create(question_number: '8', question: 'Which of the following photos has findings consistent with HIGH GRADE dysplasiaLugols', correct_ans: 'A')
+Q8 = TestQuestion.create(question_number: '8', question: 'Which of the following photos has findings consistent with HIGH GRADE dysplasia?', correct_ans: 'A')
 Q8A = TestOption.create(test_question: Q8, letter: 'A', img_url: '8A.png')
 Q8B = TestOption.create(test_question: Q8, letter: 'B', img_url: '8B.png')
 Q8C = TestOption.create(test_question: Q8, letter: 'C', img_url: '8C.png')
