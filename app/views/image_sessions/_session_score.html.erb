@@ -24,5 +24,14 @@
 
       <!-- colorlessWrong-->
       <li>Selected <strong>incorrect</strong> areas to biopsy <strong><%= @image_session.colorlessWrong %></strong> times.</li>
+
+      <!--impression -->
+      <% if @image_session.impression_correct == true %>
+         <li>Chose <strong><%= @image_session.impression %></strong> as the impression, which is <strong>correct.</strong></li>
+      <% elsif @image_session.impression_correct == false%>
+         <li>Chose <strong><%= @image_session.impression %>,</strong> which is <strong>incorrect.</strong> The correct impression is <strong><%= @image_set.impression %></strong> </li>
+      <% end %>
+
+
    </ul>
 </div>

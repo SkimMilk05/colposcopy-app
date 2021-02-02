@@ -15,6 +15,9 @@
 
   var colorlessWrong = 0;
 
+  //var correct_impression_ans = <%= @image_set.impression %>;
+  var impression_correct = null;
+
   window.onload = function(){
      $(document).ready(function(){
         $("#greenRight").val(greenRight);
@@ -24,13 +27,14 @@
         $("#blueLeft").val(blueLeft);
         $("#blueWrong").val(blueWrong);
         $("#colorlessWrong").val(colorlessWrong);
+        $("#impression_correct").val(impression_correct);
      });
   };
 
   //function to respond to clicks - for sound and display only. Score kept through controller buttons
 
   function submit() {
-     document.getElementById("image_session_form").submit();
+   document.getElementById("image_session_form").submit();
  }
 
   function checkDone() {
@@ -113,6 +117,19 @@
       submit();
  }
 
+ function impressionClicked(value) {
+    //<%= @image.image_set %>
+    if (value.valueOf() == "<%= @image_set.impression %>".valueOf()) {
+      impression_correct = true;
+   } else {
+      impression_correct = false;
+   }
+    document.getElementById("submit_button").removeAttribute('disabled');
+   $(document).ready(function(){
+     $("#impression_correct").val(impression_correct);
+   });
+}
+
 
 
   //function to scale image-map
@@ -176,6 +193,7 @@
    <%= hidden_field_tag :blueWrong, @blueWrong %>
    <%= hidden_field_tag :blueLeft, @blueLeft %>
    <%= hidden_field_tag :colorlessWrong, @colorlessWrong %>
+   <%= hidden_field_tag :impression_correct, @impression_correct %>
 
    <!--navbar-->
    <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
@@ -197,15 +215,15 @@
    <!--start page content-->
    <div class="container-fluid fullscreen remove-all-margin-padding" >
       <!-- header-->
-      <div class="row" style="height: 10%;">
+      <div class="row" style="height: 15%;">
          <div class="col h-100">
             <div id="feedback">
-               Instructions: click on the area you should biposy on the image. If you wish to request a ECC, click on the button 'Request ECC' on the lower left corner of the screen.
+               Click on the area you should biposy on the image. Click the button 'Request ECC' if you wish to do so. You must answer for the impression before submitting.
             </div>
          </div>
       </div>
       <!--image and map -->
-      <div class="row" style="height: 80%;"  >
+      <div class="row" style="height: 70%;"  >
          <div class="col h-100">
             <!--displaying the image-->
             <%= image_tag(@image.img_url, usemap: "#map", id: "practice-image", class: 'full-img rounded', onclick: "colorlessClicked()")%>
@@ -221,11 +239,22 @@
          </div>
       </div>
       <!--ECC and submit button-->
+      <div class="row mb-2" style="height: 5%;"  >
+         <div class="col d-flex justify-content-center">
+            <h6>Image: <%= @image.image_type%></h6>
+         </div>
+      </div>
       <div class="row" >
-         <div class="col d-flex justify-content-between">
+         <div class="col d-flex justify-content-between"  style="height: 2%;">
                <button type='button' onclick="blueClicked()">ECC Requested</button>
-               <span class="badge badge-primary align-self-center">Image: <%= @image.image_type%></span>
-               <button onclick="submitClicked()">Submit ></button>
+               <div class="impression">
+               Impression?
+                  <%= radio_button_tag :impression, 'normal', false, onclick: "impressionClicked('normal');" %> normal
+                  <%= radio_button_tag :impression, 'low grade', false, onclick: "impressionClicked('low grade')" %> low grade
+                  <%= radio_button_tag :impression, 'high grade', false, onclick: "impressionClicked('high grade');"%> high grade
+                  <%= radio_button_tag :impression, 'suspicious for invasion', false, onclick: "impressionClicked('suspicious for invasion')"%> susp. for invasion
+               </div>
+               <button id="submit_button" onclick="submitClicked()" disabled>Submit ></button>
          </div>
       </div>
 

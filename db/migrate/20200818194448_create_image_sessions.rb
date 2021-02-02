@@ -12,6 +12,9 @@ class CreateImageSessions < ActiveRecord::Migration[6.0]
       t.integer :greenLeft
       t.integer :blueLeft
 
+      t.text :impression, null: false
+      t.boolean :impression_correct
+
 
 
 

@@ -7,7 +7,10 @@ class CreateImageSets < ActiveRecord::Migration[6.0]
       t.text :findings
 
       t.text :lesion_location
+      t.text :impression
       t.text :ECC
+
+
 
       t.timestamps
     end

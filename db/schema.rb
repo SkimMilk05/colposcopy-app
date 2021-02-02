@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
     t.integer "colorlessWrong", default: 0
     t.integer "greenLeft"
     t.integer "blueLeft"
+    t.text "impression", null: false
+    t.boolean "impression_correct"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["image_id"], name: "index_image_sessions_on_image_id"
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
     t.text "pathology"
     t.text "findings"
     t.text "lesion_location"
+    t.text "impression"
     t.text "ECC"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

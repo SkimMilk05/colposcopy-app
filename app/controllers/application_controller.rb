@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   def six_months_passed
      return (current_user.created_at - DateTime.now).to_i >= 180 && current_user.tests.length() == 4
   end
-  
+
 =begin
   def did_fifth_post_survey
      return current_user.post_survey.length() == 5
@@ -61,17 +61,17 @@ class ApplicationController < ActionController::Base
   end
 
   def require_survey_permission_user
-    unless first_time_user && !did_pre_survey) || (did_ten_sets && !did_first_post_survey) || (one_month_passed && !did_second_post_survey) || (three_months_passed && !did_third_post_survey) || (six_months_passed && !did_fourth_post_survey)
+    unless (first_time_user && !did_pre_survey) || (did_ten_sets && !did_first_post_survey) || (one_month_passed && !did_second_post_survey) || (three_months_passed && !did_third_post_survey) || (six_months_passed && !did_fourth_post_survey)
       redirect_to signed_in_root_url, alert: "You must be prompted to take a survey & test"  # halts request cycle
     end
   end
 
   def has_test_permission_user
-     return first_time_user && did_pre_survey) || (did_ten_sets && did_first_post_survey) || (one_month_passed && did_second_post_survey) || (three_months_passed && did_third_post_survey) || (six_months_passed && did_fourth_post_survey)
+     return (first_time_user && did_pre_survey) || (did_ten_sets && did_first_post_survey) || (one_month_passed && did_second_post_survey) || (three_months_passed && did_third_post_survey) || (six_months_passed && did_fourth_post_survey)
   end
 
   def require_test_permission_user
-    unless first_time_user && did_pre_survey) || (did_ten_sets && did_first_post_survey) || (one_month_passed && did_second_post_survey) || (three_months_passed && did_third_post_survey) || (six_months_passed && did_fourth_post_survey)
+    unless (first_time_user && did_pre_survey) || (did_ten_sets && did_first_post_survey) || (one_month_passed && did_second_post_survey) || (three_months_passed && did_third_post_survey) || (six_months_passed && did_fourth_post_survey)
       redirect_to signed_in_root_url, alert: "You must be prompted to take a survey & test"  # halts request cycle
     end
   end

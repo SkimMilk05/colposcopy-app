@@ -183,7 +183,7 @@ Q9D = TestOption.create(test_question: Q9, letter: 'D', img_url: '9D.png')
 testsession = ImageSession.create()
 
 #UVA image sets--------------------------------------------------------
-C107 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', findings: '', lesion_location: '5:00, 12:00', ECC: 'Benign')
+C107 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', findings: '', lesion_location: '5:00, 12:00', impression: 'low grade' , ECC: 'Benign')
 
    C107_Pre = Image.create(image_type: 'Speculum Exam', img_url: 'C107_Pre.JPG', image_set: C107)
    C107_Green = Image.create(image_type: 'Green', img_url: 'C107_Green.JPG', image_set: C107)
@@ -198,7 +198,7 @@ C107 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', fin
       GreenArea.create(coordinates: '1663,1745,1930,1897', shape: 'rect', image: C107_Post)
       BlueArea.create(image: C107_Post)
 
-C109 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', findings: '', lesion_location: '1:00, 11:00', ECC: 'Not Done')
+C109 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', findings: '', lesion_location: '1:00, 11:00', impression: 'low grade' , ECC: 'Not Done')
    C109_Pre = Image.create(image_type: 'Speculum Exam', img_url: 'C109_Pre.JPG', image_set: C109)
 
    C109_Green = Image.create(image_type: 'Green', img_url: 'C109_Green.JPG', image_set: C109)
@@ -210,7 +210,7 @@ C109 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', fin
 
 
 #Squamous Cell CANCERS------------------------------------------------
-SCC1 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'microinvasive SCC', lesion_location: '11:00 - 2:00', findings: 'dense AW area, coarse punctations, sharp raised border, erosion', ECC: 'Yes')
+SCC1 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'microinvasive SCC', lesion_location: '11:00 - 2:00', findings: 'dense AW area, coarse punctations, sharp raised border, erosion', impression: 'suspicious for invasion' , ECC: 'Yes')
    SCC1Pre = Image.create(image_type: 'Speculum Exam', img_url: 'SCC1AW.jpg', image_set: SCC1)
 
    SCC1AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'SCC1AWGreen.jpg', image_set: SCC1)
@@ -220,7 +220,7 @@ SCC1 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'microinva
       GreenArea.create(coordinates: '216,196,241,181,259,168,284,164,302,157,315,156,320,139,333,120,359,111,378,111,395,111,403,119,416,123,438,122,457,126,470,131,480,144,485,165,504,173,516,173,532,180,538,198,542,214,552,229,557,240,563,258,567,280,565,321,548,348,517,335,493,309,469,297,461,308,438,317,408,320,392,320,370,316,353,310,333,308,310,306,288,304,272,294,265,276,250,279,233,278,220,264,217,251,219,227', shape: 'poly', image: SCC1AW)
       BlueArea.create(image: SCC1AW)
 
-SCC8 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'invasive SCC', lesion_location: '4:00 - 10:00', findings: 'dense AW, coarse punctation, sharp border, atypical vessels, fragile vessels, irregular surface', ECC: 'Yes')
+SCC8 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'invasive SCC', lesion_location: '4:00 - 10:00', findings: 'dense AW, coarse punctation, sharp border, atypical vessels, fragile vessels, irregular surface', impression: 'suspicious for invasion' , ECC: 'Yes')
    SCC8Pre = Image.create(image_type: 'Normal Saline', img_url: 'SCC8NS.jpg', image_set: SCC8)
 
    SCC8AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'SCC8AWGreen.jpg', image_set: SCC8)
@@ -235,7 +235,7 @@ SCC8 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'invasive 
 
 #HIGH GRADE dysplasia---------------------------------------------------------------------
 #CIN2
-HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '11:00, 2:00, 5:00', findings: 'dense AW, sharp border ', ECC: 'No')
+HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '11:00, 2:00, 5:00', findings: 'dense AW, sharp border ', impression: 'high grade' , ECC: 'No')
    HSIL1Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 1 NS.jpg', image_set: HSIL1)
 
    HSIL1AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 1 AW 1.jpg', image_set: HSIL1)
@@ -251,7 +251,7 @@ HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
    HSIL1AW3 = Image.create(image_type: 'Acetic Acid 3', img_url: 'HSIL 1 AW 3.jpg', image_set: HSIL1)
       GreenArea.create(coordinates: '347,396,375,380,398,332,428,326,452,340,461,404,457,458,436,512,412,525,375,525,351,511,323,506,281,515,238,515,205,494,206,463,231,424,266,400,305,387', shape: 'poly', image: HSIL1AW3)
 
-HSIL2 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '2:00 - 6:00, 12:00 - 1:00', findings: 'dense AW, sharp border ', ECC: 'No')
+HSIL2 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '2:00 - 6:00, 12:00 - 1:00', findings: 'dense AW, sharp border ', impression: 'high grade' , ECC: 'No')
    HSIL2Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 2 NS.jpg', image_set: HSIL2)
 
    HSIL2AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 2 AW.jpg', image_set: HSIL2)
@@ -264,7 +264,7 @@ HSIL2 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
       GreenArea.create(coordinates: '305,243,298,225,290,204,298,182,316,172,342,173,362,175,383,177,411,175,440,174,469,164,505,170,529,182,543,202,547,224,537,247,522,260,504,278,474,291,440,291,409,278,387,257,364,240,333,233', shape: 'poly', image: HSIL2Lugols)
       GreenArea.create(coordinates: '448,302,475,307,482,330,482,350,445,388,396,423,354,446,326,451,307,445,304,429,306,413,313,396,344,352,371,334,395,326,416,326,431,326,441,324', shape: 'poly', image: HSIL2Lugols)
 
-HSIL5 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '1:00, 5:00, 7:00, 11:00', findings: 'dense AW, sharp border', ECC: 'No')
+HSIL5 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '1:00, 5:00, 7:00, 11:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'No')
    HSIL5Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 5 NS green.jpg', image_set: HSIL5)
 
    HSIL5AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 5 AW.jpg', image_set: HSIL5)
@@ -279,7 +279,7 @@ HSIL5 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
       GreenArea.create(coordinates: '323,296,339,262,367,247,394,254,417,269,438,299,445,325,428,350,401,366,372,370,352,370,343,352,328,326', shape: 'poly', image: HSIL5Lugols)
       GreenArea.create(coordinates: '432,397,458,386,492,375,527,378,558,397,579,411,588,442,578,463,549,476,503,477,437,468,410,444,416,419', shape: 'poly', image: HSIL5Lugols)
 
-HSIL6 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '3:00 - 8:00', findings: 'dense AW, sharp border', ECC: 'No')
+HSIL6 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '3:00 - 8:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'No')
    HSIL6Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 6 NS.jpg', image_set: HSIL6)
 
    HSIL6AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 6 AW.jpg', image_set: HSIL6)
@@ -287,18 +287,18 @@ HSIL6 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
    HSIL6Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 6 Lugol_s.jpg', image_set: HSIL6)
       GreenArea.create(coordinates: '156,294,182,262,180,229,224,195,274,177,296,182,315,216,352,252,401,282,448,285,499,285,534,266,600,255,606,228,628,188,620,162,656,152,690,162,694,181,683,221,666,259,632,301,602,363,593,391,579,426,564,463,536,499,485,536,422,543,363,540,322,525,277,512,220,486,182,453,167,425,151,385', shape: 'poly', image: HSIL6Lugols)
 
-HSIL7 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '6:00, 8:00', findings: 'dense AW, sharp border', ECC: 'No')
+HSIL7 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '6:00, 8:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'No')
    HSIL7Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 7 NS.jpg', image_set: HSIL7)
 
    HSIL7AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 7 AW.jpg', image_set: HSIL7)
       GreenArea.create(coordinates: '133,398,140,377,159,363,184,352,203,351,223,371,239,382,263,394,270,415,283,435,304,447,320,455,328,469,323,496,297,515,267,523,237,519,199,493,167,476,145,439', shape: 'poly', image: HSIL7AW1)
       GreenArea.create(coordinates: '364,513,378,469,405,446,436,429,457,407,487,396,518,404,540,425,553,447,554,479,547,511,520,529,479,546,435,556,367,550', shape: 'poly', image: HSIL7AW1)
-   HSIL7AW2 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 7 AW 2.jpg', image_set: HSIL7)
+   HSIL7AW2 = Image.create(image_type: 'Acetic Acid 2', img_url: 'HSIL 7 AW 2.jpg', image_set: HSIL7)
       GreenArea.create(coordinates: '65,352,104,307,132,296,159,313,178,348,179,372,196,374,212,391,231,381,254,381,280,397,303,403,312,414,306,443,305,451,314,451,324,439,337,436,350,425,365,413,374,396,385,374,392,361,406,353,440,342,467,344,484,355,496,380,502,415,501,436,489,460,472,473,451,491,431,509,399,525,361,533,344,540,325,519,318,540,292,528,270,533,252,514,251,493,263,483,238,486,222,497,203,501,182,499,157,473,141,456,118,450,107,423,98,387,90,354', shape: 'poly', image: HSIL7AW2)
    HSIL7Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 7 Lugol_s.jpg', image_set: HSIL7)
       GreenArea.create(coordinates: '53,440,85,423,120,406,146,390,181,372,205,379,225,393,229,409,225,439,222,467,218,483,226,485,234,470,243,454,258,453,280,422,304,406,323,392,339,371,368,368,392,371,411,389,428,424,437,432,443,457,448,477,405,515,371,534,337,559,308,559,281,559,282,574,262,563,236,543,223,519,219,502,205,498,185,501,165,503,133,489,103,492,75,491,60,478,56,461', shape: 'poly', image: HSIL7Lugols)
 
-HSIL8 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '4:00', findings: 'dense AW, sharp border', ECC: 'No')
+HSIL8 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '4:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'No')
    HSIL8Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 8 AW.jpg', image_set: HSIL8)
 
    HSIL8AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 8 AW.jpg', image_set: HSIL8)
@@ -308,7 +308,7 @@ HSIL8 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', l
    HSIL8Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 8 Lugol_s.jpg', image_set: HSIL8)
       GreenArea.create(coordinates: '549,221,610,204,642,185,661,171,680,180,689,240,667,263,681,282,688,303,675,325,649,333,621,319,615,353,596,361,577,359,556,337,535,307,543,279,560,255', shape: 'poly', image: HSIL8Lugols)
 
-HSIL15 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '12:00', findings: 'dense AW, sharp border', ECC: 'Yes')
+HSIL15 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '12:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'Yes')
    HSIL15Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 15 AW.jpg', image_set: HSIL15)
 
    HSIL15AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 15 AW.jpg', image_set: HSIL15)
@@ -318,7 +318,7 @@ HSIL15 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', 
       GreenArea.create(coordinates: '72,414,116,373,131,297,125,265,103,235,100,217,119,172,153,142,207,96,249,65,311,42,357,27,415,25,464,55,480,89,505,143,526,191,545,236,560,290,564,339,546,364,488,395,435,418,325,429,285,432,209,449,129,454,84,456', shape: 'poly', image: HSIL15Lugols)
       BlueArea.create(image: HSIL15Lugols)
 
-HSIL16 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '2:00', findings: 'dense AW, sharp border', ECC: 'No')
+HSIL16 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '2:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'No')
    HSIL16Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 16 pre.jpg', image_set: HSIL16)
 
    HSIL16AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 16 AW.jpg', image_set: HSIL16)
@@ -326,7 +326,7 @@ HSIL16 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', 
    HSIL16Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 16 Lugol_s.jpg', image_set: HSIL16)
       GreenArea.create(coordinates: '526,105,568,65,583,46,616,36,648,42,674,69,687,92,675,121,658,140,635,158,587,169,547,172,529,144,526,125', shape: 'poly', image: HSIL16Lugols)
 
-HSIL17 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '12:00', findings: 'dense AW, sharp border', ECC: 'Yes')
+HSIL17 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '12:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'Yes')
    HSIL17Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 17 NS.jpg', image_set: HSIL17)
 
    HSIL17AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 17 AW.jpg', image_set: HSIL17)
@@ -336,14 +336,14 @@ HSIL17 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', 
       GreenArea.create(coordinates: '333,84,324,98,317,130,314,157,325,187,324,228,332,256,347,296,343,327,341,342,395,355,424,353,456,331,486,318,499,297,521,282,542,259,557,232,573,194,577,160,564,139,526,134,504,132,503,119,513,104,519,89,522,79,510,74,488,70,488,59', shape: 'poly', image: HSIL17Lugols)
       BlueArea.create(image: HSIL17Lugols)
 
-HSIL29 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '4:00 - 7:00', findings: 'dense AW, sharp border', ECC: 'Yes')
+HSIL29 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '4:00 - 7:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'Yes')
    HSIL29Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 29 pre.jpg', image_set: HSIL29)
 
    HSIL29AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 29 AW.jpg', image_set: HSIL29)
       GreenArea.create(coordinates: '396,319,351,304,300,284,243,267,197,277,194,306,231,321,275,337,324,360,352,389,379,406,411,400,429,386,428,347,414,327', shape: 'poly', image: HSIL29AW)
       BlueArea.create(image: HSIL29AW)
 
-HSIL31 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '7:00 - 10:00', findings: 'dense AW, sharp border, erosion', ECC: 'No')
+HSIL31 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '7:00 - 10:00', findings: 'dense AW, sharp border, erosion', impression: 'high grade' , ECC: 'No')
    HSIL31Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 31 AW 2.jpg', image_set: HSIL31)
 
    HSIL31AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 31 AW 2.jpg', image_set: HSIL31)
@@ -353,7 +353,7 @@ HSIL31 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', 
       GreenArea.create(coordinates: '521,235,497,252,481,291,487,342,513,397,560,409,585,379,587,333,581,292,571,246,550,233', shape: 'poly', image: HSIL31Lugols)
       GreenArea.create(coordinates: '267,127,233,141,222,184,213,230,207,270,211,318,206,354,220,388,239,403,261,405,276,379,287,334,290,273,297,211,297,175,290,148', shape: 'poly', image: HSIL31Lugols)
 
-HSIL33 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '3:00 - 10:00', findings: 'dense AW, coarse mosaic, erosion', ECC: 'Yes')
+HSIL33 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '3:00 - 10:00', findings: 'dense AW, coarse mosaic, erosion', impression: 'high grade' , ECC: 'Yes')
    HSIL33Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 33 NS.jpg', image_set: HSIL33)
 
    HSIL33AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 33 AW.jpg', image_set: HSIL33)
@@ -368,7 +368,7 @@ HSIL33 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', 
 
 
 #CIN3
-HSIL9 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '3:00 - 7:00', findings: 'coarse mosaic, erosion', ECC: 'No')
+HSIL9 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '3:00 - 7:00', findings: 'coarse mosaic, erosion', impression: 'high grade' , ECC: 'No')
    HSIL9Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 9 pre.jpg', image_set: HSIL9)
 
    HSIL9AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 9 AW.jpg', image_set: HSIL9)
@@ -378,7 +378,7 @@ HSIL9 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', l
    HSIL9Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 9 Lugol_s.jpg', image_set: HSIL9)
       GreenArea.create(coordinates: '512,251,510,221,486,199,525,160,580,134,605,155,619,236,612,321,581,386,588,466,566,489,522,491,481,493,446,480,395,509,338,513,301,484,301,443,332,398,386,331,387,303,405,280,444,263', shape: 'poly', image: HSIL9Lugols)
 
-HSIL11 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '6:00 - 8:00', findings: 'dense AW, sharp border, cuffed crypts', ECC: 'No')
+HSIL11 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '6:00 - 8:00', findings: 'dense AW, sharp border, cuffed crypts', impression: 'high grade' , ECC: 'No')
    HSIL11Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 11 pre.jpg', image_set: HSIL11)
 
    HSIL11AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 11 AW.jpg', image_set: HSIL11)
@@ -391,7 +391,7 @@ HSIL11 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
    HSIL11AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'HSIL 11 AW green.jpg', image_set: HSIL11)
       GreenArea.create(coordinates: '339,181,321,144,341,103,349,61,399,45,440,53,502,84,559,96,588,104,580,136,568,180,596,249,646,300,650,344,639,381,604,397,559,422,496,424,411,420,362,379,362,315,361,270,372,213', shape: 'poly', image: HSIL11AWGreen)
 
-HSIL12 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '6:00 - 8:00', findings: 'dense AW, sharp border, cuffed crypts', ECC: 'No')
+HSIL12 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '6:00 - 8:00', findings: 'dense AW, sharp border, cuffed crypts', impression: 'high grade' , ECC: 'No')
    HSIL12Pre1 = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 12 pre.jpg', image_set: HSIL12)
    HSIL12Pre2 = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 12 NS.jpg', image_set: HSIL12)
 
@@ -402,7 +402,7 @@ HSIL12 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
    HSIL12Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 12 Lugol_s.jpg', image_set: HSIL12)
       GreenArea.create(coordinates: '225,154,260,151,285,180,289,232,300,269,308,299,335,324,373,335,415,350,447,359,465,369,448,395,446,412,482,415,502,402,514,409,530,401,527,432,514,459,506,478,487,492,468,495,433,475,413,479,381,485,358,490,312,477,264,463,234,444,222,417,232,347,232,331,193,311,179,286,176,248,182,213,207,183', shape: 'poly', image: HSIL12Lugols)
 
-HSIL13 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '5:00 - 8:00, 10:00', findings: 'dense AW, sharp border', ECC: 'Yes')
+HSIL13 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '5:00 - 8:00, 10:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'Yes')
    HSIL13Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 13 NS.jpg', image_set: HSIL13)
 
    HSIL13AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 13 AW.jpg', image_set: HSIL13)
@@ -414,7 +414,7 @@ HSIL13 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '621,415,640,402,662,411,667,427,653,433,643,449,623,456,604,453,604,434', shape: 'poly', image: HSIL13AW2)
       BlueArea.create(image: HSIL13AW2)
 
-HSIL14 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '3:00 - 9:00', findings: 'dense AW, cuffed crypt, sharp border, rag sign', ECC: 'Yes')
+HSIL14 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '3:00 - 9:00', findings: 'dense AW, cuffed crypt, sharp border, rag sign', impression: 'high grade' , ECC: 'Yes')
    HSIL14Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 14 NS.jpg', image_set: HSIL14)
 
    HSIL14AW1 = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 14 AW.jpg', image_set: HSIL14)
@@ -433,7 +433,7 @@ HSIL14 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '332,310,403,305,460,307,496,326,521,356,527,409,521,468,514,510,503,548,455,575,366,589,337,577,291,565,281,535,252,502,221,480,189,477,157,488,131,484,87,468,84,444,80,387,94,365,121,341,149,323,193,317,275,313', shape: 'poly', image: HSIL14Lugols)
       BlueArea.create(image: HSIL14Lugols )
 
-HSIL19 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '4:00 - 8:00', findings: 'dense AW, sharp border', ECC: 'Yes')
+HSIL19 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '4:00 - 8:00', findings: 'dense AW, sharp border', impression: 'high grade' , ECC: 'Yes')
    HSIL19Pre = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 19 pre.jpg', image_set: HSIL19)
 
    HSIL19AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 19 AW.jpg', image_set: HSIL19)
@@ -446,7 +446,7 @@ HSIL19 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '178,210,218,170,286,169,354,173,395,175,437,162,485,152,526,143,565,154,585,164,590,154,610,176,623,217,631,249,623,275,606,297,585,314,563,330,522,358,487,385,439,416,410,423,329,398,292,393,236,341,210,312,211,272,189,247', shape: 'poly', image: HSIL19Lugols)
       BlueArea.create(image: HSIL19Lugols )
 
-HSIL20 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '12:00, 4:00-7:00', findings: 'dense AW, sharp border, cuffed crypts, erosion', ECC: 'No')
+HSIL20 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '12:00, 4:00-7:00', findings: 'dense AW, sharp border, cuffed crypts, erosion', impression: 'high grade' , ECC: 'No')
    HSIL20Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 20 NS.jpg', image_set: HSIL20)
 
    HSIL20AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 20 AW.jpg', image_set: HSIL20)
@@ -457,15 +457,15 @@ HSIL20 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '353,149,377,127,406,116,445,109,482,107,507,120,530,133,535,161,534,181,509,197,481,212,462,223,431,227,378,214,352,200', shape: 'poly', image: HSIL20Lugols)
       GreenArea.create(coordinates: '270,335,289,332,330,356,351,362,399,356,439,380,458,381,483,363,492,337,518,316,548,303,591,296,616,319,613,355,605,389,602,409,588,442,572,479,545,514,516,545,495,551,461,539,434,509,425,482,406,452,373,437,342,457,336,430,311,420,271,414,256,402,247,367,254,342', shape: 'poly', image: HSIL20Lugols)
 
-HSIL22 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '10:00 - 2:00', findings: 'dense AW, sharp border, erosion, abnormal vessel', ECC: 'No')
+HSIL22 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '10:00 - 2:00', findings: 'dense AW, sharp border, erosion, abnormal vessel', impression: 'high grade' , ECC: 'No')
    HSIL22Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 22 NS.jpg', image_set: HSIL22)
 
-   HSIL22AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 22 AW.jpg', image_set: HSIL22)
+   HSIL22AW1 = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 22 AW.jpg', image_set: HSIL22)
       GreenArea.create(coordinates: '322,32,292,35,271,53,255,77,248,100,243,128,247,170,264,199,279,225,298,238,303,262,278,249,291,280,294,296,308,307,328,313,349,321,359,327,379,319,406,296,422,290,457,295,487,305,511,311,544,320,560,337,594,347,606,360,633,374,643,380,667,364,678,349,672,336,680,312,682,280,687,248,674,201,658,154,638,122,621,93,618,66,627,31,633,12', shape: 'poly', image: HSIL22AW1)
    HSIL22Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 22 Lugol_s.jpg', image_set: HSIL22)
       GreenArea.create(coordinates: '242,168,266,138,299,120,333,97,362,81,392,67,410,54,445,50,486,58,524,63,547,75,562,83,574,110,581,131,594,153,603,170,605,198,605,227,611,251,619,273,625,296,634,316,633,349,631,373,612,391,595,399,523,373,457,345,402,333,370,319,336,309,306,308,291,310,266,296,242,270,236,219', shape: 'poly', image: HSIL22Lugols)
 
-HSIL26 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '4:00 - 6:00', findings: 'dense AW, sharp border, cuffed crypts, erosion', ECC: 'No')
+HSIL26 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '4:00 - 6:00', findings: 'dense AW, sharp border, cuffed crypts, erosion', impression: 'high grade' , ECC: 'No')
    HSIL26Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 26 NS.jpg', image_set: HSIL26)
 
    HSIL26AW1 = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 26 AW.jpg', image_set: HSIL26)
@@ -473,7 +473,7 @@ HSIL26 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
    HSIL26Lugols = Image.create(image_type: "Lugol's", img_url: 'HSIL 26 Lugol_s.jpg', image_set: HSIL26)
       GreenArea.create(coordinates: '289,419,339,401,373,402,401,399,432,390,459,381,477,368,512,361,548,349,581,347,590,358,589,373,576,393,563,404,552,417,537,432,527,444,508,464,522,475,542,483,570,483,589,498,594,517,581,546,554,562,510,590,485,599,395,597,371,561,310,542,290,527,282,508,275,469,276,446', shape: 'poly', image: HSIL26Lugols)
 
-HSIL27 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '7:00 - 4:00', findings: 'coarse punctation, sharp border', ECC: 'Yes')
+HSIL27 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '7:00 - 4:00', findings: 'coarse punctation, sharp border', impression: 'high grade' , ECC: 'Yes')
    HSIL27Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 27 NS.jpg', image_set: HSIL27)
 
    HSIL27AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 27 AW.jpg', image_set: HSIL27)
@@ -486,7 +486,7 @@ HSIL27 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '255,319,275,283,309,253,337,249,346,252,366,224,395,184,422,160,468,134,513,114,549,127,571,144,581,168,587,184,653,225,663,259,679,323,685,378,679,408,611,476,589,486,540,465,511,450,488,420,456,395,439,398,426,418,413,433,409,445,403,457,340,482,313,489,288,489,276,479,269,450,266,427,255,407,249,376', shape: 'poly', image: HSIL27Lugols)
       BlueArea.create(image: HSIL27Lugols )
 
-HSIL35 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '8:00', findings: 'dense AW, sharp border, coarse punctation', ECC: 'Yes')
+HSIL35 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '8:00', findings: 'dense AW, sharp border, coarse punctation', impression: 'high grade' , ECC: 'Yes')
    HSIL35Pre1 = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 35 pre.jpg', image_set: HSIL35)
    HSIL35Pre2 = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 35 NS.jpg', image_set: HSIL35)
 
@@ -497,7 +497,7 @@ HSIL35 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '81,419,78,388,124,281,175,216,196,192,240,158,261,160,281,160,304,173,338,199,365,224,377,246,380,278,381,309,389,319,406,329,435,407,413,415,378,422,355,431,336,443,326,468,321,474,298,510,261,517,230,508,196,491,156,482,121,467,89,444', shape: 'poly', image: HSIL35AWGreen)
       BlueArea.create(image: HSIL35AWGreen)
 
-HSIL37 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '5:00 - 8:00', findings: 'dense AW, sharp border, cuffed crypts, erosion', ECC: 'Yes')
+HSIL37 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '5:00 - 8:00', findings: 'dense AW, sharp border, cuffed crypts, erosion', impression: 'high grade' , ECC: 'Yes')
    HSIL37Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 37 NS.jpg', image_set: HSIL37)
 
    HSIL37AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 37 AW.jpg', image_set: HSIL37)
@@ -507,7 +507,7 @@ HSIL37 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '51,332,76,274,80,228,95,189,120,154,152,135,186,132,224,152,248,184,274,207,291,227,311,244,330,273,338,299,335,327,337,342,352,352,348,380,342,406,331,432,319,459,299,477,283,483,258,469,235,441,210,425,185,404,165,405,151,425,134,450,100,444,45,399,38,361', shape: 'poly', image: HSIL37Lugols)
       BlueArea.create(image: HSIL37Lugols )
 
-HSIL38 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '4:00 - 9:00', findings: 'dense AW, sharp border, cuffed crypts', ECC: 'Yes')
+HSIL38 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '4:00 - 9:00', findings: 'dense AW, sharp border, cuffed crypts', impression: 'high grade' , ECC: 'Yes')
    HSIL38Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 38 NS.jpg', image_set: HSIL38)
 
    HSIL38AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 38 AW.jpg', image_set: HSIL38)
@@ -517,7 +517,7 @@ HSIL38 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '203,574,212,536,248,509,288,478,312,446,332,414,341,388,390,385,441,387,464,396,510,397,535,405,543,432,561,438,572,441,610,433,643,430,693,440,709,446,727,480,740,547,742,572,734,597', shape: 'poly', image: HSIL38AW2)
       BlueArea.create(image: HSIL38AW2)
 
-HSIL39 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '8:00 - 2:00', findings: 'dense AW, sharp border, coarse punctation, cuffed crypts', ECC: 'Yes')
+HSIL39 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '8:00 - 2:00', findings: 'dense AW, sharp border, coarse punctation, cuffed crypts', impression: 'high grade' , ECC: 'Yes')
    HSIL39Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 39 NS.jpg', image_set: HSIL39)
 
    HSIL39AW = Image.create(image_type: 'Acetic Acid', img_url: 'HSIL 39 AW.jpg', image_set: HSIL39)
@@ -528,7 +528,7 @@ HSIL39 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       GreenArea.create(coordinates: '275,484,212,481,199,515,183,541,165,559,148,544,127,504,124,458,136,440,152,433,161,414,173,404,119,348,105,320,105,292,129,276,140,255,209,221,233,221,272,182,319,146,353,125,393,82,440,61,474,60,501,73,531,91,545,106,567,110,580,107,592,84,624,83,650,102,656,127,668,144,678,173,681,203,682,233,676,243,614,254,601,285,570,323,538,347,514,384,533,416,519,418,510,433,505,442,501,450,469,430,455,421,450,409,412,436,378,412', shape: 'poly', image: HSIL39AWGreen)
       BlueArea.create(image: HSIL39AWGreen)
 
-HSIL44 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '2:00, 4:00', findings: 'AW, leukoplakia', ECC: 'Yes')
+HSIL44 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', lesion_location: '2:00, 4:00', findings: 'AW, leukoplakia', impression: 'high grade' , ECC: 'Yes')
    HSIL44Pre1 = Image.create(image_type: 'Speculum Exam', img_url: 'HSIL 44 pre.jpg', image_set: HSIL44)
    HSIL44Pre2 = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 44 NS.jpg', image_set: HSIL44)
 
@@ -542,7 +542,7 @@ HSIL44 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
       BlueArea.create(image: HSIL44AW2)
 
 #SCC,VAIN 3, VIN 3
-   HSIL43 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'SCC, VAIN 3, VIN 3', lesion_location: '7:00 - 9:00', findings: 'dense AW, sharp border, coarse punctation, abnormal vessels', ECC: 'Yes')
+   HSIL43 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'SCC, VAIN 3, VIN 3', lesion_location: '7:00 - 9:00', findings: 'dense AW, sharp border, coarse punctation, abnormal vessels', impression: 'high grade' , ECC: 'Yes')
 
    HSIL43AWGreen1 = Image.create(image_type: 'Acetic Acid + Green Filter 1', img_url: 'HSIL 43 AW green.jpg', image_set: HSIL43)
       GreenArea.create(coordinates: '157,378,132,362,104,351,91,334,102,311,112,303,136,303,155,308,151,265,166,248,209,246,232,245,254,260,285,275,308,280,312,291,330,288,344,276,358,291,364,320,361,351,344,375,319,387,294,390,273,370,247,384,229,391,210,380,183,375', shape: 'poly', image: HSIL43AWGreen1)
@@ -560,7 +560,7 @@ HSIL44 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 3', 
 
 
 #LOW GRADE dysplasia---------------------------------------------------------------------
-LSIL2 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '12:00', findings: 'thin AW, irregular border, fine mosaic', ECC: 'No')
+LSIL2 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '12:00', findings: 'thin AW, irregular border, fine mosaic', impression: 'low grade' , ECC: 'No')
    LSIL2Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 2 NS.jpg', image_set: LSIL2)
 
    LSIL2AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 2 AW.jpg', image_set: LSIL2)
@@ -570,7 +570,7 @@ LSIL2 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', le
    LSIL2Lugols = Image.create(image_type: "Lugol's", img_url: 'LSIL 2 Lugol_s.jpg', image_set: LSIL2)
       GreenArea.create(coordinates: '239,205,248,182,268,180,295,141,309,38,289,1,339,-1,382,15,408,38,415,57,460,63,483,83,495,127,535,99,552,105,549,143,553,163,500,213,458,235,421,257,399,282,362,282,331,266,313,255,301,265,268,247,249,231', shape: 'poly', image: LSIL2Lugols)
 
-LSIL4 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'thin AW, irregular border, fine mosaic', ECC: 'No')
+LSIL4 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'thin AW, irregular border, fine mosaic', impression: 'low grade' , ECC: 'No')
    LSIL4Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 4 NS.jpg', image_set: LSIL4)
 
    LSIL4AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'LSIL 4 AW 1.jpg', image_set: LSIL4)
@@ -583,7 +583,7 @@ LSIL4 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', le
       GreenArea.create(coordinates: '287,337,234,362,243,411,277,452,327,487,341,450,327,385', shape: 'poly', image: LSIL4Lugols)
       GreenArea.create(coordinates: '324,252,274,187,259,130,298,96,371,70,425,92,496,154,540,199,565,254,562,309,518,342,470,347,426,318,402,294,358,256', shape: 'poly', image: LSIL4Lugols)
 
-LSIL5 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'thin AW, irregular border ', ECC: 'Yes')
+LSIL5 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'thin AW, irregular border ', impression: 'low grade' , ECC: 'Yes')
    LSIL5Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 5 NS.jpg', image_set: LSIL5)
 
    LSIL5AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 5 AW.jpg', image_set: LSIL5)
@@ -597,7 +597,7 @@ LSIL5 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', le
       GreenArea.create(coordinates: '409,446,302,383,261,391,244,438,227,460,179,460,151,505,163,563,210,583,242,596,329,597,377,554', shape: 'poly', image: LSIL5Lugols)
       BlueArea.create(image: LSIL5Lugols )
 
-LSIL6 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'thin AW, irregular border, fine mosaic, geographic border', ECC: 'Yes')
+LSIL6 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'thin AW, irregular border, fine mosaic, geographic border', impression: 'low grade' , ECC: 'Yes')
    LSIL6Pre = Image.create(image_type: 'Speculum Exam', img_url: 'LSIL 6 AW.jpg', image_set: LSIL6)
 
    LSIL6AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 6 AW.jpg', image_set: LSIL6)
@@ -616,7 +616,7 @@ LSIL6 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', le
       GreenArea.create(coordinates: '479,599,472,535,499,522,529,532,541,565,539,598', shape: 'poly', image: LSIL6Lugols)
       BlueArea.create(image: LSIL6Lugols )
 
-LSIL7 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '11:00, 4:00-8:00', findings: 'thin AW, irregular border ', ECC: 'No')
+LSIL7 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '11:00, 4:00-8:00', findings: 'thin AW, irregular border ', impression: 'low grade' , ECC: 'No')
    LSIL7Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 7 NS.jpg', image_set: LSIL7)
 
    LSIL7AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 7 AW.jpg', image_set: LSIL7)
@@ -629,7 +629,7 @@ LSIL7 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', le
       GreenArea.create(coordinates: '284,241,246,215,222,141,264,107,298,87,338,131', shape: 'poly', image: LSIL7Lugols)
       GreenArea.create(coordinates: '224,530,191,471,200,433,202,379,206,361,204,331,239,315,271,259,297,299,343,319,361,336,412,339,450,366,525,378,590,398,608,425,603,463,587,479,555,497,542,532,519,537,539,571,515,581,465,575,413,595,369,562', shape: 'poly', image: LSIL7Lugols)
 
-LSIL8 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '6:00, 12:00', findings: 'thin AW, irregular border ', ECC: 'No')
+LSIL8 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '6:00, 12:00', findings: 'thin AW, irregular border ', impression: 'low grade' , ECC: 'No')
    LSIL8Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 8 NS.jpg', image_set: LSIL8)
 
    LSIL8AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 8 AW.jpg', image_set: LSIL8)
@@ -639,7 +639,7 @@ LSIL8 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', le
       GreenArea.create(coordinates: '339,11,440,6,427,45,433,108,428,139,411,155,387,160,362,149,337,103,331,52', shape: 'poly', image: LSIL8Lugols)
       GreenArea.create(coordinates: '273,537,327,450,336,402,366,389,401,403,445,426,503,448,503,499,504,549,519,598,336,598', shape: 'poly', image: LSIL8Lugols)
 
-LSIL10 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '6:00, 12:00', findings: 'thin AW, irregular border ', ECC: 'No')
+LSIL10 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '6:00, 12:00', findings: 'thin AW, irregular border ', impression: 'low grade' , ECC: 'No')
    LSIL10Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 10 NS.jpg', image_set: LSIL10)
 
    LSIL10AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 10 AW.jpg', image_set: LSIL10)
@@ -655,7 +655,7 @@ LSIL10 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', l
       GreenArea.create(coordinates: '220,407,235,363,275,356,369,324,437,340,467,407,465,480,469,537,441,570,412,575,383,558,378,529,387,500,335,525,274,516,244,492,228,454', shape: 'poly', image: LSIL10Lugols)
       GreenArea.create(coordinates: '403,260,299,242,266,172,292,136,330,129,342,175,356,147,403,119,437,113,457,161', shape: 'poly', image: LSIL10Lugols)
 
-LSIL11 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '8:00, 10:00', findings: 'thin AW, irregular border ', ECC: 'No')
+LSIL11 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '8:00, 10:00', findings: 'thin AW, irregular border ', impression: 'low grade' , ECC: 'No')
    LSIL11Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 11 NS.jpg', image_set: LSIL11)
 
    LSIL11AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'LSIL 11 AW.jpg', image_set: LSIL11)
@@ -671,7 +671,7 @@ LSIL11 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', l
       GreenArea.create(coordinates: '561,220,562,192,576,174,610,170,646,184,668,234,686,293,690,336,644,336,611,307', shape: 'poly', image: LSIL11Lugols)
       GreenArea.create(coordinates: '312,513,283,490,242,467,199,455,197,398,215,353,256,316,313,347,375,338,447,321,469,334,467,378,498,390,544,397,586,427,596,462,567,499,505,544,459,576,419,594,376,592,341,572,344,542,376,490,358,449', shape: 'poly', image: LSIL11Lugols)
 
-LSIL13 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'dense AW, sharp border', ECC: 'Yes')
+LSIL13 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '7:00, 12:00', findings: 'dense AW, sharp border', impression: 'low grade' , ECC: 'Yes')
    LSIL13Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 13 NS.jpg', image_set: LSIL13)
 
    LSIL13AWGreen = Image.create(image_type: 'Acetic Acid + Green Filter', img_url: 'LSIL 13 AW green.jpg', image_set: LSIL13)
@@ -684,7 +684,7 @@ LSIL13 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', l
       GreenArea.create(coordinates: '123,345,144,363,188,366,230,369,274,372,341,364,369,358,387,325,381,292,369,265,358,243,344,228,289,225,299,208,305,171,294,140,269,133,241,139,219,172,194,191,179,179,166,179,153,206,140,228,144,271,142,306', shape: 'poly', image: LSIL13Lugols)
       BlueArea.create(image: LSIL13Lugols )
 
-LSIL14 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '11:00', findings: 'dense AW, sharp border', ECC: 'Yes')
+LSIL14 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '11:00', findings: 'dense AW, sharp border', impression: 'low grade' , ECC: 'Yes')
    LSIL14Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 14 NS.jpg', image_set: LSIL14)
 
    LSIL14AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 14 AW.jpg', image_set: LSIL14)
@@ -694,7 +694,7 @@ LSIL14 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', l
       GreenArea.create(coordinates: '347,342,363,355,393,375,447,368,515,330,526,300,546,266,582,223,582,172,566,152,544,135,511,128,506,112,516,90,523,68,500,66,474,72,439,65,373,74,347,96,334,117,326,152,338,198,336,241,334,292', shape: 'poly', image: LSIL14Lugols)
       BlueArea.create(image: LSIL14Lugols )
 
-LSIL15 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '6:00, 9:00, 12:00', findings: 'thin AW, irregular border, geographic', ECC: 'No')
+LSIL15 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '6:00, 9:00, 12:00', findings: 'thin AW, irregular border, geographic', impression: 'low grade' , ECC: 'No')
    LSIL15Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 15 NS.jpg', image_set: LSIL15)
 
    LSIL15AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 15 AW.jpg', image_set: LSIL15)
@@ -713,7 +713,7 @@ LSIL15 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', l
       GreenArea.create(coordinates: '467,166,484,149,501,146,512,149,521,165,514,176,496,183,479,196,461,188', shape: 'poly', image: LSIL15Lugols)
       GreenArea.create(coordinates: '365,283,481,236,494,266,497,283,513,263,535,260,543,283,543,315,528,333,526,387,510,416,505,451,480,498,433,500,377,492,350,447,334,397,325,353,335,307', shape: 'poly', image: LSIL15Lugols)
 
-LSIL16 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '1:00, 7:00', findings: 'thin AW, irregular border ', ECC: 'Yes')
+LSIL16 = ImageSet.create(category: 'Dysplasia: Low Grade', pathology: 'CIN 1', lesion_location: '1:00, 7:00', findings: 'thin AW, irregular border ', impression: 'low grade' , ECC: 'Yes')
    LSIL16Pre = Image.create(image_type: 'Normal Saline', img_url: 'LSIL 16 NS green.jpg', image_set: LSIL16)
 
    LSIL16AW = Image.create(image_type: 'Acetic Acid', img_url: 'LSIL 16 AW.jpg', image_set: LSIL16)
