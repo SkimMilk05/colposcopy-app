@@ -104,7 +104,7 @@
                </div>
                <div class="card-footer text-muted" onclick="message()">
                   <% if !(@has_permission_user) %>
-                     <%= button_to "> ASCCP Glossary", glossary_sessions_path, params: {user_id: current_user.id}, method: :post, class: 'invisible-button'%>
+                     <%= button_to "> ASCCP Glossary", glossary_sessions_path, params: {user_id: current_user.id, timed_out: false}, method: :post, class: 'invisible-button'%>
                   <% else %>
                      > ASCCP Glossary
                   <% end %>

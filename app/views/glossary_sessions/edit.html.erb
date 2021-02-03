@@ -1,14 +1,12 @@
 <script type="text/javascript">
-   var warningTimeout = 900000;
-   var timoutNow = 60000;
+   var warningTimeout = 10000;
+   var timoutNow = 5000;
    var warningTimerID,timeoutTimerID;
 
-   var timed_out = false;
-
    window.onload = function(){
-     $(document).ready(function(){
-         $("#timed_out").val(timed_out);
-     });
+      $(document).ready(function(){
+         $("#timed_out").val(false);
+      });
    };
 
    function startTimer() {
@@ -30,11 +28,13 @@
 
    // Logout the user.
    function IdleTimeout() {
-      timed_out = true;
       $(document).ready(function(){
-           $("#timed_out").val(timed_out);
+           $("#timed_out").val(true);
+      });
+      $(document).ready(function(){
            document.getElementById('glossary_session_form').submit();
       });
+
    }
 
    function setupTimers () {
@@ -65,8 +65,14 @@
 
    <!-- Links -->
    <ul class="navbar-nav d-flex" id="navbar-item">
-      <%= render 'form', glossary_session: @glossary_session %>
-      <%= hidden_field_tag :timed_out, @timed_out %>
+      <%= form_with model: @glossary_session, html: {id: "glossary_session_form"} do |form| %>
+         <%= hidden_field_tag :user_id, current_user.id %>
+         <%= hidden_field_tag :timed_out, @timed_out %>
+
+        <div class="actions">
+          <%= form.submit "Exit Glossary >", class: 'invisible-button' %>
+        </div>
+      <% end %>
    </ul>
 </nav>
 

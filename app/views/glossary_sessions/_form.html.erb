@@ -1,8 +1,1 @@
-<%= form_with model: @glossary_session, html: {id: "glossary_session_form"} do |form| %>
-   <%= form.hidden_field :user_id, value: current_user.id %>
 
-  <div class="actions">
-    <%= form.submit "Exit Glossary >", class: 'invisible-button' %>
-  </div>
-
-<% end %>
