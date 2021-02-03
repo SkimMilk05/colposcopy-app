@@ -3,6 +3,14 @@
    var timoutNow = 60000;
    var warningTimerID,timeoutTimerID;
 
+   var timed_out = false;
+
+   window.onload = function(){
+     $(document).ready(function(){
+         $("#timed_out").val(timed_out);
+     });
+   };
+
    function startTimer() {
    // window.setTimeout returns an Id that can be used to start and stop a timer
    warningTimerID = window.setTimeout(warningInactive, warningTimeout);
@@ -22,7 +30,11 @@
 
    // Logout the user.
    function IdleTimeout() {
-   document.getElementById('glossary_session_form').submit();
+      timed_out = true;
+      $(document).ready(function(){
+           $("#timed_out").val(timed_out);
+           document.getElementById('glossary_session_form').submit();
+      });
    }
 
    function setupTimers () {
@@ -54,6 +66,7 @@
    <!-- Links -->
    <ul class="navbar-nav d-flex" id="navbar-item">
       <%= render 'form', glossary_session: @glossary_session %>
+      <%= hidden_field_tag :timed_out, @timed_out %>
    </ul>
 </nav>
 

@@ -55,7 +55,7 @@ class ImageSessionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def image_session_params
-      params.permit(:greenRight, :blueRight, :blueWrong, :colorlessWrong, :greenLeft, :blueLeft, :image_id, :user_id, :impression, :impression_correct)
+      params.permit(:greenRight, :blueRight, :blueWrong, :colorlessWrong, :greenLeft, :blueLeft, :image_id, :user_id, :impression, :impression_correct, :timed_out)
     end
 
 end

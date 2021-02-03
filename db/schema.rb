@@ -69,8 +69,9 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
     t.integer "colorlessWrong", default: 0
     t.integer "greenLeft"
     t.integer "blueLeft"
-    t.text "impression", null: false
+    t.text "impression"
     t.boolean "impression_correct"
+    t.boolean "timed_out"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["image_id"], name: "index_image_sessions_on_image_id"
