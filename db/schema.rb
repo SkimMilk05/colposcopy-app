@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
 
   create_table "glossary_sessions", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.boolean "timed_out"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_glossary_sessions_on_user_id"
