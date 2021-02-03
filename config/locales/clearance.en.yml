@@ -2,7 +2,7 @@
 en:
   clearance:
     models:
-      clearance_mailer:
+      clearance_mailer: 
         change_password: Change your password
   clearance_mailer:
     change_password:
