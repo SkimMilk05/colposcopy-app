@@ -53,6 +53,7 @@
                   <%= button_to 'Take Initial Test', new_test_path, method: :get%>
                </div>
             <%end%>
+            You will be prompted to complete the post test after completion of 10 practice sets. You are welcome to continue to use the app as much as you would like after that - there are many more practice sets available! You will then be requested to complete the post test again 30 days, 90 days, and 180 days later.
          <% else%>
             <% if @has_survey_permission_user %>
                <p class="d-flex justify-content-text-center" id="alert">Please take a follow-up survey and test.</p>
