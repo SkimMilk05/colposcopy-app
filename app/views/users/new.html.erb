@@ -1,3 +1,12 @@
+<script type="text/javascript">
+   function allowSubmit() {
+      if (document.getElementById("user_allow_data_collection").checked) {
+         document.getElementById("submit_btn").disabled = false;
+      } else {
+         document.getElementById("submit_btn").disabled = true;
+      }
+   };
+</script>
 
 <!--navbar-->
     <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
@@ -32,8 +41,10 @@
          <div class="center-div">
             <%= form_for @user do |form| %>
                <p class="text-center" id="alert"><%= alert %></p>
-               <%= render partial: '/users/form', object: form %>
-             <%= form.submit %>
+               <%= render partial: '/users/form', object: form %><br/>
+               <%= form.check_box :allow_data_collection, onclick: "allowSubmit();" %>
+               I consent for my app usage<br/> data to be used for the purposes<br/> of a research study.<br/><br/>
+             <%= form.submit 'Sign Up', id: 'submit_btn', disabled: true%>
              <br/><br/>
              Already have an Account? | <%= link_to t(".sign_in"), sign_in_path %>
             <% end %>

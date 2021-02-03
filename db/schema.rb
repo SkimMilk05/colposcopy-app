@@ -184,6 +184,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
     t.text "encrypted_password", null: false
     t.text "confirmation_token"
     t.text "remember_token", null: false
+    t.boolean "allow_data_collection", null: false
     t.index ["email"], name: "index_users_on_email"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
