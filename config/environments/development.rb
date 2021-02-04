@@ -61,17 +61,17 @@ Rails.application.configure do
   #config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #clearance
-
+=begin
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
      address:              'smtp.gmail.com',
      port:                 587,
-     domain:               'localhost:3000',
+     domain:               '127.0.0.1',
      user_name:            'colproeducationapp@gmail.com',
      password:             'TheSerialKiller0417!',
      authentication:       'plain',
      enable_starttls_auto: true }
-
+=end
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 

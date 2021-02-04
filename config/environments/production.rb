@@ -113,7 +113,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
      address:              'smtp.gmail.com',
      port:                 587,
-     domain:               'https://colposcopy-app.herokuapp.com/',
+     domain:               'colposcopy-app.herokuapp.com',
      user_name:            'colproeducationapp@gmail.com',
      password:             'TheSerialKiller0417!',
      authentication:       'plain',
@@ -121,7 +121,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'colproeducationapp@gmail.com'}
 
-  config.action_mailer.default_url_options = { host: 'https://colposcopy-app.herokuapp.com/' }
+  config.action_mailer.default_url_options = { host: 'colposcopy-app.herokuapp.com' }
 
 end
