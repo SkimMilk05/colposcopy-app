@@ -16,8 +16,8 @@
    h2 {
       text-align: center;
    }
-   h5 {
-      font-weight: bold;
+   .modal-body, h5 {
+      font-family: verdana;
    }
    img {
       margin-top: 10px;
@@ -30,4 +30,18 @@
       border-bottom: 2px solid #dddddd;
       margin-top: 10px;
    }
+   .definition {
+      font-family: verdana;
+      font-size: 1.2em;
+   }
+   .caption {
+      font-style: italic;
+      font-family: verdana;
+      color: darkgrey;
+      margin-top: 8px;
+   }
+   .btn {
+      font-family: verdana;
+   }
+
 }
