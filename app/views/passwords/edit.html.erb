@@ -2,6 +2,7 @@
   <h2><%= t(".title") %></h2>
 
   <p><%= t(".description") %></p>
+  <br><br/>
 
   <%= form_for :password_reset,
         url: user_password_path(@user, token: @user.confirmation_token),
@@ -10,7 +11,7 @@
       <%= form.label :password %>
       <%= form.password_field :password %>
     </div>
-
+    <br/>
     <div class="submit-field">
       <%= form.submit %>
     </div>
