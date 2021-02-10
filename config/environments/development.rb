@@ -61,17 +61,28 @@ Rails.application.configure do
   #config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   #clearance
-=begin
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-     address:              'smtp.gmail.com',
-     port:                 587,
-     domain:               '127.0.0.1',
-     user_name:            'colproeducationapp@gmail.com',
-     password:             'TheSerialKiller0417!',
-     authentication:       'plain',
-     enable_starttls_auto: true }
-=end
+
+  require 'mail'
+
+   Mail.defaults do
+     delivery_method :smtp, {
+       :port      => 587,
+       :address   => "smtp.mailgun.org",
+       :user_name => "colpro@sandboxb79a5033050a4ee68e481f0b86d07a2c.mailgun.org",
+       :password  => "9ac608e59040e8698a2c3a10e9fb3837-4de08e90-0091b99e",
+     }
+   end
+
+   mail = Mail.deliver do
+     to      'kim.gloria0417@gmail.com'
+     from    'colpro@sandboxb79a5033050a4ee68e481f0b86d07a2c.mailgun.org'
+     subject 'Hello'
+
+     text_part do
+       body 'Testing some Mailgun awesomness'
+     end
+   end
+
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 
