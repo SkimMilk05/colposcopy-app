@@ -13,10 +13,19 @@ class UsersController < Clearance::UsersController
    if @user.save
      sign_in @user
      redirect_to url_after_create
-  else #if user already exists
+  elsif params[:user][:email] == "" && params[:user][:password] == ""
+     flash.now[:alert] = 'Email and Password are required'
+     render template: "users/new"
+  elsif params[:user][:email] == ""
+     flash.now[:alert] = 'Email is required'
+     render template: "users/new"
+  elsif params[:user][:password] == ""
+     flash.now[:alert] = 'Password is required'
+     render template: "users/new"
+  else
      flash.now[:alert] = 'User with that email already exists'
      render template: "users/new"
-   end
+  end
  end
 
  private
