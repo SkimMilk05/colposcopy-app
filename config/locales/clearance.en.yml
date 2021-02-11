@@ -3,7 +3,7 @@ en:
   clearance:
     models:
       clearance_mailer:
-        change_password: Col|Pro Account: Change your password
+        change_password: "Col|Pro Account: Change your password"
   clearance_mailer:
     change_password:
       closing: If you didn't request this, ignore this email. Your password has
