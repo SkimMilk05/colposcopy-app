@@ -14,16 +14,17 @@
       <!-- question -->
 
          <% if (5..25).to_a.include?(test_question.id) %> <!--if its question 5, different format -->
+            <% labels = ['benign', 'low grade', 'high grade', 'suspicious for invasion'] %>
             <% if test_question.id == 5 %>
                <li>[Question 5: Multiple Choice Questions with Types and Examples]
                Please select one of the following for each of the following colposcopic findings: benign, low grade, high grade, or suspicious for invasion <br/>
-               <ul style="list-style-type:none;"><li><table>
+               <ul style="list-style-type:none;"><li><table class="table table-striped table-hover">
                   <tr>
                      <td style="text-align: center;">&nbsp;</td>
-                     <td style="text-align: center;"><strong>benign</strong></td>
-                     <td style="text-align: center;"><strong>low grade</strong></td>
-                     <td style="text-align: center;"><strong>high grade</strong></td>
-                     <td style="text-align: center;"><strong>suspicious for invasion</strong></td>
+                     <td style="text-align: center;"><strong><%= labels[0] %></strong></td>
+                     <td style="text-align: center;"><strong><%= labels[1] %></strong></td>
+                     <td style="text-align: center;"><strong><%= labels[2] %></strong></td>
+                     <td style="text-align: center;"><strong><%= labels[3] %></strong></td>
                   </tr>
             <% end %>
             <tr>
@@ -33,7 +34,10 @@
                   <%= answers_form.hidden_field :test_question_id, value: test_question.id %>
                   <%= answers_form.hidden_field :test_id, value: @test.id %>
                   <% test_question.test_options.each do |test_option| %>
-                     <td align="center"><%= answers_form.radio_button :letter, test_option.letter%></td>
+                     <td align="center">
+                        <%= answers_form.radio_button :letter, test_option.letter%>
+                        <%= labels[(test_option.id - 20) % 4]%>
+                     </td>
                   <% end %> <!--end test answer--->
                <%end%> <!-- end question-->
             </tr>

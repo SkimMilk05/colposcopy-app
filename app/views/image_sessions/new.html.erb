@@ -18,6 +18,7 @@
   var timed_out = false;
 
   //var correct_impression_ans = <%= @image_set.impression %>;
+  var impression_clicked = false;
   var impression_correct = null;
 
   window.onload = function(){
@@ -42,10 +43,10 @@
 
   function checkDone() {
      if (numBlueAreas == 1) {
-        if (blueLeft == 0 && greenLeft == 0)
+        if (blueLeft == 0 && greenLeft == 0 && impression_clicked)
         submit();
      } else {
-        if (greenLeft == 0) {
+        if (greenLeft == 0 && impression_clicked) {
            submit();
         }
      }
@@ -83,12 +84,14 @@
       blueWrong++;
       feedback.innerHTML = "ECC Request is not needed";
       okaySound.play();
+      disable('ECCbutton');
     }
     else if ( greenLeft == 0 && blueLeft == 1 ) {
       blueLeft--;
       blueRight++;
       feedback.innerHTML = "Correct to request an ECC";
       correctSound.play();
+      disable('ECCbutton');
     }
     else {
       blueWrong++;
@@ -122,6 +125,7 @@
 
  function impressionClicked(value) {
     //<%= @image.image_set %>
+    impression_clicked = true;
     if (value.valueOf() == "<%= @image_set.impression %>".valueOf()) {
       impression_correct = true;
    } else {
@@ -130,6 +134,7 @@
     document.getElementById("submit_button").removeAttribute('disabled');
    $(document).ready(function(){
      $("#impression_correct").val(impression_correct);
+     checkDone();
    });
 }
 
@@ -254,7 +259,7 @@
       </div>
       <div class="row" >
          <div class="col d-flex justify-content-between"  style="height: 2%;">
-               <button type='button' onclick="blueClicked()">ECC Requested</button>
+               <button id='ECCbutton' type='button' onclick="blueClicked()">ECC Requested</button>
                <div class="impression">
                Impression?
                   <%= radio_button_tag :impression, 'normal', false, onclick: "impressionClicked('normal');" %> normal
