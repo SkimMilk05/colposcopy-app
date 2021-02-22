@@ -3,6 +3,7 @@ class CreateImages < ActiveRecord::Migration[6.0]
     create_table :images do |t|
       t.text :image_type
       t.text :img_url
+      t.text :ans_img_url
       t.timestamps
 
       t.belongs_to :image_set, index: true

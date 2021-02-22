@@ -35,7 +35,7 @@
                   <%= answers_form.hidden_field :test_id, value: @test.id %>
                   <% test_question.test_options.each do |test_option| %>
                      <td align="center">
-                        <%= answers_form.radio_button :letter, test_option.letter%>
+                        <%= answers_form.radio_button :letter_answer, test_option.letter%>
                         <%= labels[(test_option.id - 20) % 4]%>
                      </td>
                   <% end %> <!--end test answer--->
@@ -60,7 +60,7 @@
             <ul style="list-style-type:none;">
                <% test_question.test_options.each do |test_option| %>
                <li>
-                  <%= answers_form.radio_button :letter, test_option.letter%>
+                  <%= answers_form.radio_button :letter_answer, test_option.letter%>
                   <% if test_option.text != nil %>
                   <%= test_option.letter + '. '+test_option.text %>
                   <%else%>

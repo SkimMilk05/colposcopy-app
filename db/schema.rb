@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
   create_table "images", force: :cascade do |t|
     t.text "image_type"
     t.text "img_url"
+    t.text "ans_img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "image_set_id"
@@ -140,8 +141,7 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
   create_table "test_answers", force: :cascade do |t|
     t.bigint "test_id"
     t.bigint "test_question_id"
-    t.text "letter"
-    t.text "answer"
+    t.text "letter_answer"
     t.boolean "correct"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

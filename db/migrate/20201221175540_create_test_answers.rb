@@ -4,8 +4,7 @@ class CreateTestAnswers < ActiveRecord::Migration[6.0]
       t.belongs_to :test, index: true
       t.belongs_to :test_question, index: true
 
-       t.text :letter
-       t.text :answer
+       t.text :letter_answer
 
        t.boolean :correct
 

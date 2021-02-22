@@ -1,5 +1,7 @@
 <div class="scoreboard">
    <ul style="list-style-type:none;">
+
+
       <!-- green areas -->
       <% if @image_session.greenRight != @image.green_areas.length() %>
          <li><strong>Missed</strong> <strong><%=  @image.green_areas.length() -@image_session.greenWrong %></strong> out of <strong><%= @image.green_areas.length() %></strong> bioposy sites.</li>
