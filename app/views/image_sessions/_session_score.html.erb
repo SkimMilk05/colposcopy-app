@@ -4,7 +4,7 @@
 
       <!-- green areas -->
       <% if @image_session.greenRight != @image.green_areas.length() %>
-         <li><strong>Missed</strong> <strong><%=  @image.green_areas.length() -@image_session.greenWrong %></strong> out of <strong><%= @image.green_areas.length() %></strong> bioposy sites.</li>
+         <li><strong>Missed</strong> <strong><%=@image.green_areas.length() - @image_session.greenRight %></strong> out of <strong><%= @image.green_areas.length() %></strong> bioposy sites.</li>
       <% end %>
       <li><strong>Correctly</strong> bioposied <strong><%= @image_session.greenRight %></strong> out of <strong><%= @image.green_areas.length() %></strong> sites.</li>
       <!-- colorlessWrong-->

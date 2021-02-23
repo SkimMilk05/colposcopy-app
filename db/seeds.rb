@@ -238,7 +238,7 @@ SCC8 = ImageSet.create(category: 'Cancers: Squamous Cell', pathology: 'invasive 
 #HIGH GRADE dysplasia---------------------------------------------------------------------
 #CIN2
 HSIL1 = ImageSet.create(category: 'Dysplasia: High Grade', pathology: 'CIN 2', lesion_location: '11:00, 2:00, 5:00', findings: 'dense AW, sharp border ', impression: 'high grade' , ECC: 'No')
-   HSIL1Pre = Image.create(image_type: 'Normal Saline', image_set: HSIL1)
+   HSIL1Pre = Image.create(image_type: 'Normal Saline', img_url: 'HSIL 1 NS.jpg', image_set: HSIL1)
 
    HSIL1AW1 = Image.create(image_type: 'Acetic Acid 1', img_url: 'HSIL 1 AW 1.jpg', ans_img_url: 'InkedHSIL 1 AW 1_LI.jpg', image_set: HSIL1)
       GreenArea.create(coordinates: '263,155,237,130,247,98,260,82,294,43,329,11,357,0,389,8,408,25,455,42,478,66,474,93,437,115,426,125,397,114', shape: 'poly', image: HSIL1AW1)
