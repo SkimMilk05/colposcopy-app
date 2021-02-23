@@ -14,6 +14,9 @@ class ImageSessionsController < ApplicationController
   def show
     @image = @image_session.image
     @image_set = @image.image_set
+
+    @did_ten_sets = did_ten_sets
+    
   end
 
   # GET /image_sessions/new
@@ -35,11 +38,7 @@ class ImageSessionsController < ApplicationController
 
     respond_to do |format|
       if @image_session.save
-         if did_ten_sets#if they did first practice
-            format.html { redirect_to new_post_survey_path} #go take post-survey
-         else
-            format.html { redirect_to @image_session}
-         end
+         format.html { redirect_to @image_session}
       else
         format.html { render :new }
       end

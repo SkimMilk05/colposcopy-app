@@ -8,13 +8,15 @@
    <ul class="navbar-nav d-flex" id="navbar-item">
      <li>
         <div >
-         <%= link_to "Exit Practice", signed_in_root_url %>
+           <% if !(@did_ten_sets) %>
+             <%= link_to "Exit Practice", signed_in_root_url %>
+           <% end %>
        </div>
      </li>
    </ul>
 </nav>
 
-<div class="container">
+<div class="container session-feedback">
    <div class="row mt-3">
     <div class="col-sm">
       <!-- image set information/answers-->
@@ -25,9 +27,15 @@
       <!-- personal user score-->
       <h4>Feedback</h4>
       <%= render "session_score" %>
+      <br/>
       <div class="d-flex justify-content-around">
          <ul style="list-style-type:none;">
-         <li><%= link_to '< Back to Practice', image_sets_path %></li>
+            <%if @did_ten_sets %>
+               <li> <p style="color: MediumSlateBlue">This is your 10th practice image. </p> </li>
+               <li><%= link_to 'Take Post-Survey and Test >', new_post_survey_path, class: "alert-link" %></li>
+            <%else%>
+               <li><%= link_to '< Back to Practice', image_sets_path %></li>
+            <% end %>
          </ul>
       </div>
     </div>
