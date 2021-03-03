@@ -86,17 +86,13 @@
       okaySound.play();
       disable('ECCbutton');
     }
-    else if ( greenLeft == 0 && blueLeft == 1 ) {
+    else if ( blueLeft == 1 ) {
       blueLeft--;
       blueRight++;
       feedback.innerHTML = "Correct to request an ECC";
       correctSound.play();
       disable('ECCbutton');
     }
-    else {
-      blueWrong++;
-      feedback.innerHTML = "More areas to bioposy remaining";
-      okaySound.play();
     }
 
     $(document).ready(function(){
