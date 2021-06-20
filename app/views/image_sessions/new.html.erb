@@ -225,10 +225,11 @@
    <div class="container-fluid fullscreen remove-all-margin-padding" >
       <!-- header-->
       <div class="row" style="height: 15%;">
-         <div class="col h-100">
-            <div id="feedback">
-               Click on the area you should biposy on the image. Click the button 'Request ECC' if you wish to do so. You must answer for the impression before submitting.
-            </div>
+         <div class="form-inline col justify-content-between">
+            <div class="d-line" id="feedback"></div>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
+               View Instructions
+            </button>
          </div>
       </div>
       <!--image and map -->
@@ -290,7 +291,38 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Instructions</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         Welcome to your practice image! <br/>         
+         You will receive <strong>audio and text feedback,</strong> located on the top righthand corner throughout your session.<br/><br/>
+
+         <strong>To biopsy:</strong> Click on the proper area in the image, located in the center<br/>
+         <strong>To indicate an ECC:</strong> Click on the "ECC Requested button", located in the lower lefthand corner.<br/>
+         <strong>To selet an impression:</strong> Choose an answer choice, located center underneath the image.<br/>
+         <strong>*NOTE:</strong> You MUST select an impression before you are allowed to submit. <br/>
+         <br/><br/>
+         To submit your session, click the button on the lower righthand corner.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <script type="text/javascript">
   imageMapResize(); //rescale image-map
+  $(window).on('load', function() {
+        $('#exampleModalCenter').modal('show');
+    });
 </script>
