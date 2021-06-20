@@ -79,3 +79,35 @@
       </div>
    </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Instructions for practice</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">      
+         <strong>For mobile users:</strong> Please use rotate your phone into <strong>landscape mode</strong> for the best experience</strong><br/><br/>
+
+         <strong>Instructions:</strong> Using the arrows rotated on the left and right, scroll through the gallery of speculum exam images. 
+         To practice, use the tabs located on the top left to choose the solution, and click the button located underneath the image.<br/>
+         <strong>*NOTE:</strong> You must choose a solution to practice with an image. You cannot practice on a speculum exam. 
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $(window).on('load', function() {
+        $('#exampleModalCenter').modal('show');
+    });
+</script>
