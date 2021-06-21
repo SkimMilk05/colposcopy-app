@@ -44,27 +44,16 @@
          <h3 class="text-center">Welcome, <%= current_user.first_name %>!</h3>
          <% if @first_time_user %>
             <p class="text-center" id="alert">Please take an initial survey and test to get started.
-            <% if @has_survey_permission_user %>
                <div class="d-flex justify-content-center">
-                  <%= button_to 'Take Initial Survey', new_pre_survey_path, method: :get%>
+                  <%= button_to "Let's go!", new_pre_survey_path, method: :get%>
                </div>
-            <% elsif @has_test_permission_user %>
-               <div class="d-flex justify-content-center">
-                  <%= button_to 'Take Initial Test', new_test_path, method: :get%>
-               </div>
-            <%end%>
             <br/>
             You will be prompted to complete the post test after completion of 10 practice sets. You are welcome to continue to use the app as much as you would like after that - there are many more practice sets available! You will then be requested to complete the post test again 30 days, 90 days, and 180 days later.</p>
          <% else%>
             <% if @has_survey_permission_user %>
                <p class="d-flex justify-content-text-center" id="alert">Please take a follow-up survey and test.</p>
                <div class="d-flex justify-content-center">
-                  <%= button_to 'Take Follow-Up Survey', new_post_survey_path, method: :get%>
-               </div>
-            <% elsif @has_test_permission_user %>
-               <p class="d-flex justify-content-text-center" id="alert">Please take a follow-up survey and test.</p>
-               <div class="d-flex justify-content-center">
-                  <%= button_to 'Take Post-test', new_test_path, method: :get%>
+                  <%= button_to "Let's go!", new_post_survey_path, method: :get%>
                </div>
             <%end%>
          <%end%>
