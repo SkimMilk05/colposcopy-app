@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   resources :glossary_sessions
   resources :post_surveys
   resources :pre_surveys
-  resources :tests
-  resources :test_options
-  resources :test_answers
-  resources :test_questions
   resources :image_sessions
   resources :image_sets
   resources :blue_areas

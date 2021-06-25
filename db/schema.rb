@@ -102,10 +102,49 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
 
   create_table "post_surveys", force: :cascade do |t|
     t.bigint "user_id"
-    t.text "Q1", null: false
-    t.text "Q2", null: false
-    t.text "Q3", null: false
-    t.text "Q4", null: false
+    t.text "s1", null: false
+    t.text "s2", null: false
+    t.text "s3", null: false
+    t.text "s4", null: false
+    t.text "t1", null: false
+    t.text "t2", null: false
+    t.text "t3", null: false
+    t.text "t4", null: false
+    t.text "t5a", null: false
+    t.text "t5b", null: false
+    t.text "t5c", null: false
+    t.text "t5d", null: false
+    t.text "t5e", null: false
+    t.text "t5f", null: false
+    t.text "t5g", null: false
+    t.text "t5h", null: false
+    t.text "t5i", null: false
+    t.text "t5j", null: false
+    t.text "t5k", null: false
+    t.text "t5l", null: false
+    t.text "t5m", null: false
+    t.text "t5n", null: false
+    t.text "t5o", null: false
+    t.text "t5p", null: false
+    t.text "t5q", null: false
+    t.text "t5r", null: false
+    t.text "t5s", null: false
+    t.text "t5t", null: false
+    t.text "t5u", null: false
+    t.text "t6", null: false
+    t.text "t7", null: false
+    t.text "t8", null: false
+    t.text "t9", null: false
+    t.text "t10a", null: false
+    t.text "t10b", null: false
+    t.text "t11a", null: false
+    t.text "t11b", null: false
+    t.text "t12a", null: false
+    t.text "t12b", null: false
+    t.text "t13a", null: false
+    t.text "t13b", null: false
+    t.text "t14a", null: false
+    t.text "t14b", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_post_surveys_on_user_id"
@@ -113,68 +152,68 @@ ActiveRecord::Schema.define(version: 2021_01_10_042749) do
 
   create_table "pre_surveys", force: :cascade do |t|
     t.bigint "user_id"
-    t.text "Q1", null: false
-    t.text "Q1_Other_value"
-    t.text "Q2", null: false
-    t.text "Q2_Other_value"
-    t.text "Q3", null: false
-    t.text "Q3_Other_value"
-    t.text "Q4", null: false
-    t.text "Q4_Other_value"
-    t.text "Q5", null: false
-    t.text "Q6_Lectures"
-    t.text "Q6_Online_modules"
-    t.text "Q6_Hands_on_simulation"
-    t.text "Q6_Web_based_simulation"
-    t.text "Q6_Chalk_talk"
-    t.text "Q6_Case_based_teaching"
-    t.text "Q6_Other"
-    t.text "Q6_Other_value"
-    t.text "Q7", null: false
-    t.text "Q8", null: false
-    t.text "Q9", null: false
+    t.text "s1", null: false
+    t.text "s1_Other_value"
+    t.text "s2", null: false
+    t.text "s2_Other_value"
+    t.text "s3", null: false
+    t.text "s3_Other_value"
+    t.text "s4", null: false
+    t.text "s4_Other_value"
+    t.text "s5", null: false
+    t.text "s6_Lectures"
+    t.text "s6_Online_modules"
+    t.text "s6_Hands_on_simulation"
+    t.text "s6_Web_based_simulation"
+    t.text "s6_Chalk_talk"
+    t.text "s6_Case_based_teaching"
+    t.text "s6_Other"
+    t.text "s6_Other_value"
+    t.text "s7", null: false
+    t.text "s8", null: false
+    t.text "s9", null: false
+    t.text "t1", null: false
+    t.text "t2", null: false
+    t.text "t3", null: false
+    t.text "t4", null: false
+    t.text "t5a", null: false
+    t.text "t5b", null: false
+    t.text "t5c", null: false
+    t.text "t5d", null: false
+    t.text "t5e", null: false
+    t.text "t5f", null: false
+    t.text "t5g", null: false
+    t.text "t5h", null: false
+    t.text "t5i", null: false
+    t.text "t5j", null: false
+    t.text "t5k", null: false
+    t.text "t5l", null: false
+    t.text "t5m", null: false
+    t.text "t5n", null: false
+    t.text "t5o", null: false
+    t.text "t5p", null: false
+    t.text "t5q", null: false
+    t.text "t5r", null: false
+    t.text "t5s", null: false
+    t.text "t5t", null: false
+    t.text "t5u", null: false
+    t.text "t6", null: false
+    t.text "t7", null: false
+    t.text "t8", null: false
+    t.text "t9", null: false
+    t.text "t10a", null: false
+    t.text "t10b", null: false
+    t.text "t11a", null: false
+    t.text "t11b", null: false
+    t.text "t12a", null: false
+    t.text "t12b", null: false
+    t.text "t13a", null: false
+    t.text "t13b", null: false
+    t.text "t14a", null: false
+    t.text "t14b", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_pre_surveys_on_user_id"
-  end
-
-  create_table "test_answers", force: :cascade do |t|
-    t.bigint "test_id"
-    t.bigint "test_question_id"
-    t.text "letter_answer"
-    t.boolean "correct"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_id"], name: "index_test_answers_on_test_id"
-    t.index ["test_question_id"], name: "index_test_answers_on_test_question_id"
-  end
-
-  create_table "test_options", force: :cascade do |t|
-    t.bigint "test_question_id"
-    t.text "letter"
-    t.text "text"
-    t.text "img_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["test_question_id"], name: "index_test_options_on_test_question_id"
-  end
-
-  create_table "test_questions", force: :cascade do |t|
-    t.text "question_number"
-    t.text "question"
-    t.text "correct_ans"
-    t.text "img_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "tests", force: :cascade do |t|
-    t.bigint "user_id"
-    t.boolean "pre_test"
-    t.integer "questions_correct"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_tests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
