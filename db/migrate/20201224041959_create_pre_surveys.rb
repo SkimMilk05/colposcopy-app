@@ -53,7 +53,17 @@ class CreatePreSurveys < ActiveRecord::Migration[6.0]
       t.text :t7, null: false
       t.text :t8, null: false
       t.text :t9, null: false
-      t.text :t10, null: false
+      
+      t.text :t10a, null: false
+      t.text :t10b, null: false
+      t.text :t11a, null: false
+      t.text :t11b, null: false
+      t.text :t12a, null: false
+      t.text :t12b, null: false
+      t.text :t13a, null: false
+      t.text :t13b, null: false
+      t.text :t14a, null: false
+      t.text :t14b, null: false
 
       t.timestamps
     end
