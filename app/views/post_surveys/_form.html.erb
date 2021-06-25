@@ -8,37 +8,37 @@
       <li>
         How helpful did you find these exercises?
         <ul style="list-style-type:none;">
-           <li><%= form.radio_button :Q1, 'Very helpful' %> Very helpful</li>
-           <li><%= form.radio_button :Q1, 'Helpful' %> Helpful</li>
-           <li><%= form.radio_button :Q1, 'Neutral'%> Neutral</li>
-           <li><%= form.radio_button :Q1, 'Unhelpful'%> Unhelpful</li>
-           <li><%= form.radio_button :Q1, 'Very unhelpful'%> Very unhelpful</li>
+           <li><%= form.radio_button :s1, 'Very helpful' %> Very helpful</li>
+           <li><%= form.radio_button :s1, 'Helpful' %> Helpful</li>
+           <li><%= form.radio_button :s1, 'Neutral'%> Neutral</li>
+           <li><%= form.radio_button :s1, 'Unhelpful'%> Unhelpful</li>
+           <li><%= form.radio_button :s1, 'Very unhelpful'%> Very unhelpful</li>
         </ul>
     </li>
 
     <li>
         Would you recommend similar web-based colposcopy simulation to colleagues early in training?
         <ul style="list-style-type:none;">
-           <li><%= form.radio_button :Q2, 'Definitely' %> Definitely</li>
-           <li><%= form.radio_button :Q2, 'Most likely' %> Most likely</li>
-           <li><%= form.radio_button :Q2, 'Probably not'%> Probably not</li>
-           <li><%= form.radio_button :Q2, 'Unhelpful'%> Unhelpful</li>
-           <li><%= form.radio_button :Q2, 'Definitely not'%> Definitely not</li>        </ul>
+           <li><%= form.radio_button :s2, 'Definitely' %> Definitely</li>
+           <li><%= form.radio_button :s2, 'Most likely' %> Most likely</li>
+           <li><%= form.radio_button :s2, 'Probably not'%> Probably not</li>
+           <li><%= form.radio_button :s2, 'Unhelpful'%> Unhelpful</li>
+           <li><%= form.radio_button :s2, 'Definitely not'%> Definitely not</li>        </ul>
     </li>
 
     <li>
         How prepared do you feel to perform colposcopy independently?
         <ul style="list-style-type:none;">
-           <li><%= form.radio_button :Q3, 'Not at all prepared' %> Not at all prepared</li>
-           <li><%= form.radio_button :Q3, 'Somewhat prepared' %> Somewhat prepared</li>
-           <li><%= form.radio_button :Q3, 'Adequately prepared'%> Adequately prepared</li>
-           <li><%= form.radio_button :Q3, 'Very well prepared'%> Very well prepared</li>
+           <li><%= form.radio_button :s3, 'Not at all prepared' %> Not at all prepared</li>
+           <li><%= form.radio_button :s3, 'Somewhat prepared' %> Somewhat prepared</li>
+           <li><%= form.radio_button :s3, 'Adequately prepared'%> Adequately prepared</li>
+           <li><%= form.radio_button :s3, 'Very well prepared'%> Very well prepared</li>
         </ul>
     </li>
 
     <li>
         Please provide any feedback you have regarding the exercises/features in the web app, overall usability, and thoughts on potential ways to improve this app for future use.
-        <%= form.text_area :Q4%>
+        <%= form.text_area :s4%>
     </li>
   </div>
 </ol>

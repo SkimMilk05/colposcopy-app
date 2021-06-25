@@ -1,168 +1,490 @@
 <script type="text/javascript">
-
-   var count = 0;
-
-   function enable(id) {
-    document.getElementById(id).removeAttribute('disabled');
-  }
-  function disable(id) {
-   document.getElementById(id).setAttribute('disabled', true);
-  }
-
-  function Q6() {
-     if (count%2 == 1){
-        disable('otherQ6');
-     } else {
-        enable('otherQ6');
-     }
+  var count = 0;
+  
+  function enable(id) {
+   document.getElementById(id).removeAttribute('disabled');
     }
-
-   function submit() {
-      if (document.getElementById('submit').getAttribute('disabled')) {
-         alert('Please answer ALL survey questions.');
-      } else {
-         enable('submit');
-      }
+    function disable(id) {
+  document.getElementById(id).setAttribute('disabled', true);
+    }
+  
+    function s6() {
+    if (count%2 == 1){
+       disable('others6');
+    } else {
+       enable('others6');
+    }
    }
-
+  
+  function submit() {
+     if (document.getElementById('submit').getAttribute('disabled')) {
+        alert('Please answer ALL survey questions.');
+     } else {
+        enable('submit');
+     }
+  }
 </script>
-
 <!--navbar-->
 <nav class="navbar fixed-top navbar-expand-sm bg-light justify-content-between">
-   <!--logo-->
-   <div>
-   <%= image_tag "logos/LogoSmallNoWords.jpg", style: "width:27px" %> Col | Pro
-   </div>
+  <!--logo-->
+  <div>
+    <%= image_tag "logos/LogoSmallNoWords.jpg", style: "width:27px" %> Col | Pro
+  </div>
 </nav>
+
 <!--end nav bar-->
 
 <div class="pre_survey">
-<%= form_with(model: pre_survey, local: true) do |form| %>
+   <%= form_with(model: pre_survey, local: true) do |form| %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
 
-   <%= form.hidden_field :user_id, value: current_user.id %>
-   <%=flash[:notice]%>
+      <h3>Survey</h3>
+      <ol type="1">
+         <div class="demographics">
+            <h5>Demographics</h5>
+            <li class="question">
+               What level are you currently in training?
+               <ul style="list-style-type:none;">
+               <li><%= form.radio_button :s1, 'Student, MS3', onclick: "disable('others1')" %> Student, MS3</li>
+               <li><%= form.radio_button :s1, 'Student, MS4', onclick: "disable('others1')" %> Student, MS4</li>
+               <li><%= form.radio_button :s1, 'Resident, PGY1', onclick: "disable('others1')" %> Resident, PGY1</li>
+               <li><%= form.radio_button :s1, 'Resident, PGY2', onclick: "disable('others1')" %> Resident, PGY2</li>
+               <li><%= form.radio_button :s1, 'Resident, PGY3', onclick: "disable('others1')" %> Resident, PGY3</li>
+               <li><%= form.radio_button :s1, 'Resident, PGY4', onclick: "disable('others1')" %> Resident, PGY4</li>
+               <li><%= form.radio_button :s1, 'Attending physician', onclick: "disable('others1')" %> Attending physician</li>
+               <li><%= form.radio_button :s1, 'Nurse practitioner', onclick: "disable('others1')" %> Nurse practitioner</li>
+               <li><%= form.radio_button :s1, 'NP or PA student', onclick: "disable('others1')" %> NP or PA student</li>
+               <li><%= form.radio_button :s1, 'Other', onclick: "enable('others1')"%>
+                  Other: <%= form.text_field :s1_Other_value, id: 'others1', disabled: true%></li>
+               </ul>
+            </li>
+            <li class="question">
+               Where are you training/practicing currently?
+               <ul style="list-style-type:none;">
+               <li><%= form.radio_button :s2, 'UVA', onclick: "disable('others2')" %>  University of Virginia</li>
+               <li><%= form.radio_button :s2, 'Other', onchange: "enable('others2')"%> Other: <%= form.text_field :s2_Other_value, id: 'others2', disabled: true%></li>
+               </ul>
+            </li>
+            <li class="question">
+               What specialty do you practice (or plan to practice)?
+               <ul style="list-style-type:none;">
+               <li><%= form.radio_button :s3, 'OBGYN', onclick: "disable('others3')"%>  OBGYN</li>
+               <li><%= form.radio_button :s3, 'Family medicine', onclick: "disable('others3')" %> Family medicine</li>
+               <li><%= form.radio_button :s3, 'Internal medicine', onclick: "disable('others3')"%> Internal medicine</li>
+               <li><%= form.radio_button :s3, "Other", onclick: "enable('others3')"%> Other: <%= form.text_field :s3_Other_value, id: 'others3', disabled: true%></li>
+               </ul>
+            </li>
+            <li class="question">
+               If OBGYN – which field do you plan to practice in?
+               <ul style="list-style-type:none;">
+               <li><%= form.radio_button :s4, 'General OBGYN', onclick: "disable('others4')" %>  General OBGYN</li>
+               <li><%= form.radio_button :s4, 'Gynecologic Oncology', onclick: "disable('others4')" %> Gynecologic Oncology</li>
+               <li><%= form.radio_button :s4, 'Maternal fetal medicine', onclick: "disable('others4')"%> Maternal fetal medicine</li>
+               <li><%= form.radio_button :s4, 'Urogynecology', onclick: "disable('others4')"%> Urogynecology</li>
+               <li><%= form.radio_button :s4, 'Reproductive endocrinology and infertility', onclick: "disable('others4')"%> Reproductive endocrinology and infertility</li>
+               <li><%= form.radio_button :s4, 'Benign gynecology (MIGS, etc)', onclick: "disable('others4')"%> Benign gynecology (MIGS, etc)</li>
+               <li><%= form.radio_button :s4, 'Other', onclick: "enable('others4')"%> Other: <%= form.text_field :s4_Other_value, id: 'others4', disabled: true%></li>
+               <li><%= form.radio_button :s4, 'N/a', onclick: "disable('others4')"%> N/a</li>
+               </ul>
+            </li>
+         </div>
+         <div class="education">
+            <h5>Education/Experience</h5>
+            <li class="question">
+               How many lectures/educational sessions have you received on colposcopy as part of your training?
+               <ul style="list-style-type:none;">
+               <li><%= form.radio_button :s5, '0' %>  0</li>
+               <li><%= form.radio_button :s5, '1' %> 1</li>
+               <li><%= form.radio_button :s5, '2'%> 2</li>
+               <li><%= form.radio_button :s5, '3'%> 3</li>
+               <li><%= form.radio_button :s5, '4'%> 4</li>
+               <li><%= form.radio_button :s5, '>4'%> >4</li>
+               </ul>
+            </li>
+            <li class="question">
+               What aspects of colposcopy education have been incorporated into your training? (please check all that apply)
+               <ul style="list-style-type:none;">
+                  <li><%= form.check_box :s6_Lectures %>  Lectures</li>
+                  <li><%= form.check_box :s6_Online_modules  %> Online modules</li>
+                  <li><%= form.check_box :s6_Hands_on_simulation %> Hands on simulation/trainers</li>
+                  <li><%= form.check_box :s6_Web_based_simulation %> Web based simulation</li>
+                  <li><%= form.check_box :s6_Chalk_talk %> Chalk talks</li>
+                  <li><%= form.check_box :s6_Case_based_teaching  %> Case based teaching</li>
+                  <li><%= form.check_box :s6_Other, onclick: "enable('others6')" %> Other: <%= form.text_field :s6_Other_value, id: 'others6', disabled: true %></li>
+               </ul>
+            </li>
+            <li class="question">
+               How much prior clinical experience have you had with colposcopy?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :s7, '0' %>  None</li>
+                  <li><%= form.radio_button :s7, '1' %> <5 patients</li>
+                  <li><%= form.radio_button :s7, '2'%> 5-15 patients</li>
+                  <li><%= form.radio_button :s7, '3'%> 15-30 patients</li>
+                  <li><%= form.radio_button :s7, '4'%> 30-50 patients</li>
+                  <li><%= form.radio_button :s7, '>4'%> >50 patients</li>
+               </ul>
+            </li>
+            <li class="question">
+               How prepared do you feel to perform colposcopy independently?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :s8, 'Not at all prepared' %>  Not at all prepared</li>
+                  <li><%= form.radio_button :s8, 'Somewhat prepared' %> Somewhat prepared</li>
+                  <li><%= form.radio_button :s8, 'Adequately prepared'%> Adequately prepared</li>
+                  <li><%= form.radio_button :s8, 'Very well prepared'%> Very well prepared</li>
+               </ul>
+            </li>
+            <li class="question">
+               Please rate how important you feel it is to be trained in colposcopy
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :s9, 'Very important' %>  Very important</li>
+                  <li><%= form.radio_button :s9, 'Important' %> Important</li>
+                  <li><%= form.radio_button :s9, 'Neutral'%> Neutral</li>
+                  <li><%= form.radio_button :s9, 'Unimportant'%> Unimportant</li>
+                  <li><%= form.radio_button :s9, 'Very Unimportant'%> Very Unimportant</li>
+               </ul>
+            </li>
+         </div>
+      </ol>
+      
+      <h3>Test</h3>
+      <ol type="1">
+         <div class="test">
+            <li class="question">
+               Which of the following statements is false:
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t1, 'A'%> A. Normal squamous epithelium becomes dark brown with Lugol’s due to staining of the intracellular glycogen in superficial layers</li>
+                  <li><%= form.radio_button :t1, 'B'%> B. Normal columnar epithelium may temporarily become white with application of acetic acid</li>
+                  <li><%= form.radio_button :t1, 'C'%> C. The presence of columnar epithelium on the ectocervix is abnormal</li>
+                  <li><%= form.radio_button :t1, 'D'%> D. Prominent, branching blood vessels can be normal</li>
+                  <li><%= form.radio_button :t1, 'E'%> E. The cervix increases in size under the influence of estrogen</li>
+               </ul>
+            </li>
+            
+            <li class="question">
+               What is the most common error in colposcopy?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t2, 'A'%> A. Failure to identify the SCJ</li>
+                  <li><%= form.radio_button :t2, 'B'%> B. Choosing incorrect biopsy sites</li>
+                  <li><%= form.radio_button :t2, 'C'%> C. Insufficient tissue sampling</li>
+                  <li><%= form.radio_button :t2, 'D'%> D. Failure to identify satellite or vaginal lesions</li>
+               </ul>
+            </li>
 
-   <ol type="1">
-      <div class="demographics">
-         <h5>Demographics</h5>
-         <li class="question">
-           What level are you currently in training?
-           <ul style="list-style-type:none;">
-              <li><%= form.radio_button :Q1, 'Student, MS3', onclick: "disable('otherQ1')" %> Student, MS3</li>
-              <li><%= form.radio_button :Q1, 'Student, MS4', onclick: "disable('otherQ1')" %> Student, MS4</li>
-              <li><%= form.radio_button :Q1, 'Resident, PGY1', onclick: "disable('otherQ1')" %> Resident, PGY1</li>
-              <li><%= form.radio_button :Q1, 'Resident, PGY2', onclick: "disable('otherQ1')" %> Resident, PGY2</li>
-              <li><%= form.radio_button :Q1, 'Resident, PGY3', onclick: "disable('otherQ1')" %> Resident, PGY3</li>
-              <li><%= form.radio_button :Q1, 'Resident, PGY4', onclick: "disable('otherQ1')" %> Resident, PGY4</li>
-              <li><%= form.radio_button :Q1, 'Attending physician', onclick: "disable('otherQ1')" %> Attending physician</li>
-              <li><%= form.radio_button :Q1, 'Nurse practitioner', onclick: "disable('otherQ1')" %> Nurse practitioner</li>
-              <li><%= form.radio_button :Q1, 'NP or PA student', onclick: "disable('otherQ1')" %> NP or PA student</li>
-              <li><%= form.radio_button :Q1, 'Other', onclick: "enable('otherQ1')"%>
-               Other: <%= form.text_field :Q1_Other_value, id: 'otherQ1', disabled: true%></li>
-           </ul>
-         </li>
+            <li class="question">
+               Cervical cancer most commonly originates from cells in the:
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t3, 'A'%> A. Endocervix</li>
+                  <li><%= form.radio_button :t3, 'B'%> B. Ectocervix</li>
+                  <li><%= form.radio_button :t3, 'C'%> C. Endometrium</li>
+                  <li><%= form.radio_button :t3, 'D'%> D. Vagina</li>
+               </ul>
+            </li>
 
-        <li class="question">
-           Where are you training/practicing currently?
-           <ul style="list-style-type:none;">
-              <li><%= form.radio_button :Q2, 'UVA', onclick: "disable('otherQ2')" %>  University of Virginia</li>
-              <li><%= form.radio_button :Q2, 'Other', onchange: "enable('otherQ2')"%> Other: <%= form.text_field :Q2_Other_value, id: 'otherQ2', disabled: true%></li>
-           </ul>
-        </li>
+            <li class="question">
+               Which of the following is NOT a risk factor for persistent HPV infection?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t4, 'A'%> A. Smoking</li>
+                  <li><%= form.radio_button :t4, 'B'%> B. HIV</li>
+                  <li><%= form.radio_button :t4, 'C'%> C. Recent diagnosis of HPV infection</li>
+                  <li><%= form.radio_button :t4, 'D'%> D. Older age</li>
+                  <li><%= form.radio_button :t4, 'E'%> E. Immunocompromised state</li>
+                  <li><%= form.radio_button :t4, 'F'%> F. High oncogenic HPV subtype</li>
+               </ul>
+            </li>
 
-        <li class="question">
-           What specialty do you practice (or plan to practice)?
-           <ul style="list-style-type:none;">
-              <li><%= form.radio_button :Q3, 'OBGYN', onclick: "disable('otherQ3')"%>  OBGYN</li>
-              <li><%= form.radio_button :Q3, 'Family medicine', onclick: "disable('otherQ3')" %> Family medicine</li>
-              <li><%= form.radio_button :Q3, 'Internal medicine', onclick: "disable('otherQ3')"%> Internal medicine</li>
-              <li><%= form.radio_button :Q3, "Other", onclick: "enable('otherQ3')"%> Other: <%= form.text_field :Q3_Other_value, id: 'otherQ3', disabled: true%></li>
-           </ul>
-        </li>
+            <!--insert question 5 here! -->
+            <li class="question">
+               [Question 5: Multiple Choice Questions with Types and Examples]
+               Please select one of the following for each of the following colposcopic findings: benign, low grade, high grade, or suspicious for invasion <br/>
+               <ul style="list-style-type:none;"><li><table class="table table-striped table-hover">
+                  <tr>
+                     <td style="text-align: center;">&nbsp;</td>
+                     <td style="text-align: center;"><strong>benign</strong></td>
+                     <td style="text-align: center;"><strong>low grade</strong></td>
+                     <td style="text-align: center;"><strong>high grade</strong></td>
+                     <td style="text-align: center;"><strong>suspicious for invasion</strong></td>
+                  </tr>
+                  <tr>
+                     <td>5a. Rapid appearance of acetowhite changes</td>
+                     <td><%= form.radio_button :t5a, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5a, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5a, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5a, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5b. Thin acetowhite epithelium</td>
+                     <td><%= form.radio_button :t5b, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5b, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5b, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5b, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5c. Coarse mosaic</td>
+                     <td><%= form.radio_button :t5c, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5c, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5c, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5c, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5d. Condyloma</td>
+                     <td><%= form.radio_button :t5d, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5d, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5d, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5d, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5e. Necrosis or ulceration</td>
+                     <td><%= form.radio_button :t5e, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5e, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5e, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5e, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5f. Dense acetowhite epithelium</td>
+                     <td><%= form.radio_button :t5f, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5f, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5f, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5f, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5g. Irregular surface (molehill-like appearance)</td>
+                     <td><%= form.radio_button :t5g, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5g, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5g, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5g, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5h. Cuffed crypt (gland) opening</td>
+                     <td><%= form.radio_button :t5h, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5h, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5h, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5h, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5i. Polyp</td>
+                     <td><%= form.radio_button :t5i, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5i, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5i, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5i, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5j. Coarse punctuation</td>
+                     <td><%= form.radio_button :t5j, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5j, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5j, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5j, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5k. Fine punctuations</td>
+                     <td><%= form.radio_button :t5k, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5k, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5k, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5k, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5l. Congenital transformation zone</td>
+                     <td><%= form.radio_button :t5l, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5l, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5l, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5l, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5m. Sharp border</td>
+                     <td><%= form.radio_button :t5m, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5m, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5m, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5m, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5n. Inner border sign</td>
+                     <td><%= form.radio_button :t5n, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5n, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5n, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5n, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5o. Fine mosaic</td>
+                     <td><%= form.radio_button :t5o, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5o, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5o, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5o, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5p. Exophytic lesions</td>
+                     <td><%= form.radio_button :t5p, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5p 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5p, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5p, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5q. Irregular, geographic border</td>
+                     <td><%= form.radio_button :t5q, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5q, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5q, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5q, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5r. Rag sign (peeling epithelium)</td>
+                     <td><%= form.radio_button :t5r, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5r, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5r, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5r, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5s. Abnormal vessels</td>
+                     <td><%= form.radio_button :t5s, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5s, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5s, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5s, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5t. Tumor or gross neoplasm</td>
+                     <td><%= form.radio_button :t5t, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5t, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5t, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5t, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+                  <tr>
+                     <td>5u. Cervical stenosis</td>
+                     <td><%= form.radio_button :t5u, 'benign'%> benign</td>
+                     <td><%= form.radio_button :t5u, 'low grade'%> low grade</td>
+                     <td><%= form.radio_button :t5u, 'high grade'%> high grade</td>
+                     <td><%= form.radio_button :t5u, 'suspicious for invasion'%>suspicious for invasion</td>
+                  </tr>
+            </li>
 
-       <li class="question">
-          If OBGYN – which field do you plan to practice in?
-          <ul style="list-style-type:none;">
-             <li><%= form.radio_button :Q4, 'General OBGYN', onclick: "disable('otherQ4')" %>  General OBGYN</li>
-             <li><%= form.radio_button :Q4, 'Gynecologic Oncology', onclick: "disable('otherQ4')" %> Gynecologic Oncology</li>
-             <li><%= form.radio_button :Q4, 'Maternal fetal medicine', onclick: "disable('otherQ4')"%> Maternal fetal medicine</li>
-             <li><%= form.radio_button :Q4, 'Urogynecology', onclick: "disable('otherQ4')"%> Urogynecology</li>
-             <li><%= form.radio_button :Q4, 'Reproductive endocrinology and infertility', onclick: "disable('otherQ4')"%> Reproductive endocrinology and infertility</li>
-             <li><%= form.radio_button :Q4, 'Benign gynecology (MIGS, etc)', onclick: "disable('otherQ4')"%> Benign gynecology (MIGS, etc)</li>
-             <li><%= form.radio_button :Q4, 'Other', onclick: "enable('otherQ4')"%> Other: <%= form.text_field :Q4_Other_value, id: 'otherQ4', disabled: true%></li>
-             <li><%= form.radio_button :Q4, 'N/a', onclick: "disable('otherQ4')"%> N/a</li>
-          </ul>
-       </li>
-     </div>
+            <li class="question">
+               Choose the photo with ABNORMAL findings (all photos taken after application of acetic acid):
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t6, 'A'%> A. <%= image_tag('6A.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t6, 'B'%> B. <%= image_tag('6B.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t6, 'C'%> C. <%= image_tag('6C.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t6, 'D'%> D. <%= image_tag('6D.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+               </ul>
+            </li>
 
+            <li class="question">
+               Which of the following photos has normal blood vessels?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t7, 'A'%> A. <%= image_tag('7A.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t7, 'B'%> B. <%= image_tag('7B.jpg', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t7, 'C'%> C. <%= image_tag('7C.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t7, 'D'%> D. <%= image_tag('7D.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+               </ul>
+            </li>
 
-     <div class="education">
-        <h5>Education/Experience</h5>
-        <li class="question">
-           How many lectures/educational sessions have you received on colposcopy as part of your training?
-           <ul style="list-style-type:none;">
-             <li><%= form.radio_button :Q5, '0' %>  0</li>
-             <li><%= form.radio_button :Q5, '1' %> 1</li>
-             <li><%= form.radio_button :Q5, '2'%> 2</li>
-             <li><%= form.radio_button :Q5, '3'%> 3</li>
-             <li><%= form.radio_button :Q5, '4'%> 4</li>
-             <li><%= form.radio_button :Q5, '>4'%> >4</li>
-          </ul>
-        </li>
+            <li class="question">
+               Which of the following photos has findings consistent with HIGH GRADE dysplasia?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t8, 'A'%> A. <%= image_tag('8A.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t8, 'B'%> B. <%= image_tag('8B.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t8, 'C'%> C. <%= image_tag('8C.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t8, 'D'%> D. <%= image_tag('8D.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+               </ul>
+            </li>
 
-        <li class="question">
-           What aspects of colposcopy education have been incorporated into your training? (please check all that apply)
-           <ul style="list-style-type:none;">
-             <li><%= form.check_box :Q6_Lectures %>  Lectures</li>
-             <li><%= form.check_box :Q6_Online_modules  %> Online modules</li>
-             <li><%= form.check_box :Q6_Hands_on_simulation %> Hands on simulation/trainers</li>
-             <li><%= form.check_box :Q6_Web_based_simulation %> Web based simulation</li>
-             <li><%= form.check_box :Q6_Chalk_talk %> Chalk talks</li>
-             <li><%= form.check_box :Q6_Case_based_teaching  %> Case based teaching</li>
-             <li><%= form.check_box :Q6_Other, onclick: "enable('otherQ6')" %> Other: <%= form.text_field :Q6_Other_value, id: 'otherQ6', disabled: true %></li>
-          </ul>
-        </li>
+            <li class="question">
+               Which of the following photos has findings consistent with LOW GRADE dysplasia?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t9, 'A'%> A. <%= image_tag('9A.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t9, 'B'%> B. <%= image_tag('9B.jpg', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t9, 'C'%> C. <%= image_tag('9C.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+                  <li><%= form.radio_button :t9, 'D'%> D. <%= image_tag('9D.png', style: 'width:50%; display:inline;', class: 'my-3') %></li>
+               </ul>
+            </li>
 
-        <li class="question">
-           How much prior clinical experience have you had with colposcopy?
-           <ul style="list-style-type:none;">
-             <li><%= form.radio_button :Q7, '0' %>  None</li>
-             <li><%= form.radio_button :Q7, '1' %> <5 patients</li>
-             <li><%= form.radio_button :Q7, '2'%> 5-15 patients</li>
-             <li><%= form.radio_button :Q7, '3'%> 15-30 patients</li>
-             <li><%= form.radio_button :Q7, '4'%> 30-50 patients</li>
-             <li><%= form.radio_button :Q7, '>4'%> >50 patients</li>
-          </ul>
-        </li>
+            <li>For questions 10-14, please identify the following findings in each photo & label as suggestive of low or high grade findings: <br/></li>
 
-        <li class="question">
-           How prepared do you feel to perform colposcopy independently?
-           <ul style="list-style-type:none;">
-             <li><%= form.radio_button :Q8, 'Not at all prepared' %>  Not at all prepared</li>
-             <li><%= form.radio_button :Q8, 'Somewhat prepared' %> Somewhat prepared</li>
-             <li><%= form.radio_button :Q8, 'Adequately prepared'%> Adequately prepared</li>
-             <li><%= form.radio_button :Q8, 'Very well prepared'%> Very well prepared</li>
-          </ul>
+            <li class="question">
+               <%= image_tag('10.png', style: 'width:50%; display:inline;', class: 'my-3') %>
+               Identify the finding:
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t10a, 'A'%> A. fine punctuation</li>
+                  <li><%= form.radio_button :t10a, 'B'%> B. coarse punctuation</li>
+                  <li><%= form.radio_button :t10a, 'C'%> C. fine mosaic</li>
+                  <li><%= form.radio_button :t10a, 'D'%> D. coarse mosaic</li>
+                  <li><%= form.radio_button :t10a, 'E'%> E. cuffed crypt opening</li>
+               </ul>
+               Low grade or high grade?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t10b, 'A'%> A. low grade</li>
+                  <li><%= form.radio_button :t10b, 'B'%> B. high grade</li>
+               </ul>
+            </li>
 
-        </li>
+            <li class="question">
+               <%= image_tag('11.png', style: 'width:50%; display:inline;', class: 'my-3') %>
+               Identify the finding:
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t11a, 'A'%> A. fine punctuation</li>
+                  <li><%= form.radio_button :t11a, 'B'%> B. coarse punctuation</li>
+                  <li><%= form.radio_button :t11a, 'C'%> C. fine mosaic</li>
+                  <li><%= form.radio_button :t11a, 'D'%> D. coarse mosaic</li>
+                  <li><%= form.radio_button :t11a, 'E'%> E. cuffed crypt opening</li>
+               </ul>
+               Low grade or high grade?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t11b, 'A'%> A. low grade</li>
+                  <li><%= form.radio_button :t11b, 'B'%> B. high grade</li>
+               </ul>
+            </li>
 
-        <li class="question">
-           Please rate how important you feel it is to be trained in colposcopy
-           <ul style="list-style-type:none;">
-             <li><%= form.radio_button :Q9, 'Very important' %>  Very important</li>
-             <li><%= form.radio_button :Q9, 'Important' %> Important</li>
-             <li><%= form.radio_button :Q9, 'Neutral'%> Neutral</li>
-             <li><%= form.radio_button :Q9, 'Unimportant'%> Unimportant</li>
-             <li><%= form.radio_button :Q9, 'Very Unimportant'%> Very Unimportant</li>
-          </ul>
-        </li>
-     </div>
-</ol>
+            <li class="question">
+               <%= image_tag('12.png', style: 'width:50%; display:inline;', class: 'my-3') %>
+               Identify the finding:
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t12a, 'A'%> A. fine punctuation</li>
+                  <li><%= form.radio_button :t12a, 'B'%> B. coarse punctuation</li>
+                  <li><%= form.radio_button :t12a, 'C'%> C. fine mosaic</li>
+                  <li><%= form.radio_button :t12a, 'D'%> D. coarse mosaic</li>
+                  <li><%= form.radio_button :t12a, 'E'%> E. cuffed crypt opening</li>
+               </ul>
+               Low grade or high grade?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t12b, 'A'%> A. low grade</li>
+                  <li><%= form.radio_button :t12b, 'B'%> B. high grade</li>
+               </ul>
+            </li>
 
+            <li class="question">
+               <%= image_tag('13.png', style: 'width:50%; display:inline;', class: 'my-3') %>
+               Identify the finding:
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t13a, 'A'%> A. fine punctuation</li>
+                  <li><%= form.radio_button :t13a, 'B'%> B. coarse punctuation</li>
+                  <li><%= form.radio_button :t13a, 'C'%> C. fine mosaic</li>
+                  <li><%= form.radio_button :t13a, 'D'%> D. coarse mosaic</li>
+                  <li><%= form.radio_button :t13a, 'E'%> E. cuffed crypt opening</li>
+               </ul>
+               Low grade or high grade?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t13b, 'A'%> A. low grade</li>
+                  <li><%= form.radio_button :t13b, 'B'%> B. high grade</li>
+               </ul>
+            </li>
 
+            <li class="question">
+               <%= image_tag('14.png', style: 'width:50%; display:inline;', class: 'my-3') %>
+               Identify the finding:
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t14a, 'A'%> A. fine punctuation</li>
+                  <li><%= form.radio_button :t14a, 'B'%> B. coarse punctuation</li>
+                  <li><%= form.radio_button :t14a, 'C'%> C. fine mosaic</li>
+                  <li><%= form.radio_button :t14a, 'D'%> D. coarse mosaic</li>
+                  <li><%= form.radio_button :t14a, 'E'%> E. cuffed crypt opening</li>
+               </ul>
+               Low grade or high grade?
+               <ul style="list-style-type:none;">
+                  <li><%= form.radio_button :t14b, 'A'%> A. low grade</li>
+                  <li><%= form.radio_button :t14b, 'B'%> B. high grade</li>
+               </ul>
+            </li>
+         </div>
+      </ol>
+      
+      <div class="actions">
+         <%= form.submit "Submit >" %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit "Submit Survey >" %>
-  </div>
-<% end %>
+   <%end%>
 </div>

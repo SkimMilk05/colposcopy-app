@@ -4,6 +4,8 @@ require_relative 'application'
 # Initialize the Rails application.
 Rails.application.initialize!
 
+
+
 # Add sendgrid support
 if Rails.env.production?
     ActionMailer::Base.smtp_settings = {
